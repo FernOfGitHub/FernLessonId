@@ -1,0 +1,8 @@
+Cut/bipinnate.jpg, osmunda spectibilis
+Cut/bipinnate2.jpg, Osmundastrum cinnamomeum
+Cut/bipinnate3.jpg, Dryopteris marginalis
+Cut/entire.jpg, Asplenium scolopendrium
+Cut/entire2.jpg,
+Cut/pedate.jpg, Adiantum pedatum
+Cut/pinnate.jpg, Polypodium vulgare
+Cut/pinnatifid.jpg,Lorinseria areolata (Woodwardia areolata)
