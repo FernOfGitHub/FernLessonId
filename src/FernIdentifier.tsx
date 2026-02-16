@@ -99,6 +99,13 @@ import circularImg from '../pictures/Sori/Circular.JPG';
 import circular2Img from '../pictures/Sori/circular2.JPG';
 import linearImg from '../pictures/Sori/linear.jpg';
 import fullCoverageImg from '../pictures/Sori/FullCoverage.jpg';
+import circularPng from '../pictures/Sori/circular.png';
+import linearPng from '../pictures/Sori/linear.png';
+import kidneyPng from '../pictures/Sori/kidney.png';
+import jShapedPng from '../pictures/Sori/j-shaped..png';
+import cupShapedPng from '../pictures/Sori/cup-shaped.png';
+import fullCoveragePng from '../pictures/Sori/full-coverage.png';
+import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
 
 const anatomySlides = [
   {
@@ -324,16 +331,16 @@ const anatomySlides = [
         </p>
         <div className="flex flex-wrap gap-3 justify-center mb-4">
           {[
-            { shape: 'Circular (globose)', svg: '<circle cx="50" cy="50" r="20" fill="#4a7c59" opacity="0.8"/><circle cx="50" cy="50" r="12" fill="#2d5016"/>', photos: [circularImg, circular2Img] },
-            { shape: 'Linear (elongated)', svg: '<rect x="20" y="40" width="60" height="8" rx="4" fill="#4a7c59"/>', photos: [linearImg] },
-            { shape: 'Kidney-shaped (reniform)', svg: '<ellipse cx="50" cy="50" rx="25" ry="12" fill="#4a7c59" opacity="0.8"/><path d="M 35 50 Q 50 40, 65 50 Q 50 60, 35 50" fill="#2d5016"/>', photos: [] },
-            { shape: 'J-shaped (horseshoe)', svg: '<path d="M 50 20 Q 75 20, 75 50 Q 75 80, 50 80" stroke="#2d5016" stroke-width="10" fill="none" stroke-linecap="round"/>', photos: [] },
-            { shape: 'Cup-shaped (marginal)', svg: '<path d="M 20 50 Q 50 30, 80 50 Q 50 70, 20 50" fill="#4a7c59" stroke="#2d5016"/>', photos: [] },
-            { shape: 'Full coverage (acrostichoid)', svg: '<rect x="15" y="15" width="70" height="70" rx="4" fill="#4a7c59" opacity="0.9"/>', photos: [fullCoverageImg] },
-            { shape: 'Chain-like (catenulate)', svg: '<ellipse cx="25" cy="50" rx="15" ry="12" fill="#4a7c59"/><ellipse cx="50" cy="50" rx="15" ry="12" fill="#4a7c59"/><ellipse cx="75" cy="50" rx="15" ry="12" fill="#4a7c59"/>', photos: [] },
-          ].map(({ shape, svg, photos }) => (
+            { shape: 'Circular (globose)', illustration: circularPng, photos: [circularImg, circular2Img] },
+            { shape: 'Linear (elongated)', illustration: linearPng, photos: [linearImg] },
+            { shape: 'Kidney-shaped (reniform)', illustration: kidneyPng, photos: [] },
+            { shape: 'J-shaped (horseshoe)', illustration: jShapedPng, photos: [] },
+            { shape: 'Cup-shaped (marginal)', illustration: cupShapedPng, photos: [] },
+            { shape: 'Full coverage (acrostichoid)', illustration: fullCoveragePng, photos: [fullCoverageImg] },
+            { shape: 'Chain-like (catenulate)', illustration: chainLikeImg, photos: [] },
+          ].map(({ shape, illustration, photos }) => (
             <div key={shape} className="bg-green-50 rounded-lg p-3 flex flex-col items-center">
-              <div dangerouslySetInnerHTML={{ __html: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">${svg}</svg>` }} className="w-16 h-16" />
+              <ClickableImg src={illustration} alt={shape} className="w-32 h-32 object-contain" />
               <span className="text-xs font-medium text-gray-700 mt-2 text-center">{shape}</span>
               {photos.length > 0 && (
                 <div className="mt-3 w-full flex flex-col gap-2">
