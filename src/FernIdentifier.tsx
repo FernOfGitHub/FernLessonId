@@ -106,6 +106,8 @@ import jShapedPng from '../pictures/Sori/j-shaped..png';
 import cupShapedPng from '../pictures/Sori/cup-shaped.png';
 import fullCoveragePng from '../pictures/Sori/full-coverage.png';
 import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
+import frondImg from '../pictures/anatomy/frond.png';
+import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 
 const anatomySlides = [
   {
@@ -119,42 +121,8 @@ const anatomySlides = [
         <p className="text-gray-700 mb-4">
           The <strong>stipe</strong> is the stem-like part below the blade—the stalk that connects the frond to the rhizome (underground stem). Botanists often examine the stipe for scales, color, or texture—key ID clues.
         </p>
-        <div className="bg-green-50 rounded-xl p-6 flex justify-center">
-          <svg viewBox="0 0 140 160" className="w-52 h-60 max-w-full">
-            {/* Soil/ground */}
-            <ellipse cx="70" cy="148" rx="50" ry="8" fill="#8b7355" opacity="0.4" />
-            {/* Rhizome (underground) */}
-            <path d="M 65 140 Q 75 135, 70 125" stroke="#5a4a3a" strokeWidth="3" fill="none" strokeLinecap="round" />
-            {/* Stipe - tapered stem with subtle scale texture */}
-            <defs>
-              <linearGradient id="stipeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4a5d3a" />
-                <stop offset="50%" stopColor="#3d4f30" />
-                <stop offset="100%" stopColor="#2d3a20" />
-              </linearGradient>
-              <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#5a7c4a" />
-                <stop offset="100%" stopColor="#3d5c35" />
-              </linearGradient>
-            </defs>
-            <path d="M 69 125 L 68 95 L 72 95 L 71 125 Z" fill="url(#stipeGrad)" stroke="#2d3a20" strokeWidth="1" />
-            <ellipse cx="70" cy="110" rx="1.5" ry="3" fill="#5a6b45" opacity="0.5" />
-            <ellipse cx="70" cy="102" rx="1.5" ry="3" fill="#5a6b45" opacity="0.5" />
-            {/* Blade - pinnate frond with pinnae */}
-            <path d="M 70 95 L 70 20" stroke="#3d5c35" strokeWidth="2" fill="none" />
-            {[[10, 30], [18, 45], [24, 60], [28, 75]].map(([rx, cy], i) => (
-              <g key={i}>
-                <ellipse cx={70 - rx} cy={cy} rx={rx} ry={6} fill="url(#bladeGrad)" stroke="#2d4a2a" strokeWidth="0.8" />
-                <ellipse cx={70 + rx} cy={cy} rx={rx} ry={6} fill="url(#bladeGrad)" stroke="#2d4a2a" strokeWidth="0.8" />
-              </g>
-            ))}
-            <path d="M 70 95 Q 72 50, 70 20" stroke="#3d5c35" strokeWidth="1.5" fill="none" opacity="0.5" />
-            {/* Labels */}
-            <text x="110" y="55" fill="#1e3a2f" fontSize="11" fontWeight="600" fontFamily="system-ui">blade</text>
-            <line x1="108" y1="58" x2="96" y2="52" stroke="#1e3a2f" strokeWidth="1" strokeDasharray="2,2" />
-            <text x="90" y="108" fill="#1e3a2f" fontSize="11" fontWeight="600" fontFamily="system-ui">stipe</text>
-            <line x1="88" y1="112" x2="71" y2="110" stroke="#1e3a2f" strokeWidth="1" strokeDasharray="2,2" />
-          </svg>
+        <div className="bg-green-50 rounded-xl px-6 py-4 flex justify-center">
+          <ClickableImg src={frondImg} alt="Frond and stipe diagram" className="w-[39rem] max-w-full max-h-[45rem] object-contain" />
         </div>
       </>
     ),
@@ -170,16 +138,8 @@ const anatomySlides = [
         <p className="text-gray-700 mb-4">
           When pinnae are themselves divided, those smaller pieces are called <strong>pinnules</strong>. Counting how many times the frond is divided helps narrow down the species.
         </p>
-        <div className="bg-green-50 rounded-xl p-6 flex justify-center">
-          <svg viewBox="0 0 100 120" className="w-40 h-48 max-w-full">
-            <line x1="50" y1="10" x2="50" y2="110" stroke="#2d5016" strokeWidth="3" />
-            <ellipse cx="30" cy="25" rx="18" ry="8" fill="#4a7c59" />
-            <ellipse cx="70" cy="25" rx="18" ry="8" fill="#4a7c59" />
-            <ellipse cx="35" cy="45" rx="15" ry="9" fill="#4a7c59" />
-            <ellipse cx="65" cy="45" rx="15" ry="9" fill="#4a7c59" />
-            <text x="23" y="48" fill="#1e3a2f" fontSize="9">pinna</text>
-            <text x="48" y="115" fill="#1e3a2f" fontSize="9">rachis</text>
-          </svg>
+        <div className="bg-green-50 rounded-xl px-6 py-4 flex justify-center">
+          <ClickableImg src={pinnaRachisImg} alt="Pinna and rachis diagram" className="w-[30rem] max-w-full max-h-[36rem] object-contain" />
         </div>
       </>
     ),
@@ -410,8 +370,76 @@ const anatomySlides = [
   },
 ];
 
-// Questions by section: 5 per section, 2 shown per lesson, 2 per section in final quiz
+// Questions by section: 5 MC + 5 T/F per section; 5 shown per lesson; final quiz 25 total
 type QuizQuestion = { question: string; options: { text: string; correct: boolean }[] };
+type TrueFalseQuestion = { question: string; correct: boolean };
+const sectionTrueFalse: TrueFalseQuestion[][] = [
+  // Section 0: Frond & Stipe
+  [
+    { question: 'The stipe is the stem-like part below the blade.', correct: true },
+    { question: 'Ferns have true leaves like flowering plants.', correct: false },
+    { question: 'The blade is the expanded leafy part above the stipe.', correct: true },
+    { question: 'The stipe connects the frond to the rachis.', correct: false },
+    { question: 'Botanists examine the stipe for scales and color.', correct: true },
+  ],
+  // Section 1: Pinnae & Pinnules
+  [
+    { question: 'Pinnae are the primary leaflets along the rachis.', correct: true },
+    { question: 'Pinnules are smaller than pinnae.', correct: true },
+    { question: 'The rachis is the central axis of the frond blade.', correct: true },
+    { question: 'Pinnules are the first level of division off the rachis.', correct: false },
+    { question: 'Counting frond divisions helps with identification.', correct: true },
+  ],
+  // Section 2: Frond Division
+  [
+    { question: 'An entire frond has no leaflets.', correct: true },
+    { question: 'Bipinnate means divided twice.', correct: true },
+    { question: 'Pedate fronds have pinnae that alternate along the rachis.', correct: false },
+    { question: 'Tripinnate fronds have a very lacy appearance.', correct: true },
+    { question: 'Pinnate fronds have pinnae along the rachis.', correct: true },
+  ],
+  // Section 3: Frond Division (Advanced)
+  [
+    { question: 'Pinnatifid lobes remain connected at the base.', correct: true },
+    { question: 'Pinnate pinnatifid is between pinnate and bipinnate.', correct: true },
+    { question: 'Bipinnate pinnatifid is between pinnate and bipinnate.', correct: false },
+    { question: 'Pinnatifid sits between entire and pinnate on the spectrum.', correct: true },
+    { question: 'Pinnate pinnatifid has pinnae deeply lobed but not fully cut.', correct: true },
+  ],
+  // Section 4: Sori
+  [
+    { question: 'Ferns reproduce by spores, not seeds.', correct: true },
+    { question: 'Sori are clusters of sporangia on the frond underside.', correct: true },
+    { question: 'An indusium covers all sori.', correct: false },
+    { question: 'Sori shapes are important for fern identification.', correct: true },
+    { question: 'Sori are usually visible only with a microscope.', correct: false },
+  ],
+  // Section 5: Rhizome & Roots
+  [
+    { question: 'The rhizome is the underground stem.', correct: true },
+    { question: 'Rhizomes can be creeping, clump-forming, or erect.', correct: true },
+    { question: 'Rhizome surface cannot be glaucous.', correct: false },
+    { question: 'Roots extend off the rhizome.', correct: true },
+    { question: 'Stipe scales usually match rhizome scales.', correct: true },
+  ],
+  // Section 6: Fern Reproduction
+  [
+    { question: 'The sporophyte is the familiar fern plant.', correct: true },
+    { question: 'The gametophyte is haploid.', correct: true },
+    { question: 'The annulus helps eject spores.', correct: true },
+    { question: 'Ferns reproduce only by spores.', correct: false },
+    { question: 'Rhizoids anchor the gametophyte.', correct: true },
+  ],
+];
+
+function toQuizQuestion(tf: TrueFalseQuestion): QuizQuestion {
+  const opts = shuffle([
+    { text: 'True', correct: tf.correct },
+    { text: 'False', correct: !tf.correct },
+  ]);
+  return { question: tf.question, options: opts };
+}
+
 const sectionQuestions: QuizQuestion[][] = [
   // Section 0: Frond & Stipe
   [
@@ -470,6 +498,12 @@ const sectionQuestions: QuizQuestion[][] = [
     { question: 'Rhizoids on the gametophyte provide ___.', options: [{ text: 'Spore production', correct: false }, { text: 'Anchorage', correct: true }, { text: 'Fertilization', correct: false }, { text: 'Pinna formation', correct: false }] },
   ],
 ];
+
+function getSectionPool(sectionIndex: number): QuizQuestion[] {
+  const mc = sectionQuestions[sectionIndex].map((q) => ({ ...q, options: shuffle([...q.options]) }));
+  const tf = sectionTrueFalse[sectionIndex].map(toQuizQuestion);
+  return shuffle([...mc, ...tf]);
+}
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -543,6 +577,8 @@ const FernIdentifier = () => {
       id: 'once', 
       name: 'Once Divided', 
       description: 'Simple pinnate - pinnae along rachis',
+      image: pinnate1x1BwImg,
+      fullSize: pinnateBwImg,
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <line x1="50" y1="10" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
         <ellipse cx="30" cy="25" rx="18" ry="8" fill="#4a7c59"/>
@@ -561,6 +597,8 @@ const FernIdentifier = () => {
       id: 'twice', 
       name: 'Twice Divided', 
       description: 'Bipinnate - pinnae have pinnules',
+      image: bipinnate1x1BwImg,
+      fullSize: bipinnateBwImg,
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <line x1="50" y1="10" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
         <line x1="35" y1="30" x2="50" y2="30" stroke="#2d5016" stroke-width="2"/>
@@ -633,6 +671,8 @@ const FernIdentifier = () => {
       id: 'simple', 
       name: 'Undivided', 
       description: 'Simple blade, not divided into leaflets',
+      image: entire1x1BwImg,
+      fullSize: entireBwImg,
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <line x1="50" y1="90" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
         <ellipse cx="50" cy="50" rx="35" ry="42" fill="#4a7c59"/>
@@ -1105,18 +1145,15 @@ const FernIdentifier = () => {
     (currentLessonStep as { type: 'content'; slideIndex: number }).slideIndex === anatomySlides.length - 1;
 
   const practiceQuestions = useMemo((): QuizQuestion[] => {
-    const withShuffledOptions = (q: QuizQuestion): QuizQuestion => ({
-      ...q,
-      options: shuffle([...q.options]),
-    });
     const step = LESSON_STEPS[lessonStepIndex];
     if (step?.type === 'practice') {
-      return pickRandom(sectionQuestions[step.sectionIndex], 2).map(withShuffledOptions);
+      return pickRandom(getSectionPool(step.sectionIndex), 5);
     }
     if (step?.type === 'finalQuiz') {
       const all: QuizQuestion[] = [];
+      const perSection = [4, 4, 4, 4, 4, 3, 2]; // 25 total
       for (let s = 0; s < sectionQuestions.length; s++) {
-        all.push(...pickRandom(sectionQuestions[s], 2).map(withShuffledOptions));
+        all.push(...pickRandom(getSectionPool(s), perSection[s]));
       }
       return shuffle(all);
     }
@@ -1209,7 +1246,7 @@ const FernIdentifier = () => {
           <div className="py-12 px-6 text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Final Quiz</h3>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              2 random questions from each section—14 questions total. Test your fern anatomy knowledge.
+              25 questions from all sections. Test your fern anatomy knowledge.
             </p>
             <div className="flex justify-between items-center pt-4">
               <button
@@ -1234,7 +1271,7 @@ const FernIdentifier = () => {
 
     // —— Final Quiz Results (Score) ——
     if (currentLessonStep?.type === 'finalQuizResults') {
-      const total = 14;
+      const total = 25;
       const percentage = total > 0 ? Math.round((finalQuizScore / total) * 100) : 0;
       return (
         <div className="space-y-6">
@@ -1583,10 +1620,13 @@ const FernIdentifier = () => {
                 onClick={() => handleSelect('frondType', type.id)}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left flex items-center gap-4"
               >
-                <div 
-                  className="flex-shrink-0 w-20 h-24 bg-green-50 rounded-lg p-2"
-                  dangerouslySetInnerHTML={{ __html: type.svg }}
-                />
+                <div className="flex-shrink-0 w-20 h-24 bg-green-50 rounded-lg p-2 flex items-center justify-center overflow-hidden">
+                  {type.image ? (
+                    <img src={type.image} alt={type.name} className="w-full h-full object-contain" />
+                  ) : (
+                    <div dangerouslySetInnerHTML={{ __html: type.svg }} className="w-full h-full [&>svg]:w-full [&>svg]:h-full [&>svg]:object-contain" />
+                  )}
+                </div>
                 <div className="flex-1">
                   <div className="font-semibold text-gray-800">{type.name}</div>
                   <div className="text-sm text-gray-500 mt-1">{type.description}</div>
