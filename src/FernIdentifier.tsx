@@ -371,7 +371,7 @@ const anatomySlides = [
 ];
 
 // Questions by section: 5 MC + 5 T/F per section; 5 shown per lesson; final quiz 25 total
-type QuizQuestion = { question: string; options: { text: string; correct: boolean }[] };
+type QuizQuestion = { question: string; options: { text: string; correct: boolean }[]; image?: string };
 type TrueFalseQuestion = { question: string; correct: boolean };
 const sectionTrueFalse: TrueFalseQuestion[][] = [
   // Section 0: Frond & Stipe
@@ -459,6 +459,7 @@ const sectionQuestions: QuizQuestion[][] = [
   ],
   // Section 2: Frond Division
   [
+    { question: 'What type of frond division is shown in this photo?', image: pinnateImg, options: [{ text: 'Once divided (pinnate)', correct: true }, { text: 'Entire (undivided)', correct: false }, { text: 'Twice divided (bipinnate)', correct: false }, { text: 'Pinnatifid', correct: false }] },
     { question: 'A frond that is divided into pinnae, and each pinna is divided again, is called ___?', options: [{ text: 'Pinnate', correct: false }, { text: 'Bipinnate', correct: true }, { text: 'Entire', correct: false }, { text: 'Pinnatifid', correct: false }] },
     { question: 'An undivided fern blade with no leaflets is called ___.', options: [{ text: 'Pinnate', correct: false }, { text: 'Entire', correct: true }, { text: 'Bipinnate', correct: false }, { text: 'Tripinnate', correct: false }] },
     { question: 'Once-divided fronds with pinnae along the rachis are ___.', options: [{ text: 'Pinnate', correct: true }, { text: 'Bipinnate', correct: false }, { text: 'Entire', correct: false }, { text: 'Tripinnate', correct: false }] },
@@ -475,6 +476,7 @@ const sectionQuestions: QuizQuestion[][] = [
   ],
   // Section 4: Sori
   [
+    { question: 'What sori shape is shown in this photo?', image: circularImg, options: [{ text: 'Circular (globose)', correct: true }, { text: 'Linear (elongated)', correct: false }, { text: 'Kidney-shaped (reniform)', correct: false }, { text: 'Full coverage (acrostichoid)', correct: false }] },
     { question: 'Where are fern spores produced?', options: [{ text: 'In seeds', correct: false }, { text: 'In sporangia clustered in sori', correct: true }, { text: 'On the rhizome', correct: false }, { text: 'On the rachis', correct: false }] },
     { question: 'Sori are clusters of ___ on the underside of the frond.', options: [{ text: 'Pinnae', correct: false }, { text: 'Sporangia', correct: true }, { text: 'Pinnules', correct: false }, { text: 'Rhizomes', correct: false }] },
     { question: 'A protective membrane covering some sori is the ___.', options: [{ text: 'Rachis', correct: false }, { text: 'Indusium', correct: true }, { text: 'Stipe', correct: false }, { text: 'Blade', correct: false }] },
@@ -1335,6 +1337,11 @@ const FernIdentifier = () => {
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
             <p className="text-amber-900 font-medium">Tap the correct answer</p>
           </div>
+          {ex.image && (
+            <div className="mb-4 flex justify-center">
+              <img src={ex.image} alt="" className="max-h-48 rounded-lg object-contain shadow-sm" />
+            </div>
+          )}
           <p className="text-lg text-gray-800 font-medium mb-6">{ex.question}</p>
           <div className="grid gap-3">
             {ex.options.map((opt, idx) => {
