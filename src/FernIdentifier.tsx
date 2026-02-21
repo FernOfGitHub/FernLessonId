@@ -108,6 +108,10 @@ import fullCoveragePng from '../pictures/Sori/full-coverage.png';
 import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
 import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
+import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
+import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
+import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.jpg';
+import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.jpg';
 
 const anatomySlides = [
   {
@@ -137,6 +141,9 @@ const anatomySlides = [
         </p>
         <p className="text-gray-700 mb-4">
           When pinnae are themselves divided, those smaller pieces are called <strong>pinnules</strong>. Counting how many times the frond is divided helps narrow down the species.
+        </p>
+        <p className="text-gray-700 mb-4 text-sm">
+          In the illustration, the <strong>pinna</strong> label identifies the entire leaflet from the rachis to the tip. When that leaflet is divided, the smaller segments are the <strong>pinnules</strong>.
         </p>
         <div className="bg-green-50 rounded-xl px-6 py-4 flex justify-center">
           <ClickableImg src={pinnaRachisImg} alt="Pinna and rachis diagram" className="w-[30rem] max-w-full max-h-[36rem] object-contain" />
@@ -670,6 +677,23 @@ const FernIdentifier = () => {
       </svg>`
     },
     { 
+      id: 'pedate', 
+      name: 'Pedate', 
+      description: 'Fan-shaped - pinnae radiate from central point',
+      image: pedateImg,
+      svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 110 L 50 50" stroke="#2d5016" stroke-width="3"/>
+        <path d="M 50 50 L 20 30" stroke="#2d5016" stroke-width="2"/>
+        <path d="M 50 50 L 80 30" stroke="#2d5016" stroke-width="2"/>
+        <path d="M 50 50 L 15 55" stroke="#2d5016" stroke-width="2"/>
+        <path d="M 50 50 L 85 55" stroke="#2d5016" stroke-width="2"/>
+        <ellipse cx="20" cy="28" rx="12" ry="6" fill="#4a7c59"/>
+        <ellipse cx="80" cy="28" rx="12" ry="6" fill="#4a7c59"/>
+        <ellipse cx="15" cy="53" rx="12" ry="6" fill="#4a7c59"/>
+        <ellipse cx="85" cy="53" rx="12" ry="6" fill="#4a7c59"/>
+      </svg>`
+    },
+    { 
       id: 'simple', 
       name: 'Undivided', 
       description: 'Simple blade, not divided into leaflets',
@@ -721,7 +745,7 @@ const FernIdentifier = () => {
       scientific: 'Osmundastrum cinnamomeum',
       regions: ['northeast', 'atlantic'],
       habitat: ['wetland', 'stream'],
-      frondType: 'once',
+      frondType: 'twice',
       size: 'large',
       texture: 'delicate',
       features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads.'
@@ -731,7 +755,7 @@ const FernIdentifier = () => {
       scientific: 'Adiantum pedatum',
       regions: ['northeast', 'atlantic', 'pacific-northwest'],
       habitat: ['forest'],
-      frondType: 'twice',
+      frondType: 'pedate',
       size: 'small',
       texture: 'delicate',
       features: 'Distinctive horseshoe-shaped frond with black wiry stems. Very delicate appearance.'
@@ -761,7 +785,7 @@ const FernIdentifier = () => {
       scientific: 'Matteuccia struthiopteris',
       regions: ['northeast', 'atlantic', 'pacific-northwest'],
       habitat: ['stream', 'wetland'],
-      frondType: 'once',
+      frondType: 'twice',
       size: 'large',
       texture: 'delicate',
       features: 'Tall vase-like clusters up to 6 feet. Separate brown fertile fronds in center persist through winter.'
@@ -851,7 +875,7 @@ const FernIdentifier = () => {
       scientific: 'Osmunda claytoniana',
       regions: ['northeast', 'atlantic'],
       habitat: ['forest', 'wetland'],
-      frondType: 'once',
+      frondType: 'twice',
       size: 'large',
       texture: 'delicate',
       features: 'Fertile pinnae interrupt middle of frond, wither and fall off. Forms large circular clumps.'
@@ -1232,7 +1256,7 @@ const FernIdentifier = () => {
         <div className="space-y-6">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="text-green-600" size={28} />
-            <h2 className="text-2xl font-bold text-gray-800">Fern Anatomy & Morphology</h2>
+            <h2 className="text-2xl font-bold text-gray-800">Fern Morphology</h2>
           </div>
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-500 mb-1">
@@ -1279,7 +1303,7 @@ const FernIdentifier = () => {
         <div className="space-y-6">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="text-green-600" size={28} />
-            <h2 className="text-2xl font-bold text-gray-800">Fern Anatomy & Morphology</h2>
+            <h2 className="text-2xl font-bold text-gray-800">Fern Morphology</h2>
           </div>
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-500 mb-1">
@@ -1319,7 +1343,7 @@ const FernIdentifier = () => {
         <div className="space-y-6">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="text-green-600" size={28} />
-            <h2 className="text-2xl font-bold text-gray-800">Fern Anatomy & Morphology</h2>
+            <h2 className="text-2xl font-bold text-gray-800">Fern Morphology</h2>
           </div>
           {/* Progress bar */}
           <div className="mb-6">
@@ -1425,7 +1449,7 @@ const FernIdentifier = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-2 mb-4">
           <BookOpen className="text-green-600" size={28} />
-          <h2 className="text-2xl font-bold text-gray-800">Fern Anatomy & Morphology</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Fern Morphology</h2>
         </div>
         {/* Progress bar */}
         <div className="mb-6">
@@ -1538,7 +1562,8 @@ const FernIdentifier = () => {
                       <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
                         {fern.frondType === 'once' ? 'Once divided' : 
                          fern.frondType === 'twice' ? 'Twice divided' :
-                         fern.frondType === 'thrice' ? 'Thrice+ divided' : 'Undivided'}
+                         fern.frondType === 'thrice' ? 'Thrice+ divided' :
+                         fern.frondType === 'pedate' ? 'Pedate' : 'Undivided'}
                       </span>
                       <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
                         {fern.size === 'small' ? 'Small' : fern.size === 'medium' ? 'Medium' : 'Large'}
@@ -1708,6 +1733,18 @@ const FernIdentifier = () => {
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
+              {matches[0].name === 'Christmas Fern' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ClickableImg src={polystichumAcrostichoides1Img} alt="Christmas Fern (Polystichum acrostichoides) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polystichumAcrostichoides2Img} alt="Christmas Fern (Polystichum acrostichoides) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Adiantum pedatum' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ClickableImg src={adiantumPedatum1Img} alt="Adiantum pedatum 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={adiantumPedatum2Img} alt="Adiantum pedatum 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
             </div>
           ) : (
             <div>

@@ -1,0 +1,670 @@
+Fern Identification Key
+======================
+Follow the steps in order; each branch shows only choices that lead to at least one match.
+
+1. Region
+  Northeast US
+    2. Habitat
+      Forest Floor
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Ebony Spleenwort (Asplenium platyneuron)
+                      → Common Polypody (Polypodium virginianum)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → New York Fern (Thelypteris noveboracensis)
+                      → Broad Beech Fern (Phegopteris hexagonoptera)
+                      → Silvery Glade Fern (Deparia acrostichoides)
+                  Leathery/Thick
+                      → Christmas Fern (Polystichum acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+                      → Northern Lady Fern (Athyrium angustum)
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+                      → Marginal Wood Fern (Dryopteris marginalis)
+                      → Crested Wood Fern (Dryopteris cristata)
+                  Fuzzy/Hairy
+                      → Hay-scented Fern (Dennstaedtia punctilobula)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Interrupted Fern (Osmunda claytoniana)
+                  Leathery/Thick
+                      → Goldie's Fern (Dryopteris goldiana)
+                      → Clinton's Wood Fern (Dryopteris clintoniana)
+                      → Male Fern (Dryopteris filix-mas)
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+                  Leathery/Thick
+                      → Cut-leaved Grape Fern (Sceptridium dissectum)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+                      → Intermediate Wood Fern (Dryopteris intermedia)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+          Pedate
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Maidenhair Fern (Adiantum pedatum)
+      Wetland/Swamp
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → New York Fern (Thelypteris noveboracensis)
+                      → Marsh Fern (Thelypteris palustris)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Northern Lady Fern (Athyrium angustum)
+                  Leathery/Thick
+                      → Crested Wood Fern (Dryopteris cristata)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Cinnamon Fern (Osmundastrum cinnamomeum)
+                      → Ostrich Fern (Matteuccia struthiopteris)
+                      → Royal Fern (Osmunda regalis)
+                      → Interrupted Fern (Osmunda claytoniana)
+                  Leathery/Thick
+                      → Clinton's Wood Fern (Dryopteris clintoniana)
+          Thrice+ Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+      Rocky Outcrops
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Ebony Spleenwort (Asplenium platyneuron)
+                      → Maidenhair Spleenwort (Asplenium trichomanes)
+                      → Common Polypody (Polypodium virginianum)
+                      → Purple-stemmed Cliff Brake (Pellaea atropurpurea)
+                      → Rock Cap Fern (Polypodium appalachianum)
+              Medium (12-36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Christmas Fern (Polystichum acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+                      → Fragile Fern (Cystopteris fragilis)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Bulblet Fern (Cystopteris bulbifera)
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+                      → Marginal Wood Fern (Dryopteris marginalis)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+          Thrice+ Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Intermediate Wood Fern (Dryopteris intermedia)
+          Undivided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Walking Fern (Asplenium rhizophyllum)
+      Stream Banks
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → Marsh Fern (Thelypteris palustris)
+                      → Silvery Glade Fern (Deparia acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+                      → Bulblet Fern (Cystopteris bulbifera)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Cinnamon Fern (Osmundastrum cinnamomeum)
+                      → Ostrich Fern (Matteuccia struthiopteris)
+                      → Royal Fern (Osmunda regalis)
+      Open Fields
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Fuzzy/Hairy
+                      → Hay-scented Fern (Dennstaedtia punctilobula)
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+                  Leathery/Thick
+                      → Cut-leaved Grape Fern (Sceptridium dissectum)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+  Atlantic US
+    2. Habitat
+      Forest Floor
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Ebony Spleenwort (Asplenium platyneuron)
+                      → Common Polypody (Polypodium virginianum)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → New York Fern (Thelypteris noveboracensis)
+                      → Broad Beech Fern (Phegopteris hexagonoptera)
+                      → Silvery Glade Fern (Deparia acrostichoides)
+                  Leathery/Thick
+                      → Christmas Fern (Polystichum acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+                      → Northern Lady Fern (Athyrium angustum)
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+                      → Marginal Wood Fern (Dryopteris marginalis)
+                      → Crested Wood Fern (Dryopteris cristata)
+                  Fuzzy/Hairy
+                      → Hay-scented Fern (Dennstaedtia punctilobula)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Interrupted Fern (Osmunda claytoniana)
+                  Leathery/Thick
+                      → Goldie's Fern (Dryopteris goldiana)
+                      → Clinton's Wood Fern (Dryopteris clintoniana)
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+                  Leathery/Thick
+                      → Cut-leaved Grape Fern (Sceptridium dissectum)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+                      → Intermediate Wood Fern (Dryopteris intermedia)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+          Pedate
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Maidenhair Fern (Adiantum pedatum)
+      Wetland/Swamp
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → New York Fern (Thelypteris noveboracensis)
+                      → Marsh Fern (Thelypteris palustris)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Northern Lady Fern (Athyrium angustum)
+                  Leathery/Thick
+                      → Crested Wood Fern (Dryopteris cristata)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Cinnamon Fern (Osmundastrum cinnamomeum)
+                      → Ostrich Fern (Matteuccia struthiopteris)
+                      → Royal Fern (Osmunda regalis)
+                      → Interrupted Fern (Osmunda claytoniana)
+                  Leathery/Thick
+                      → Clinton's Wood Fern (Dryopteris clintoniana)
+          Thrice+ Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+      Rocky Outcrops
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Ebony Spleenwort (Asplenium platyneuron)
+                      → Maidenhair Spleenwort (Asplenium trichomanes)
+                      → Common Polypody (Polypodium virginianum)
+                      → Purple-stemmed Cliff Brake (Pellaea atropurpurea)
+                      → Rock Cap Fern (Polypodium appalachianum)
+              Medium (12-36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Christmas Fern (Polystichum acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+                      → Fragile Fern (Cystopteris fragilis)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Bulblet Fern (Cystopteris bulbifera)
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+                      → Marginal Wood Fern (Dryopteris marginalis)
+          Thrice+ Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Intermediate Wood Fern (Dryopteris intermedia)
+          Undivided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Walking Fern (Asplenium rhizophyllum)
+      Stream Banks
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Sensitive Fern (Onoclea sensibilis)
+                      → Marsh Fern (Thelypteris palustris)
+                      → Silvery Glade Fern (Deparia acrostichoides)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+                      → Bulblet Fern (Cystopteris bulbifera)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Cinnamon Fern (Osmundastrum cinnamomeum)
+                      → Ostrich Fern (Matteuccia struthiopteris)
+                      → Royal Fern (Osmunda regalis)
+      Open Fields
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Fuzzy/Hairy
+                      → Hay-scented Fern (Dennstaedtia punctilobula)
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+                  Leathery/Thick
+                      → Cut-leaved Grape Fern (Sceptridium dissectum)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+  Pacific Northwest US
+    2. Habitat
+      Forest Floor
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Imbricate Sword Fern (Polystichum imbricans)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Sword Fern (Polystichum munitum)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+                      → Northern Lady Fern (Athyrium angustum)
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Anderson's Sword Fern (Polystichum andersonii)
+                      → Male Fern (Dryopteris filix-mas)
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+          Pedate
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Maidenhair Fern (Adiantum pedatum)
+      Wetland/Swamp
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Marsh Fern (Thelypteris palustris)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Northern Lady Fern (Athyrium angustum)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Ostrich Fern (Matteuccia struthiopteris)
+          Thrice+ Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Spinulose Wood Fern (Dryopteris carthusiana)
+      Rocky Outcrops
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Long Beech Fern (Phegopteris connectilis)
+                  Leathery/Thick
+                      → Kruckeberg's Sword Fern (Polystichum kruckebergii)
+                      → Imbricate Sword Fern (Polystichum imbricans)
+                      → Maidenhair Spleenwort (Asplenium trichomanes)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+                      → Fragile Fern (Cystopteris fragilis)
+              Medium (12-36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Braun's Holly Fern (Polystichum braunii)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+      Stream Banks
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Marsh Fern (Thelypteris palustris)
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Ostrich Fern (Matteuccia struthiopteris)
+      Open Fields
+        3. Frond Division
+          Thrice+ Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Rattlesnake Fern (Botrypus virginianus)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+  UK
+    2. Habitat
+      Forest Floor
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Common Polypody (Polypodium virginianum)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+          Thrice+ Divided
+            4. Frond Size
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+          Undivided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Hart's-tongue Fern (Asplenium scolopendrium)
+      Wetland/Swamp
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Royal Fern (Osmunda regalis)
+      Rocky Outcrops
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Maidenhair Spleenwort (Asplenium trichomanes)
+                      → Common Polypody (Polypodium virginianum)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+          Undivided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Hart's-tongue Fern (Asplenium scolopendrium)
+      Stream Banks
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+              Large (> 36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Royal Fern (Osmunda regalis)
+      Open Fields
+        3. Frond Division
+          Thrice+ Divided
+            4. Frond Size
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+  Western and Central Europe
+    2. Habitat
+      Forest Floor
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+          Thrice+ Divided
+            4. Frond Size
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
+      Rocky Outcrops
+        3. Frond Division
+          Once Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Maidenhair Spleenwort (Asplenium trichomanes)
+          Twice Divided
+            4. Frond Size
+              Small (< 12")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Oak Fern (Gymnocarpium dryopteris)
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Male Fern (Dryopteris filix-mas)
+      Stream Banks
+        3. Frond Division
+          Twice Divided
+            4. Frond Size
+              Medium (12-36")
+                5. Frond Texture
+                  Delicate/Thin
+                      → Lady Fern (Athyrium filix-femina)
+      Open Fields
+        3. Frond Division
+          Thrice+ Divided
+            4. Frond Size
+              Large (> 36")
+                5. Frond Texture
+                  Leathery/Thick
+                      → Bracken Fern (Pteridium aquilinum)
