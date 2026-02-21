@@ -113,6 +113,8 @@ import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostich
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.JPG';
 import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.JPG';
+import osmundastrumCinnamomeum1Img from '../pictures/Id/Osmundastrum_cinnamomeum1.JPG';
+import osmundastrumCinnamomeum2Img from '../pictures/Id/Osmundastrum_cinnamomeum2.JPG';
 
 const anatomySlides = [
   {
@@ -138,7 +140,7 @@ const anatomySlides = [
     content: (
       <>
         <p className="text-gray-700 mb-4">
-          The frond blade is often divided into smaller segments. A <strong>pinna</strong> (plural: <em>pinnae</em>) is one of the primary leaflets—the first level of division off the central axis (the <strong>rachis</strong>).
+          The frond blade is often divided into smaller segments. A <strong>pinna</strong> (plural: <em>pinnae</em>) is one of the primary leaflets—the first level of division off the central axis (the <strong>rachis</strong>). The rib the pinnae are attached to is called a <strong>costa</strong>.
         </p>
         <p className="text-gray-700 mb-4">
           When pinnae are themselves divided, those smaller pieces are called <strong>pinnules</strong>. Counting how many times the frond is divided helps narrow down the species.
@@ -400,6 +402,7 @@ const sectionTrueFalse: TrueFalseQuestion[][] = [
     { question: 'The rachis is the central axis of the frond blade.', correct: true },
     { question: 'Pinnules are the first level of division off the rachis.', correct: false },
     { question: 'Counting frond divisions helps with identification.', correct: true },
+    { question: 'The rib the pinnae are attached to is called a costa.', correct: true },
   ],
   // Section 2: Frond Division
   [
@@ -467,6 +470,7 @@ const sectionQuestions: QuizQuestion[][] = [
     { question: 'The central axis of the frond blade is the ___.', options: [{ text: 'Stipe', correct: false }, { text: 'Rachis', correct: true }, { text: 'Pinna', correct: false }, { text: 'Rhizome', correct: false }] },
     { question: 'Counting how many times the frond is divided helps ___ identification.', options: [{ text: 'Narrow down', correct: true }, { text: 'Avoid', correct: false }, { text: 'Complicate', correct: false }, { text: 'Ignore', correct: false }] },
     { question: 'A pinna is one level of division off the ___.', options: [{ text: 'Stipe', correct: false }, { text: 'Rachis', correct: true }, { text: 'Rhizome', correct: false }, { text: 'Sori', correct: false }] },
+    { question: 'The rib the pinnae are attached to is called the ___.', options: [{ text: 'Rachis', correct: false }, { text: 'Costa', correct: true }, { text: 'Stipe', correct: false }, { text: 'Pinnule', correct: false }] },
   ],
   // Section 2: Frond Division
   [
@@ -751,7 +755,7 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
-      features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads.'
+      features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads. A unique character is the white fuzzy dot at the intersection of the rachis and pinna.'
     },
     {
       name: 'Maidenhair Fern',
@@ -1726,6 +1730,12 @@ const FernIdentifier = () => {
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={adiantumPedatum1Img} alt="Adiantum pedatum 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={adiantumPedatum2Img} alt="Adiantum pedatum 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Osmundastrum cinnamomeum' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ClickableImg src={osmundastrumCinnamomeum1Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={osmundastrumCinnamomeum2Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
