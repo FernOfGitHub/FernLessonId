@@ -110,8 +110,8 @@ import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
-import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.jpg';
-import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.jpg';
+import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.JPG';
+import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.JPG';
 
 const anatomySlides = [
   {
