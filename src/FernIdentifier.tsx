@@ -1893,6 +1893,10 @@ const FernIdentifier = () => {
             Database includes 40 fern species across North America, UK, and Europe
           </p>
         )}
+
+        <footer className="text-center text-xs text-gray-500 mt-6 pb-4">
+          All drawings are open source. All photographs © Keith M Smith.
+        </footer>
       </div>
     </div>
     </ImageLightboxProvider>
