@@ -116,6 +116,12 @@ import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.JPG';
 import osmundastrumCinnamomeum1Img from '../pictures/Id/Osmundastrum_cinnamomeum1.JPG';
 import osmundastrumCinnamomeum2Img from '../pictures/Id/Osmundastrum_cinnamomeum2.JPG';
 import osmundastrumCinnamomeum3Img from '../pictures/Id/Osmundastrum_cinnamomeum3.JPG';
+import matteucciaStruthiopteris1Img from '../pictures/Id/Matteuccia_struthiopteris1.JPG';
+import matteucciaStruthiopteris2Img from '../pictures/Id/Matteuccia_struthiopteris2.JPG';
+import matteucciaStruthiopteris3Img from '../pictures/Id/Matteuccia_struthiopteris3.JPG';
+import osmundaClaytoniana1Img from '../pictures/Id/Osmunda_claytoniana1.JPG';
+import osmundaClaytoniana2Img from '../pictures/Id/Osmunda_claytoniana2.JPG';
+import osmundaClaytoniana3Img from '../pictures/Id/Osmunda_claytoniana3.JPG';
 
 const anatomySlides = [
   {
@@ -1143,6 +1149,38 @@ const FernIdentifier = () => {
   const formatHabitat = (fern) =>
     fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
 
+  const getFernIdImages = (fern) => {
+    if (fern.scientific === 'Polystichum acrostichoides')
+      return [
+        { src: polystichumAcrostichoides1Img, alt: `${fern.name} 1` },
+        { src: polystichumAcrostichoides2Img, alt: `${fern.name} 2` },
+      ];
+    if (fern.scientific === 'Adiantum pedatum')
+      return [
+        { src: adiantumPedatum1Img, alt: `${fern.name} 1` },
+        { src: adiantumPedatum2Img, alt: `${fern.name} 2` },
+      ];
+    if (fern.scientific === 'Osmundastrum cinnamomeum')
+      return [
+        { src: osmundastrumCinnamomeum1Img, alt: `${fern.name} 1` },
+        { src: osmundastrumCinnamomeum2Img, alt: `${fern.name} 2` },
+        { src: osmundastrumCinnamomeum3Img, alt: `${fern.name} 3` },
+      ];
+    if (fern.scientific === 'Matteuccia struthiopteris')
+      return [
+        { src: matteucciaStruthiopteris1Img, alt: `${fern.name} 1` },
+        { src: matteucciaStruthiopteris2Img, alt: `${fern.name} 2` },
+        { src: matteucciaStruthiopteris3Img, alt: `${fern.name} 3` },
+      ];
+    if (fern.scientific === 'Osmunda claytoniana')
+      return [
+        { src: osmundaClaytoniana1Img, alt: `${fern.name} 1` },
+        { src: osmundaClaytoniana2Img, alt: `${fern.name} 2` },
+        { src: osmundaClaytoniana3Img, alt: `${fern.name} 3` },
+      ];
+    return [];
+  };
+
   const handleSelect = (category, value) => {
     setSelections({ ...selections, [category]: value });
     setStep(step + 1);
@@ -1740,20 +1778,41 @@ const FernIdentifier = () => {
                   <ClickableImg src={osmundastrumCinnamomeum3Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
+              {matches[0].scientific === 'Matteuccia struthiopteris' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={matteucciaStruthiopteris1Img} alt="Ostrich Fern (Matteuccia struthiopteris) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={matteucciaStruthiopteris2Img} alt="Ostrich Fern (Matteuccia struthiopteris) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={matteucciaStruthiopteris3Img} alt="Ostrich Fern (Matteuccia struthiopteris) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Osmunda claytoniana' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={osmundaClaytoniana1Img} alt="Interrupted Fern (Osmunda claytoniana) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={osmundaClaytoniana2Img} alt="Interrupted Fern (Osmunda claytoniana) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={osmundaClaytoniana3Img} alt="Interrupted Fern (Osmunda claytoniana) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
             </div>
           ) : (
             <div>
               <p className="text-gray-600 mb-4">Found {matches.length} possible matches:</p>
-              <div className="space-y-3 max-h-96 overflow-y-auto pr-2">
+              <div className="space-y-3 max-h-[32rem] overflow-y-auto pr-2">
                 {matches.map((fern, idx) => (
                   <div key={idx} className="border-2 border-gray-200 rounded-lg p-4 hover:border-green-400 transition">
                     <div className="flex items-start gap-3">
                       <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <h3 className="font-bold text-gray-800">{fern.name}</h3>
                         <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
                         <p className="text-xs text-gray-500 mb-2">Habitat: {formatHabitat(fern)}</p>
-                        <p className="text-sm text-gray-700">{fern.features}</p>
+                        <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
+                        {getFernIdImages(fern).length > 0 && (
+                          <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {getFernIdImages(fern).map((img, i) => (
+                              <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
