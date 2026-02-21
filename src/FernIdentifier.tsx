@@ -108,6 +108,7 @@ import fullCoveragePng from '../pictures/Sori/full-coverage.png';
 import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
 import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
+import gametophyteImg from '../pictures/anatomy/gametophyte.png';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.JPG';
@@ -354,6 +355,9 @@ const anatomySlides = [
         <p className="text-gray-700 mb-4">
           <strong>Gametophyte (prothallus, haploid):</strong> A tiny, heart-shaped structure that grows from a spore. Bears <strong>antheridia</strong> (male) and <strong>archegonia</strong> (female), and <strong>rhizoids</strong> for anchorage. Fertilization produces a new sporophyte.
         </p>
+        <div className="bg-green-50 rounded-xl px-6 py-4 flex justify-center mb-4">
+          <ClickableImg src={gametophyteImg} alt="Gametophyte (prothallus) diagram" className="max-w-full max-h-80 object-contain" />
+        </div>
         <p className="text-gray-700">
           <strong>Alternatives to spore reproduction:</strong> Vegetative reproduction via <em>bulblets</em> (gemmae), <em>proliferous buds</em> on fronds, or <em>apogamy</em> (sporophyte from gametophyte without fertilization).
         </p>
@@ -556,7 +560,6 @@ const FernIdentifier = () => {
   const [sortBy, setSortBy] = useState('common');
   const [selections, setSelections] = useState({
     region: null,
-    habitat: null,
     frondType: null,
     size: null,
     texture: null
@@ -1125,7 +1128,6 @@ const FernIdentifier = () => {
   const getMatches = () => {
     return fernDatabase.filter(fern => {
       if (selections.region && !fern.regions.includes(selections.region)) return false;
-      if (selections.habitat && !fern.habitat.includes(selections.habitat)) return false;
       if (selections.frondType && fern.frondType !== selections.frondType) return false;
       if (selections.size && fern.size !== selections.size) return false;
       if (selections.texture && fern.texture !== selections.texture) return false;
@@ -1133,13 +1135,16 @@ const FernIdentifier = () => {
     });
   };
 
+  const formatHabitat = (fern) =>
+    fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
+
   const handleSelect = (category, value) => {
     setSelections({ ...selections, [category]: value });
     setStep(step + 1);
   };
 
   const handleBack = () => {
-    const steps = ['region', 'habitat', 'frondType', 'size', 'texture'];
+    const steps = ['region', 'frondType', 'size', 'texture'];
     if (step > 0) {
       const prevCategory = steps[step - 1];
       setSelections({ ...selections, [prevCategory]: null });
@@ -1150,7 +1155,6 @@ const FernIdentifier = () => {
   const handleReset = () => {
     setSelections({
       region: null,
-      habitat: null,
       frondType: null,
       size: null,
       texture: null
@@ -1578,6 +1582,9 @@ const FernIdentifier = () => {
                         regions.find(reg => reg.id === r)?.name
                       ).join(', ')}
                     </div>
+                    <div className="mt-1 text-xs text-gray-500">
+                      Habitat: {formatHabitat(fern)}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1617,31 +1624,6 @@ const FernIdentifier = () => {
     if (step === 1) {
       return (
         <div>
-          <div className="flex items-center gap-2 mb-6">
-            <Leaf className="text-green-600" size={28} />
-            <h2 className="text-2xl font-bold text-gray-800">Habitat Type</h2>
-          </div>
-          <p className="text-gray-600 mb-2">Where is this fern growing?</p>
-          <p className="text-sm text-green-600 mb-6">{matchCount} possible matches</p>
-          <div className="grid gap-3">
-            {habitats.map(habitat => (
-              <button
-                key={habitat.id}
-                onClick={() => handleSelect('habitat', habitat.id)}
-                className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
-              >
-                <div className="font-semibold text-gray-800">{habitat.name}</div>
-                <div className="text-sm text-gray-500 mt-1">{habitat.description}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    if (step === 2) {
-      return (
-        <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Division</h2>
           <p className="text-gray-600 mb-2">How many times are the fronds divided?</p>
           <p className="text-sm text-green-600 mb-6">{matchCount} possible matches</p>
@@ -1670,7 +1652,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 3) {
+    if (step === 2) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Size</h2>
@@ -1692,7 +1674,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 4) {
+    if (step === 3) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Texture</h2>
@@ -1714,7 +1696,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 5) {
+    if (step === 4) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Identification Results</h2>
@@ -1730,6 +1712,7 @@ const FernIdentifier = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">{matches[0].name}</h3>
                   <p className="text-gray-600 italic">{matches[0].scientific}</p>
+                  <p className="text-sm text-gray-600 mt-1">Habitat: {formatHabitat(matches[0])}</p>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
@@ -1756,7 +1739,8 @@ const FernIdentifier = () => {
                       <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
                       <div>
                         <h3 className="font-bold text-gray-800">{fern.name}</h3>
-                        <p className="text-sm text-gray-600 italic mb-2">{fern.scientific}</p>
+                        <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
+                        <p className="text-xs text-gray-500 mb-2">Habitat: {formatHabitat(fern)}</p>
                         <p className="text-sm text-gray-700">{fern.features}</p>
                       </div>
                     </div>
@@ -1827,12 +1811,12 @@ const FernIdentifier = () => {
             <div className="mb-8">
               <div className="flex justify-between text-xs text-gray-500 mb-2">
                 <span>Progress</span>
-                <span>Step {step} of 5</span>
+                <span>Step {step} of 4</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-green-500 transition-all duration-300"
-                  style={{ width: `${(step / 5) * 100}%` }}
+                  style={{ width: `${(step / 4) * 100}%` }}
                 />
               </div>
             </div>
@@ -1845,11 +1829,6 @@ const FernIdentifier = () => {
                 {selections.region && (
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
                     {regions.find(r => r.id === selections.region)?.name}
-                  </span>
-                )}
-                {selections.habitat && (
-                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
-                    {habitats.find(h => h.id === selections.habitat)?.name}
                   </span>
                 )}
                 {selections.frondType && (
