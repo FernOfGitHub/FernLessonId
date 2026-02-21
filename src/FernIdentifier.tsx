@@ -115,6 +115,7 @@ import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.JPG';
 import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.JPG';
 import osmundastrumCinnamomeum1Img from '../pictures/Id/Osmundastrum_cinnamomeum1.JPG';
 import osmundastrumCinnamomeum2Img from '../pictures/Id/Osmundastrum_cinnamomeum2.JPG';
+import osmundastrumCinnamomeum3Img from '../pictures/Id/Osmundastrum_cinnamomeum3.JPG';
 
 const anatomySlides = [
   {
@@ -1733,9 +1734,10 @@ const FernIdentifier = () => {
                 </div>
               )}
               {matches[0].scientific === 'Osmundastrum cinnamomeum' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <ClickableImg src={osmundastrumCinnamomeum1Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={osmundastrumCinnamomeum2Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={osmundastrumCinnamomeum3Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
