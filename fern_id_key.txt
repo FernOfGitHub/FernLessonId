@@ -20,7 +20,6 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Sensitive Fern (Onoclea sensibilis)
-                      → New York Fern (Thelypteris noveboracensis)
                       → Broad Beech Fern (Phegopteris hexagonoptera)
                       → Silvery Glade Fern (Deparia acrostichoides)
                   Leathery/Thick
@@ -36,6 +35,7 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                   Delicate/Thin
                       → Lady Fern (Athyrium filix-femina)
                       → Northern Lady Fern (Athyrium angustum)
+                      → New York Fern (Thelypteris noveboracensis)
                   Leathery/Thick
                       → Braun's Holly Fern (Polystichum braunii)
                       → Marginal Wood Fern (Dryopteris marginalis)
@@ -81,7 +81,6 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Sensitive Fern (Onoclea sensibilis)
-                      → New York Fern (Thelypteris noveboracensis)
                       → Marsh Fern (Thelypteris palustris)
           Twice Divided
             4. Frond Size
@@ -89,6 +88,7 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Northern Lady Fern (Athyrium angustum)
+                      → New York Fern (Thelypteris noveboracensis)
                   Leathery/Thick
                       → Crested Wood Fern (Dryopteris cristata)
               Large (> 36")
@@ -214,7 +214,6 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Sensitive Fern (Onoclea sensibilis)
-                      → New York Fern (Thelypteris noveboracensis)
                       → Broad Beech Fern (Phegopteris hexagonoptera)
                       → Silvery Glade Fern (Deparia acrostichoides)
                   Leathery/Thick
@@ -230,6 +229,7 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                   Delicate/Thin
                       → Lady Fern (Athyrium filix-femina)
                       → Northern Lady Fern (Athyrium angustum)
+                      → New York Fern (Thelypteris noveboracensis)
                   Leathery/Thick
                       → Braun's Holly Fern (Polystichum braunii)
                       → Marginal Wood Fern (Dryopteris marginalis)
@@ -274,7 +274,6 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Sensitive Fern (Onoclea sensibilis)
-                      → New York Fern (Thelypteris noveboracensis)
                       → Marsh Fern (Thelypteris palustris)
           Twice Divided
             4. Frond Size
@@ -282,6 +281,7 @@ Follow the steps in order; each branch shows only choices that lead to at least 
                 5. Frond Texture
                   Delicate/Thin
                       → Northern Lady Fern (Athyrium angustum)
+                      → New York Fern (Thelypteris noveboracensis)
                   Leathery/Thick
                       → Crested Wood Fern (Dryopteris cristata)
               Large (> 36")
