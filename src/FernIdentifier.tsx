@@ -111,6 +111,7 @@ import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 import gametophyteImg from '../pictures/anatomy/gametophyte.png';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
+import polystichumAcrostichoides3Img from '../pictures/Id/Polystichum_acrostichoides3.JPG';
 import adiantumPedatum1Img from '../pictures/Id/Adiantum_pedatum1.JPG';
 import adiantumPedatum2Img from '../pictures/Id/Adiantum_pedatum2.JPG';
 import osmundastrumCinnamomeum1Img from '../pictures/Id/Osmundastrum_cinnamomeum1.JPG';
@@ -137,6 +138,9 @@ import pteridiumAquilinum2Img from '../pictures/Id/Pteridium_aquilinum2.JPG';
 import cystopterisBulbifera1Img from '../pictures/Id/Cystopteris_bulbifera1.JPG';
 import cystopterisBulbifera2Img from '../pictures/Id/Cystopteris_bulbifera2.JPG';
 import cystopterisBulbifera3Img from '../pictures/Id/Cystopteris_bulbifera3.JPG';
+import polypodiumVirginianum1Img from '../pictures/Id/Polypodium_virginianum1.JPG';
+import polypodiumVirginianum2Img from '../pictures/Id/Polypodium_virginianum2.JPG';
+import polypodiumVirginianum3Img from '../pictures/Id/Polypodium_virginianum3.JPG';
 
 const anatomySlides = [
   {
@@ -1181,6 +1185,7 @@ const FernIdentifier = () => {
       return [
         { src: polystichumAcrostichoides1Img, alt: `${fern.name} 1` },
         { src: polystichumAcrostichoides2Img, alt: `${fern.name} 2` },
+        { src: polystichumAcrostichoides3Img, alt: `${fern.name} 3` },
       ];
     if (fern.scientific === 'Adiantum pedatum')
       return [
@@ -1237,6 +1242,12 @@ const FernIdentifier = () => {
         { src: cystopterisBulbifera1Img, alt: `${fern.name} 1` },
         { src: cystopterisBulbifera2Img, alt: `${fern.name} 2` },
         { src: cystopterisBulbifera3Img, alt: `${fern.name} 3` },
+      ];
+    if (fern.scientific === 'Polypodium virginianum')
+      return [
+        { src: polypodiumVirginianum1Img, alt: `${fern.name} 1` },
+        { src: polypodiumVirginianum2Img, alt: `${fern.name} 2` },
+        { src: polypodiumVirginianum3Img, alt: `${fern.name} 3` },
       ];
     return [];
   };
@@ -1872,9 +1883,10 @@ const FernIdentifier = () => {
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
               {matches[0].name === 'Christmas Fern' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <ClickableImg src={polystichumAcrostichoides1Img} alt="Christmas Fern (Polystichum acrostichoides) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={polystichumAcrostichoides2Img} alt="Christmas Fern (Polystichum acrostichoides) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polystichumAcrostichoides3Img} alt="Christmas Fern (Polystichum acrostichoides) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
               {matches[0].scientific === 'Adiantum pedatum' && (
@@ -1941,6 +1953,13 @@ const FernIdentifier = () => {
                   <ClickableImg src={cystopterisBulbifera1Img} alt="Bulblet Fern (Cystopteris bulbifera) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={cystopterisBulbifera2Img} alt="Bulblet Fern (Cystopteris bulbifera) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={cystopterisBulbifera3Img} alt="Bulblet Fern (Cystopteris bulbifera) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Polypodium virginianum' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={polypodiumVirginianum1Img} alt="Common Polypody (Polypodium virginianum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polypodiumVirginianum2Img} alt="Common Polypody (Polypodium virginianum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polypodiumVirginianum3Img} alt="Common Polypody (Polypodium virginianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
