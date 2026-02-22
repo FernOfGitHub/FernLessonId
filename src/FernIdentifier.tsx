@@ -143,6 +143,10 @@ import polypodiumVirginianum2Img from '../pictures/Id/Polypodium_virginianum2.JP
 import polypodiumVirginianum3Img from '../pictures/Id/Polypodium_virginianum3.JPG';
 import dryopterisCristata1Img from '../pictures/Id/Dryopteris_cristata1.JPG';
 import dryopterisCristata2Img from '../pictures/Id/Dryopteris_cristata2.JPG';
+import sceptridiumDissectum1Img from '../pictures/Id/Sceptridium_dissectum1.JPG';
+import sceptridiumDissectum2Img from '../pictures/Id/Sceptridium_dissectum2.JPG';
+import sceptridiumDissectum3Img from '../pictures/Id/Sceptridium_dissectum3.JPG';
+import sceptridiumDissectum4Img from '../pictures/Id/Sceptridium_dissectum4.JPG';
 
 const anatomySlides = [
   {
@@ -1256,6 +1260,13 @@ const FernIdentifier = () => {
         { src: dryopterisCristata1Img, alt: `${fern.name} 1` },
         { src: dryopterisCristata2Img, alt: `${fern.name} 2` },
       ];
+    if (fern.scientific === 'Sceptridium dissectum')
+      return [
+        { src: sceptridiumDissectum1Img, alt: `${fern.name} 1` },
+        { src: sceptridiumDissectum2Img, alt: `${fern.name} 2` },
+        { src: sceptridiumDissectum3Img, alt: `${fern.name} 3` },
+        { src: sceptridiumDissectum4Img, alt: `${fern.name} 4` },
+      ];
     return [];
   };
 
@@ -1973,6 +1984,14 @@ const FernIdentifier = () => {
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={dryopterisCristata1Img} alt="Crested Wood Fern (Dryopteris cristata) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={dryopterisCristata2Img} alt="Crested Wood Fern (Dryopteris cristata) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Sceptridium dissectum' && (
+                <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <ClickableImg src={sceptridiumDissectum1Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={sceptridiumDissectum2Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={sceptridiumDissectum3Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={sceptridiumDissectum4Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 4" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
