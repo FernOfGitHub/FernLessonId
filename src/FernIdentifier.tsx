@@ -141,6 +141,8 @@ import cystopterisBulbifera3Img from '../pictures/Id/Cystopteris_bulbifera3.JPG'
 import polypodiumVirginianum1Img from '../pictures/Id/Polypodium_virginianum1.JPG';
 import polypodiumVirginianum2Img from '../pictures/Id/Polypodium_virginianum2.JPG';
 import polypodiumVirginianum3Img from '../pictures/Id/Polypodium_virginianum3.JPG';
+import dryopterisCristata1Img from '../pictures/Id/Dryopteris_cristata1.JPG';
+import dryopterisCristata2Img from '../pictures/Id/Dryopteris_cristata2.JPG';
 
 const anatomySlides = [
   {
@@ -1249,6 +1251,11 @@ const FernIdentifier = () => {
         { src: polypodiumVirginianum2Img, alt: `${fern.name} 2` },
         { src: polypodiumVirginianum3Img, alt: `${fern.name} 3` },
       ];
+    if (fern.scientific === 'Dryopteris cristata')
+      return [
+        { src: dryopterisCristata1Img, alt: `${fern.name} 1` },
+        { src: dryopterisCristata2Img, alt: `${fern.name} 2` },
+      ];
     return [];
   };
 
@@ -1960,6 +1967,12 @@ const FernIdentifier = () => {
                   <ClickableImg src={polypodiumVirginianum1Img} alt="Common Polypody (Polypodium virginianum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={polypodiumVirginianum2Img} alt="Common Polypody (Polypodium virginianum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={polypodiumVirginianum3Img} alt="Common Polypody (Polypodium virginianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Dryopteris cristata' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ClickableImg src={dryopterisCristata1Img} alt="Crested Wood Fern (Dryopteris cristata) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={dryopterisCristata2Img} alt="Crested Wood Fern (Dryopteris cristata) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
