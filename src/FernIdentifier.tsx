@@ -126,7 +126,6 @@ import osmundaRegalis1Img from '../pictures/Id/Osmunda_regalis1.JPG';
 import osmundaRegalis2Img from '../pictures/Id/Osmunda_regalis2.JPG';
 import parathelypterisNoveboracensis1Img from '../pictures/Id/Parathelypteris_noveboracensis1.JPG';
 import parathelypterisNoveboracensis2Img from '../pictures/Id/Parathelypteris_noveboracensis2.JPG';
-import parathelypterisNoveboracensis3Img from '../pictures/Id/Parathelypteris_noveboracensis3.JPG';
 import woodwardiaAreolata1Img from '../pictures/Id/Woodwardia_areolata1.JPG';
 import woodwardiaAreolata2Img from '../pictures/Id/Woodwardia_areolata2.JPG';
 import woodwardiaAreolata3Img from '../pictures/Id/Woodwardia_areolata3.JPG';
@@ -1205,7 +1204,6 @@ const FernIdentifier = () => {
       return [
         { src: parathelypterisNoveboracensis1Img, alt: `${fern.name} 1` },
         { src: parathelypterisNoveboracensis2Img, alt: `${fern.name} 2` },
-        { src: parathelypterisNoveboracensis3Img, alt: `${fern.name} 3` },
       ];
     if (fern.scientific === 'Woodwardia areolata')
       return [
@@ -1834,10 +1832,9 @@ const FernIdentifier = () => {
                 </div>
               )}
               {(matches[0].scientific === 'Thelypteris noveboracensis' || matches[0].scientific === 'Parathelypteris noveboracensis') && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={parathelypterisNoveboracensis1Img} alt={`${matches[0].name} (Parathelypteris noveboracensis) 1`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={parathelypterisNoveboracensis2Img} alt={`${matches[0].name} (Parathelypteris noveboracensis) 2`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={parathelypterisNoveboracensis3Img} alt={`${matches[0].name} (Parathelypteris noveboracensis) 3`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
               {matches[0].scientific === 'Woodwardia areolata' && (
