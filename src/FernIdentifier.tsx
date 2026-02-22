@@ -134,6 +134,9 @@ import aspleniumPlatyneuron2Img from '../pictures/Id/asplenium_platyneuron2.JPG'
 import aspleniumPlatyneuron3Img from '../pictures/Id/asplenium_platyneuron3.JPG';
 import pteridiumAquilinum1Img from '../pictures/Id/Pteridium_aquilinum1.JPG';
 import pteridiumAquilinum2Img from '../pictures/Id/Pteridium_aquilinum2.JPG';
+import cystopterisBulbifera1Img from '../pictures/Id/Cystopteris_bulbifera1.JPG';
+import cystopterisBulbifera2Img from '../pictures/Id/Cystopteris_bulbifera2.JPG';
+import cystopterisBulbifera3Img from '../pictures/Id/Cystopteris_bulbifera3.JPG';
 
 const anatomySlides = [
   {
@@ -1229,6 +1232,12 @@ const FernIdentifier = () => {
         { src: pteridiumAquilinum1Img, alt: `${fern.name} 1` },
         { src: pteridiumAquilinum2Img, alt: `${fern.name} 2` },
       ];
+    if (fern.scientific === 'Cystopteris bulbifera')
+      return [
+        { src: cystopterisBulbifera1Img, alt: `${fern.name} 1` },
+        { src: cystopterisBulbifera2Img, alt: `${fern.name} 2` },
+        { src: cystopterisBulbifera3Img, alt: `${fern.name} 3` },
+      ];
     return [];
   };
 
@@ -1925,6 +1934,13 @@ const FernIdentifier = () => {
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={pteridiumAquilinum1Img} alt="Bracken Fern (Pteridium aquilinum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={pteridiumAquilinum2Img} alt="Bracken Fern (Pteridium aquilinum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Cystopteris bulbifera' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={cystopterisBulbifera1Img} alt="Bulblet Fern (Cystopteris bulbifera) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={cystopterisBulbifera2Img} alt="Bulblet Fern (Cystopteris bulbifera) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={cystopterisBulbifera3Img} alt="Bulblet Fern (Cystopteris bulbifera) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
