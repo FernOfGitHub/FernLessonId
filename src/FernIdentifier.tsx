@@ -149,6 +149,9 @@ import sceptridiumDissectum3Img from '../pictures/Id/Sceptridium_dissectum3.JPG'
 import sceptridiumDissectum4Img from '../pictures/Id/Sceptridium_dissectum4.JPG';
 import cystopterisFragilis1Img from '../pictures/Id/Cystopteris_fragilis1.JPG';
 import cystopterisFragilis2Img from '../pictures/Id/Cystopteris_fragilis2.JPG';
+import dryopterisGoldiana1Img from '../pictures/Id/Dryopteris_goldiana1.JPG';
+import dryopterisGoldiana2Img from '../pictures/Id/Dryopteris_goldiana2.JPG';
+import dryopterisGoldiana3Img from '../pictures/Id/Dryopteris_goldiana3.JPG';
 
 const anatomySlides = [
   {
@@ -1274,6 +1277,12 @@ const FernIdentifier = () => {
         { src: cystopterisFragilis1Img, alt: `${fern.name} 1` },
         { src: cystopterisFragilis2Img, alt: `${fern.name} 2` },
       ];
+    if (fern.scientific === 'Dryopteris goldiana')
+      return [
+        { src: dryopterisGoldiana1Img, alt: `${fern.name} 1` },
+        { src: dryopterisGoldiana2Img, alt: `${fern.name} 2` },
+        { src: dryopterisGoldiana3Img, alt: `${fern.name} 3` },
+      ];
     return [];
   };
 
@@ -2005,6 +2014,13 @@ const FernIdentifier = () => {
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={cystopterisFragilis1Img} alt="Fragile Fern (Cystopteris fragilis) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={cystopterisFragilis2Img} alt="Fragile Fern (Cystopteris fragilis) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Dryopteris goldiana' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={dryopterisGoldiana1Img} alt="Goldie's Fern (Dryopteris goldiana) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={dryopterisGoldiana2Img} alt="Goldie's Fern (Dryopteris goldiana) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={dryopterisGoldiana3Img} alt="Goldie's Fern (Dryopteris goldiana) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
