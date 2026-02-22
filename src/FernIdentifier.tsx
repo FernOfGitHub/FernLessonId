@@ -152,6 +152,8 @@ import cystopterisFragilis2Img from '../pictures/Id/Cystopteris_fragilis2.JPG';
 import dryopterisGoldiana1Img from '../pictures/Id/Dryopteris_goldiana1.JPG';
 import dryopterisGoldiana2Img from '../pictures/Id/Dryopteris_goldiana2.JPG';
 import dryopterisGoldiana3Img from '../pictures/Id/Dryopteris_goldiana3.JPG';
+import dennstaedtiaPunctilobula1Img from '../pictures/Id/Dennstaedtia_puncitilobula1.JPG';
+import dennstaedtiaPunctilobula2Img from '../pictures/Id/Dennstaedtia_puncitilobula2.JPG';
 
 const anatomySlides = [
   {
@@ -1283,6 +1285,11 @@ const FernIdentifier = () => {
         { src: dryopterisGoldiana2Img, alt: `${fern.name} 2` },
         { src: dryopterisGoldiana3Img, alt: `${fern.name} 3` },
       ];
+    if (fern.scientific === 'Dennstaedtia punctilobula')
+      return [
+        { src: dennstaedtiaPunctilobula1Img, alt: `${fern.name} 1` },
+        { src: dennstaedtiaPunctilobula2Img, alt: `${fern.name} 2` },
+      ];
     return [];
   };
 
@@ -2021,6 +2028,12 @@ const FernIdentifier = () => {
                   <ClickableImg src={dryopterisGoldiana1Img} alt="Goldie's Fern (Dryopteris goldiana) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={dryopterisGoldiana2Img} alt="Goldie's Fern (Dryopteris goldiana) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={dryopterisGoldiana3Img} alt="Goldie's Fern (Dryopteris goldiana) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Dennstaedtia punctilobula' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ClickableImg src={dennstaedtiaPunctilobula1Img} alt="Hay-scented Fern (Dennstaedtia punctilobula) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={dennstaedtiaPunctilobula2Img} alt="Hay-scented Fern (Dennstaedtia punctilobula) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
