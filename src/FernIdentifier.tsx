@@ -129,6 +129,9 @@ import parathelypterisNoveboracensis2Img from '../pictures/Id/Parathelypteris_no
 import woodwardiaAreolata1Img from '../pictures/Id/Woodwardia_areolata1.JPG';
 import woodwardiaAreolata2Img from '../pictures/Id/Woodwardia_areolata2.JPG';
 import woodwardiaAreolata3Img from '../pictures/Id/Woodwardia_areolata3.JPG';
+import aspleniumPlatyneuron1Img from '../pictures/Id/asplenium_platyneuron1.JPG';
+import aspleniumPlatyneuron2Img from '../pictures/Id/asplenium_platyneuron2.JPG';
+import aspleniumPlatyneuron3Img from '../pictures/Id/asplenium_platyneuron3.JPG';
 
 const anatomySlides = [
   {
@@ -575,6 +578,8 @@ const FernIdentifier = () => {
   const [finalQuizScore, setFinalQuizScore] = useState(0);
   const [step, setStep] = useState(0);
   const [showDatabase, setShowDatabase] = useState(false);
+  const [databaseExpandedScientific, setDatabaseExpandedScientific] = useState(null);
+  const [databaseSearchQuery, setDatabaseSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('common');
   const [selections, setSelections] = useState({
     region: null,
@@ -1211,6 +1216,12 @@ const FernIdentifier = () => {
         { src: woodwardiaAreolata2Img, alt: `${fern.name} 2` },
         { src: woodwardiaAreolata3Img, alt: `${fern.name} 3` },
       ];
+    if (fern.scientific === 'Asplenium platyneuron')
+      return [
+        { src: aspleniumPlatyneuron1Img, alt: `${fern.name} 1` },
+        { src: aspleniumPlatyneuron2Img, alt: `${fern.name} 2` },
+        { src: aspleniumPlatyneuron3Img, alt: `${fern.name} 3` },
+      ];
     return [];
   };
 
@@ -1601,9 +1612,21 @@ const FernIdentifier = () => {
   const renderStep = () => {
     if (showDatabase) {
       const sortedFerns = getSortedDatabase();
+      const searchLower = databaseSearchQuery.trim().toLowerCase();
+      const filteredFerns = searchLower
+        ? sortedFerns.filter(fern => {
+            const name = (fern.name || '').toLowerCase();
+            const scientific = (fern.scientific || '').toLowerCase();
+            const features = (fern.features || '').toLowerCase();
+            const regionNames = fern.regions.map(r => regions.find(reg => reg.id === r)?.name || '').join(' ').toLowerCase();
+            const habitatNames = formatHabitat(fern).toLowerCase();
+            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames}`;
+            return searchText.includes(searchLower);
+          })
+        : sortedFerns;
       return (
         <div>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-bold text-gray-800">Complete Fern Database</h2>
             <div className="flex gap-2">
               <button
@@ -1628,43 +1651,83 @@ const FernIdentifier = () => {
               </button>
             </div>
           </div>
-          <p className="text-gray-600 mb-4">All {fernDatabase.length} species in the database:</p>
-          <div className="space-y-3 max-h-96 overflow-y-auto pr-2">
-            {sortedFerns.map((fern, idx) => (
-              <div key={idx} className="border-2 border-gray-200 rounded-lg p-4">
-                <div className="flex items-start gap-3">
-                  <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-800">{fern.name}</h3>
-                    <p className="text-sm text-gray-600 italic mb-2">{fern.scientific}</p>
-                    <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
-                        {fern.frondType === 'once' ? 'Once divided' : 
-                         fern.frondType === 'twice' ? 'Twice divided' :
-                         fern.frondType === 'thrice' ? 'Thrice+ divided' :
-                         fern.frondType === 'pedate' ? 'Pedate' : 'Undivided'}
-                      </span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
-                        {fern.size === 'small' ? 'Small' : fern.size === 'medium' ? 'Medium' : 'Large'}
-                      </span>
-                      <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs">
-                        {fern.texture === 'delicate' ? 'Delicate' : 
-                         fern.texture === 'leathery' ? 'Leathery' : 'Hairy'}
-                      </span>
-                    </div>
-                    <div className="mt-2 text-xs text-gray-500">
-                      Regions: {fern.regions.map(r => 
-                        regions.find(reg => reg.id === r)?.name
-                      ).join(', ')}
-                    </div>
-                    <div className="mt-1 text-xs text-gray-500">
-                      Habitat: {formatHabitat(fern)}
+          <div className="mb-4">
+            <input
+              type="text"
+              value={databaseSearchQuery}
+              onChange={e => setDatabaseSearchQuery(e.target.value)}
+              placeholder="Search by name, Latin name, features, region, or habitat..."
+              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
+              aria-label="Search database"
+            />
+          </div>
+          <p className="text-gray-600 mb-4">
+            {searchLower
+              ? `Showing ${filteredFerns.length} of ${fernDatabase.length} species. Click a species to show photos.`
+              : `All ${fernDatabase.length} species in the database. Click a species to show photos.`}
+          </p>
+          <div className="space-y-3 max-h-[32rem] overflow-y-auto pr-2">
+            {filteredFerns.length === 0 ? (
+              <p className="text-gray-500 py-6 text-center">No species match your search. Try different words.</p>
+            ) : (
+            filteredFerns.map((fern, idx) => {
+              const isExpanded = databaseExpandedScientific === fern.scientific;
+              const idImages = getFernIdImages(fern);
+              const hasPhotos = idImages.length > 0;
+              return (
+                <div
+                  key={idx}
+                  className={`border-2 rounded-lg p-4 transition ${hasPhotos ? 'cursor-pointer hover:border-green-400 hover:bg-green-50/50' : ''} ${isExpanded ? 'border-green-500 bg-green-50/70' : 'border-gray-200'}`}
+                  onClick={() => hasPhotos && setDatabaseExpandedScientific(isExpanded ? null : fern.scientific)}
+                  role={hasPhotos ? 'button' : undefined}
+                  tabIndex={hasPhotos ? 0 : undefined}
+                  onKeyDown={e => hasPhotos && (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setDatabaseExpandedScientific(isExpanded ? null : fern.scientific))}
+                >
+                  <div className="flex items-start gap-3">
+                    <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-gray-800">{fern.name}</h3>
+                      <p className="text-sm text-gray-600 italic mb-2">{fern.scientific}</p>
+                      <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                          {fern.frondType === 'once' ? 'Once divided' : 
+                           fern.frondType === 'twice' ? 'Twice divided' :
+                           fern.frondType === 'thrice' ? 'Thrice+ divided' :
+                           fern.frondType === 'pedate' ? 'Pedate' : 'Undivided'}
+                        </span>
+                        <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
+                          {fern.size === 'small' ? 'Small' : fern.size === 'medium' ? 'Medium' : 'Large'}
+                        </span>
+                        <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs">
+                          {fern.texture === 'delicate' ? 'Delicate' : 
+                           fern.texture === 'leathery' ? 'Leathery' : 'Hairy'}
+                        </span>
+                      </div>
+                      <div className="mt-2 text-xs text-gray-500">
+                        Regions: {fern.regions.map(r => 
+                          regions.find(reg => reg.id === r)?.name
+                        ).join(', ')}
+                      </div>
+                      <div className="mt-1 text-xs text-gray-500">
+                        Habitat: {formatHabitat(fern)}
+                      </div>
+                      {isExpanded && hasPhotos && (
+                        <div className="mt-4 pt-4 border-t border-green-200">
+                          <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {idImages.map((img, i) => (
+                              <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })
+            )}
           </div>
         </div>
       );
@@ -1842,6 +1905,13 @@ const FernIdentifier = () => {
                   <ClickableImg src={woodwardiaAreolata1Img} alt={`${matches[0].name} (Woodwardia areolata) 1`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={woodwardiaAreolata2Img} alt={`${matches[0].name} (Woodwardia areolata) 2`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                   <ClickableImg src={woodwardiaAreolata3Img} alt={`${matches[0].name} (Woodwardia areolata) 3`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
+              {matches[0].scientific === 'Asplenium platyneuron' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={aspleniumPlatyneuron1Img} alt="Ebony Spleenwort (Asplenium platyneuron) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={aspleniumPlatyneuron2Img} alt="Ebony Spleenwort (Asplenium platyneuron) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={aspleniumPlatyneuron3Img} alt="Ebony Spleenwort (Asplenium platyneuron) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
             </div>
