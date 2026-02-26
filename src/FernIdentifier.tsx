@@ -651,6 +651,14 @@ const FernIdentifier = () => {
       </svg>`
     },
     { 
+      id: 'pinnatifid', 
+      name: 'Pinnatifid', 
+      description: 'Deeply lobed blade, lobes connected at base — between entire and pinnate',
+      image: pinnatifid1x1BwImg,
+      fullSize: pinnatifidBwImg,
+      svg: null
+    },
+    { 
       id: 'twice', 
       name: 'Twice Divided', 
       description: 'Bipinnate - pinnae have pinnules',
@@ -683,6 +691,14 @@ const FernIdentifier = () => {
         <ellipse cx="58" cy="85" rx="7" ry="5" fill="#4a7c59"/>
         <ellipse cx="65" cy="95" rx="7" ry="5" fill="#4a7c59"/>
       </svg>`
+    },
+    { 
+      id: 'bipinnatePinnatifid', 
+      name: 'Bipinnate Pinnatifid', 
+      description: 'Pinnules deeply lobed but not fully divided — between bipinnate and tripinnate',
+      image: bipinnatePinnatifid1x1BwImg,
+      fullSize: bipinnatePinnatifidBwImg,
+      svg: null
     },
     { 
       id: 'thrice', 
@@ -903,7 +919,7 @@ const FernIdentifier = () => {
       scientific: 'Onoclea sensibilis',
       regions: ['northeast', 'atlantic'],
       habitat: ['wetland', 'stream', 'forest'],
-      frondType: 'once',
+      frondType: 'pinnatifid',
       size: 'medium',
       texture: 'delicate',
       features: 'Broad triangular fronds, dies at first frost. Separate bead-like fertile fronds persist through winter.'
@@ -1023,7 +1039,7 @@ const FernIdentifier = () => {
       scientific: 'Phegopteris connectilis',
       regions: ['northeast', 'atlantic', 'pacific-northwest'],
       habitat: ['forest', 'rock'],
-      frondType: 'once',
+      frondType: 'pinnatifid',
       size: 'small',
       texture: 'delicate',
       features: 'Triangular fronds with bottom pinnae pointing downward. Grows in cool, moist woods.'
@@ -1033,7 +1049,7 @@ const FernIdentifier = () => {
       scientific: 'Phegopteris hexagonoptera',
       regions: ['northeast', 'atlantic'],
       habitat: ['forest'],
-      frondType: 'once',
+      frondType: 'pinnatifid',
       size: 'medium',
       texture: 'delicate',
       features: 'Broadly triangular fronds held horizontally. Bottom pinnae very large. Forms colonies.'
@@ -1760,9 +1776,12 @@ const FernIdentifier = () => {
                       <div className="flex flex-wrap gap-1 mt-2">
                         <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
                           {fern.frondType === 'once' ? 'Once divided' : 
+                           fern.frondType === 'pinnatifid' ? 'Pinnatifid' :
                            fern.frondType === 'twice' ? 'Twice divided' :
+                           fern.frondType === 'bipinnatePinnatifid' ? 'Bipinnate pinnatifid' :
                            fern.frondType === 'thrice' ? 'Thrice+ divided' :
-                           fern.frondType === 'pedate' ? 'Pedate' : 'Undivided'}
+                           fern.frondType === 'pedate' ? 'Pedate' :
+                           fern.frondType === 'simple' ? 'Undivided' : 'Other'}
                         </span>
                         <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
                           {fern.size === 'small' ? 'Small' : fern.size === 'medium' ? 'Medium' : 'Large'}
