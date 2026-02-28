@@ -592,7 +592,21 @@ function buildLessonSteps(): LessonStep[] {
 }
 const LESSON_STEPS = buildLessonSteps();
 
+const INTRO_LINES = [
+  'Welcome to this fern tutorial and identifier.',
+  'This site is for newly minted botanists.',
+  "If you've struggled reading keys in fern guide,",
+  'I hope this site makes those keys more understandable.',
+  '',
+  'Hope you enjoy.',
+  '',
+  '[This is an early, early development version]',
+  'Version 0.1  27Feb26',
+  '@fernleaf07.bsky.social',
+];
+
 const FernIdentifier = () => {
+  const [showIntro, setShowIntro] = useState(true);
   const [showLesson, setShowLesson] = useState(true);
   const [lessonStepIndex, setLessonStepIndex] = useState(0);
   const [practiceSelected, setPracticeSelected] = useState<number | null>(null);
@@ -2090,6 +2104,40 @@ const FernIdentifier = () => {
       );
     }
   };
+
+  if (showIntro) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4 flex items-center justify-center">
+          <div className="max-w-2xl w-full">
+            <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+              <div className="flex justify-center mb-6">
+                <Leaf className="text-green-600" size={48} />
+              </div>
+              <h1 className="text-2xl font-bold text-gray-800 mb-8">Fern Identifier</h1>
+              <div className="space-y-4 text-gray-700 text-lg leading-relaxed mb-10">
+                {INTRO_LINES.map((line, i) =>
+                  line === '' ? (
+                    <div key={i} className="h-2" aria-hidden />
+                  ) : (
+                    <p key={i} className={i >= 7 ? 'text-sm text-gray-500' : undefined}>
+                      {line}
+                    </p>
+                  )
+                )}
+              </div>
+              <button
+                onClick={() => setShowIntro(false)}
+                className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
+              >
+                Get started
+              </button>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
 
   return (
     <ImageLightboxProvider>
