@@ -1,0 +1,23 @@
+Subgenus Equisetum (True Horsetails)
+Scientific Name,Common Name,Primary Range
+E. arvense,Field Horsetail,Circumboreal (Northern Hemisphere)
+E. bogotense,Andean Horsetail,Central & South America
+E. diffusum,Himalayan Horsetail,Himalayan region
+E. fluviatile,Water Horsetail,Northern Hemisphere
+E. palustre,Marsh Horsetail,Northern Hemisphere
+E. pratense,Meadow Horsetail,Northern Hemisphere
+E. sylvaticum,Wood Horsetail,Northern Hemisphere
+E. telmateia,Great Horsetail,"Europe, W. Asia, N. Africa"
+E. braunii,Giant Horsetail,Western North America
+
+Subgenus Hippochaete (Scouring Rushes)
+Scientific Name,Common Name,Primary Range
+E. giganteum,Southern Giant Horsetail,Central & South America
+E. hyemale,Rough Horsetail,Northern Hemisphere
+E. laevigatum,Smooth Horsetail,North America
+E. myriochaetum,Mexican Giant Horsetail,Mexico to Peru
+E. praealtum,Scouring Rush,North America
+E. ramosissimum,Branched Horsetail,"Asia, Europe, Africa"
+E. scirpoides,Dwarf Horsetail,Arctic/Subarctic regions
+E. variegatum,Variegated Horsetail,Northern Hemisphere
+E. xylochaetum,Atacama Giant Horsetail,Chile & Peru

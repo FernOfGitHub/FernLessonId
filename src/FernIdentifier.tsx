@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, createContext, useContext } from 'react';
-import { ChevronLeft, ChevronRight, Leaf, MapPin, Home, Database, BookOpen, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Leaf, MapPin, Home, Database, BookOpen, X, TrafficCone } from 'lucide-react';
 
 const ImageLightboxContext = createContext(null);
 
@@ -109,6 +109,11 @@ import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
 import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 import gametophyteImg from '../pictures/anatomy/gametophyte.png';
+import clubmossHorsetailImg from '../pictures/anatomy/clubmoss-horsetail.png';
+import horsetailBranchedImg from '../pictures/anatomy/horsetail-branched.jpg';
+import horsetailUnbranchedImg from '../pictures/anatomy/horsetail-unbranched.jpg';
+import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.jpg';
+import horsetailStrobiliImg from '../pictures/anatomy/horsetail-stroboli.jpg';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import polystichumAcrostichoides3Img from '../pictures/Id/Polystichum_acrostichoides3.JPG';
@@ -128,12 +133,17 @@ import osmundaRegalis1Img from '../pictures/Id/Osmunda_regalis1.JPG';
 import osmundaRegalis2Img from '../pictures/Id/Osmunda_regalis2.JPG';
 import parathelypterisNoveboracensis1Img from '../pictures/Id/Parathelypteris_noveboracensis1.JPG';
 import parathelypterisNoveboracensis2Img from '../pictures/Id/Parathelypteris_noveboracensis2.JPG';
+import thelypterisPalustris1Img from '../pictures/Id/Thelypteris_palustris1.JPG';
+import thelypterisPalustris2Img from '../pictures/Id/Thelypteris_palustris2.JPG';
+import thelypterisPalustris3Img from '../pictures/Id/Thelypteris_palustris3.JPG';
 import woodwardiaAreolata1Img from '../pictures/Id/Woodwardia_areolata1.JPG';
 import woodwardiaAreolata2Img from '../pictures/Id/Woodwardia_areolata2.JPG';
 import woodwardiaAreolata3Img from '../pictures/Id/Woodwardia_areolata3.JPG';
 import aspleniumPlatyneuron1Img from '../pictures/Id/asplenium_platyneuron1.JPG';
 import aspleniumPlatyneuron2Img from '../pictures/Id/asplenium_platyneuron2.JPG';
 import aspleniumPlatyneuron3Img from '../pictures/Id/asplenium_platyneuron3.JPG';
+import aspleniumTrichomanesImg from '../pictures/Id/Asplenium_trichomanes.JPG';
+import aspleniumTrichomanes2Img from '../pictures/Id/Asplenium_trichomanes2.JPG';
 import pteridiumAquilinum1Img from '../pictures/Id/Pteridium_aquilinum1.JPG';
 import pteridiumAquilinum2Img from '../pictures/Id/Pteridium_aquilinum2.JPG';
 import cystopterisBulbifera1Img from '../pictures/Id/Cystopteris_bulbifera1.JPG';
@@ -144,6 +154,7 @@ import polypodiumVirginianum2Img from '../pictures/Id/Polypodium_virginianum2.JP
 import polypodiumVirginianum3Img from '../pictures/Id/Polypodium_virginianum3.JPG';
 import dryopterisCristata1Img from '../pictures/Id/Dryopteris_cristata1.JPG';
 import dryopterisCristata2Img from '../pictures/Id/Dryopteris_cristata2.JPG';
+import dryopterisMarginalisImg from '../pictures/Id/Dryopteris_marginalis.JPG';
 import sceptridiumDissectum1Img from '../pictures/Id/Sceptridium_dissectum1.JPG';
 import sceptridiumDissectum2Img from '../pictures/Id/Sceptridium_dissectum2.JPG';
 import sceptridiumDissectum3Img from '../pictures/Id/Sceptridium_dissectum3.JPG';
@@ -155,6 +166,7 @@ import dryopterisGoldiana2Img from '../pictures/Id/Dryopteris_goldiana2.JPG';
 import dryopterisGoldiana3Img from '../pictures/Id/Dryopteris_goldiana3.JPG';
 import dennstaedtiaPunctilobula1Img from '../pictures/Id/Dennstaedtia_puncitilobula1.JPG';
 import dennstaedtiaPunctilobula2Img from '../pictures/Id/Dennstaedtia_puncitilobula2.JPG';
+import cyatheaSmithiiImg from '../pictures/Id/Cyathea_smithii.JPG';
 
 const anatomySlides = [
   {
@@ -594,19 +606,27 @@ const LESSON_STEPS = buildLessonSteps();
 
 const INTRO_LINES = [
   'Welcome to this fern tutorial and identifier.',
-  'This site is for newly minted botanists.',
-  "If you've struggled reading keys in fern guide,",
+  'This site is for newly minted botanists or those who struggle reading keys in a fern guide.',
   'I hope this site makes those keys more understandable.',
   '',
   'Hope you enjoy.',
   '',
   '[This is an early, early development version]',
-  'Version 0.1  27Feb26',
+  'Version 0.2  28Feb25',
   '@fernleaf07.bsky.social',
 ];
 
+const LYCOPHYTE_INTRO_PARAGRAPH = `Ferns, lycophytes, and horsetails all reproduce by spores, but they look very different. Ferns have fronds with pinnae and sori; lycophytes have tiny leaves and spore cones (strobili); horsetails have hollow jointed stems and no true fronds. If you've found a plant that doesn't match fern structure, it may be a lycophyte or horsetail—and those use different keys and terms. This section outlines their morphology so you know which kind of key to use.`;
+
 const FernIdentifier = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [showDefinitionPage, setShowDefinitionPage] = useState(false);
+  const [showChoicePage, setShowChoicePage] = useState(false);
+  const [showLycophyteIntro, setShowLycophyteIntro] = useState(false);
+  const [showLycophyteChoice, setShowLycophyteChoice] = useState(false);
+  const [showHorsetailsUnderConstruction, setShowHorsetailsUnderConstruction] = useState(false);
+  const [showHorsetailDetails, setShowHorsetailDetails] = useState(false);
+  const [showClubmossesUnderConstruction, setShowClubmossesUnderConstruction] = useState(false);
   const [showLesson, setShowLesson] = useState(true);
   const [lessonStepIndex, setLessonStepIndex] = useState(0);
   const [practiceSelected, setPracticeSelected] = useState<number | null>(null);
@@ -807,7 +827,7 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'leathery',
-      features: 'Evergreen, dark green fronds with boot-shaped pinnae. Fronds stay green through winter.'
+      features: 'Evergreen, dark green fronds with boot-shaped pinnae. Fronds stay green through winter. The naked sori are found across the entire pinna on the upper half of the frond.'
     },
     {
       name: 'Lady Fern',
@@ -827,7 +847,7 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
-      features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads. A unique character is the white fuzzy dot at the intersection of the rachis and pinna.'
+      features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads. A unique character is the white fuzzy dot at the intersection of the rachis and costa.'
     },
     {
       name: 'Maidenhair Fern',
@@ -847,7 +867,7 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'large',
       texture: 'leathery',
-      features: 'Aggressive spreader, triangular fronds held horizontally. Forms extensive colonies.'
+      features: 'Aggressive spreader, triangular fronds held horizontally. Forms extensive colonies. The sori are found along the margin of pinna. They are naked without indusium. It is not common to find sori.'
     },
     {
       name: 'Hay-scented Fern',
@@ -997,7 +1017,7 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'delicate',
-      features: 'Narrow fronds with pinnae nearly perpendicular to rachis. Grows in very wet areas.'
+      features: 'Narrow fronds with pinnae nearly perpendicular to rachis. Grows in very wet areas. The sori cover the underside of a pinna and cause the pinna to be cupped. Thelypteris palustris can be mistaken for Thelypteris noveboracensis and Coryphopteris simulata.'
     },
     {
       name: 'Ebony Spleenwort',
@@ -1208,6 +1228,16 @@ const FernIdentifier = () => {
       size: 'large',
       texture: 'leathery',
       features: 'Robust semi-evergreen fern with golden-brown scales on stems. Very common in woodlands. Fronds arch gracefully.'
+    },
+    {
+      name: 'Soft Tree Fern (Kātote)',
+      scientific: 'Cyathea smithii',
+      regions: ['new-zealand'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      features: 'New Zealand tree fern. Also known as Kātote. Large fern with trunk; soft fronds.'
     }
   ];
 
@@ -1225,6 +1255,11 @@ const FernIdentifier = () => {
     fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
 
   const getFernIdImages = (fern) => {
+    const scientific = (fern.scientific || '').trim().replace(/\s+/g, ' ');
+    if (scientific === 'Cyathea smithii')
+      return [
+        { src: cyatheaSmithiiImg, alt: `${fern.name} 1` },
+      ];
     if (fern.scientific === 'Polystichum acrostichoides')
       return [
         { src: polystichumAcrostichoides1Img, alt: `${fern.name} 1` },
@@ -1265,6 +1300,12 @@ const FernIdentifier = () => {
         { src: parathelypterisNoveboracensis1Img, alt: `${fern.name} 1` },
         { src: parathelypterisNoveboracensis2Img, alt: `${fern.name} 2` },
       ];
+    if (fern.scientific === 'Thelypteris palustris')
+      return [
+        { src: thelypterisPalustris1Img, alt: `${fern.name} 1` },
+        { src: thelypterisPalustris2Img, alt: `${fern.name} 2` },
+        { src: thelypterisPalustris3Img, alt: `${fern.name} 3` },
+      ];
     if (fern.scientific === 'Woodwardia areolata')
       return [
         { src: woodwardiaAreolata1Img, alt: `${fern.name} 1` },
@@ -1276,6 +1317,11 @@ const FernIdentifier = () => {
         { src: aspleniumPlatyneuron1Img, alt: `${fern.name} 1` },
         { src: aspleniumPlatyneuron2Img, alt: `${fern.name} 2` },
         { src: aspleniumPlatyneuron3Img, alt: `${fern.name} 3` },
+      ];
+    if (fern.scientific === 'Asplenium trichomanes')
+      return [
+        { src: aspleniumTrichomanesImg, alt: `${fern.name} 1` },
+        { src: aspleniumTrichomanes2Img, alt: `${fern.name} 2` },
       ];
     if (fern.scientific === 'Pteridium aquilinum')
       return [
@@ -1298,6 +1344,10 @@ const FernIdentifier = () => {
       return [
         { src: dryopterisCristata1Img, alt: `${fern.name} 1` },
         { src: dryopterisCristata2Img, alt: `${fern.name} 2` },
+      ];
+    if (fern.scientific === 'Dryopteris marginalis')
+      return [
+        { src: dryopterisMarginalisImg, alt: `${fern.name} 1` },
       ];
     if (fern.scientific === 'Sceptridium dissectum')
       return [
@@ -2120,14 +2170,17 @@ const FernIdentifier = () => {
                   line === '' ? (
                     <div key={i} className="h-2" aria-hidden />
                   ) : (
-                    <p key={i} className={i >= 7 ? 'text-sm text-gray-500' : undefined}>
+                    <p key={i} className={i >= 6 ? 'text-sm text-gray-500' : undefined}>
                       {line}
                     </p>
                   )
                 )}
               </div>
               <button
-                onClick={() => setShowIntro(false)}
+                onClick={() => {
+                  setShowIntro(false);
+                  setShowDefinitionPage(true);
+                }}
                 className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
               >
                 Get started
@@ -2137,6 +2190,307 @@ const FernIdentifier = () => {
         </div>
       </ImageLightboxProvider>
     );
+  }
+
+  if (showDefinitionPage) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4 flex items-center justify-center">
+          <div className="max-w-2xl w-full">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Definition</h2>
+              <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                <strong>Fern</strong> <em>(n)</em> — A plant that has lignin, to be able to grow tall and reproduces via spores.
+              </p>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => {
+                    setShowDefinitionPage(false);
+                    setShowChoicePage(true);
+                  }}
+                  className="flex items-center gap-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
+                >
+                  Next
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  const goToChoicePage = () => {
+    setShowChoicePage(true);
+    setShowLycophyteIntro(false);
+    setShowLesson(true);
+    setLessonStepIndex(0);
+    setPracticeSelected(null);
+    setPracticeChecked(false);
+    handleReset();
+  };
+
+  if (showChoicePage) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto h-full">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col min-h-[calc(100vh-2rem)]">
+              <div className="p-6 border-b border-gray-200">
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  The ferns are not just the frilly frond plants. The tutorial is separated into Ferns and Lycophytes. The plants are different enough to require different tutorials. Enjoy.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setShowChoicePage(false);
+                  setShowLesson(true);
+                  setLessonStepIndex(0);
+                  setPracticeSelected(null);
+                  setPracticeChecked(false);
+                  handleReset();
+                }}
+                className="p-6 text-left border-b border-gray-200 hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
+                aria-label="Fern Tutorial and Identifier"
+              >
+                <div className="flex items-center gap-3">
+                  <Leaf className="text-green-600 flex-shrink-0" size={36} />
+                  <h2 className="text-2xl font-bold text-gray-800">Fern Tutorial and Identifier</h2>
+                </div>
+              </button>
+              <button
+                onClick={() => {
+                  setShowChoicePage(false);
+                  setShowLycophyteIntro(true);
+                }}
+                className="p-6 text-left hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
+                aria-label="Lycophytes and Horsetails"
+              >
+                <div className="flex items-center gap-3">
+                  <img src={clubmossHorsetailImg} alt="Clubmoss and horsetail" className="w-9 h-9 object-contain flex-shrink-0" />
+                  <h2 className="text-2xl font-bold text-gray-800">Lycophytes and Horsetails</h2>
+                </div>
+              </button>
+              <div className="p-4 border-t border-gray-200 flex justify-center">
+                <button
+                  onClick={() => {
+                    setShowChoicePage(false);
+                    setShowLesson(true);
+                    setLessonStepIndex(0);
+                    setPracticeSelected(null);
+                    setPracticeChecked(false);
+                    handleReset();
+                  }}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showLycophyteIntro) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowChoicePage(true);
+                  setShowLycophyteIntro(false);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <div className="prose prose-gray max-w-none">
+                <img src={clubmossHorsetailImg} alt="Clubmoss and horsetail" className="w-1/4 mx-auto mb-4 block" />
+                <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">Spore plants beyond ferns</h1>
+                <blockquote className="border-l-4 border-green-500 pl-6 py-2 my-4 text-gray-700 text-lg leading-relaxed italic">
+                  {LYCOPHYTE_INTRO_PARAGRAPH}
+                </blockquote>
+              </div>
+              <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
+                <button
+                    onClick={() => {
+                      setShowLycophyteIntro(false);
+                      setShowLycophyteChoice(true);
+                    }}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showLycophyteChoice) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto h-full">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col min-h-[calc(100vh-2rem)]">
+              <button
+                onClick={() => {
+                  setShowLycophyteChoice(false);
+                  setShowLycophyteIntro(true);
+                }}
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 m-4 w-fit transition"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <button
+                onClick={() => {
+                  setShowLycophyteChoice(false);
+                  setShowHorsetailsUnderConstruction(true);
+                }}
+                className="p-6 text-left border-b border-gray-200 hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
+                aria-label="Horsetails"
+              >
+                <h2 className="text-2xl font-bold text-gray-800">Horsetails</h2>
+              </button>
+              <button
+                onClick={() => {
+                  setShowLycophyteChoice(false);
+                  setShowClubmossesUnderConstruction(true);
+                }}
+                className="p-6 text-left hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
+                aria-label="Clubmosses, spike mosses, and quillworts"
+              >
+                <h2 className="text-2xl font-bold text-gray-800">Clubmosses, spike mosses, and quillworts</h2>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  const renderUnderConstructionPage = (onBack) => (
+    <ImageLightboxProvider>
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+            >
+              <ChevronLeft size={20} />
+              Back
+            </button>
+            <div className="text-center">
+              <TrafficCone className="mx-auto mb-4 text-orange-500" size={64} />
+              <h1 className="text-2xl font-bold text-gray-800">Under construction</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ImageLightboxProvider>
+  );
+
+  if (showHorsetailDetails) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => setShowHorsetailDetails(false)}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800">Horsetail Morphology, Details</h1>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showHorsetailsUnderConstruction) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowHorsetailsUnderConstruction(false);
+                  setShowLycophyteChoice(true);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Horsetail Morphology</h1>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                There are about 15–20 horsetail species worldwide. There is one genus, <em>Equisetum</em>. The genus can be divided into two subgenera, <em>Equisetum</em> (yes, confusing) and <em>Hippochaete</em>. The subgenus <em>Equisetum</em> have branched (whorled) soft stems. The subgenus <em>Hippochaete</em> is unbranched and tougher. Both are segmented and have strobili that hold the sori and spores.
+              </p>
+              <div className="flex justify-center mb-8">
+                <button
+                  onClick={() => setShowHorsetailDetails(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <ClickableImg src={horsetailBranchedImg} alt="Branched horsetail" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Branched</p>
+                </div>
+                <div>
+                  <ClickableImg src={horsetailUnbranchedImg} alt="Unbranched horsetail" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Unbranched</p>
+                </div>
+                <div>
+                  <ClickableImg src={horsetailSegmentsImg} alt="Horsetail segments" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Segments</p>
+                </div>
+                <div>
+                  <ClickableImg src={horsetailStrobiliImg} alt="Horsetail strobili" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Strobili</p>
+                </div>
+              </div>
+              <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => setShowHorsetailDetails(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showClubmossesUnderConstruction) {
+    return renderUnderConstructionPage(() => {
+      setShowClubmossesUnderConstruction(false);
+      setShowLycophyteChoice(true);
+    });
   }
 
   return (
@@ -2180,14 +2534,16 @@ const FernIdentifier = () => {
                     setLessonStepIndex(0);
                     setPracticeSelected(null);
                     setPracticeChecked(false);
-                  } else {
+                  } else if (step > 0) {
                     handleReset();
+                  } else {
+                    goToChoicePage();
                   }
                 }}
                 className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition"
               >
                 <Home size={18} />
-                {showLesson ? 'Skip to Identifier' : 'Reset'}
+                {showLesson ? 'Skip to Identifier' : step > 0 ? 'Reset' : 'Sections'}
               </button>
             </div>
           </div>

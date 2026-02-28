@@ -1,0 +1,25 @@
+---
+description: Update intro page date on every project change
+globs: src/FernIdentifier.tsx, fern_id_intro.txt
+alwaysApply: true
+---
+
+# Introductory Page Version Date
+
+With each update to this project—regardless of what changed—always update the date on the introductory page to the current date.
+
+## Location
+
+The date lives in `src/FernIdentifier.tsx` in the `INTRO_LINES` constant, on the line that starts with `'Version 0.1  '`.
+
+## Format
+
+Use the format `DDMonYY` (e.g., `27Feb26`, `15Mar26`).
+
+## Example
+
+When making any edit (UI change, bug fix, new feature, etc.), update that line:
+
+```
+'Version 0.1  [today's date in DDMonYY format]',
+```
