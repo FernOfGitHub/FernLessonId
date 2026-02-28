@@ -76,25 +76,25 @@ function getLatinName(path) {
 }
 
 // Real fern photos from pictures/Cut and pictures/Sori
-import entireImg from '../pictures/Cut/entire.JPG';
-import entire2Img from '../pictures/Cut/entire2.JPG';
+import entireImg from '../pictures/Cut/entire.jpg';
+import entire2Img from '../pictures/Cut/entire2.jpg';
 import entire1x1BwImg from '../pictures/Cut/entire_1x1_bw.png';
 import entireBwImg from '../pictures/Cut/entire_bw.png';
-import pinnateImg from '../pictures/Cut/pinnate.JPG';
+import pinnateImg from '../pictures/Cut/pinnate.jpg';
 import pinnate1x1BwImg from '../pictures/Cut/pinnate_1x1_bw.png';
 import pinnateBwImg from '../pictures/Cut/pinnate_bw.png';
-import pinnatifidImg from '../pictures/Cut/pinnatifid.JPG';
+import pinnatifidImg from '../pictures/Cut/pinnatifid.jpg';
 import pinnatifid1x1BwImg from '../pictures/Cut/pinnatifid_1x1_bw.png';
 import pinnatifidBwImg from '../pictures/Cut/pinnatifid_bw.png';
-import bipinnateImg from '../pictures/Cut/bipinnate.JPG';
+import bipinnateImg from '../pictures/Cut/bipinnate.jpg';
 import bipinnate1x1BwImg from '../pictures/Cut/bipinnate_1x1_bw.png';
 import bipinnateBwImg from '../pictures/Cut/bipinnate_bw.png';
-import bipinnate2Img from '../pictures/Cut/bipinnate2.JPG';
-import bipinnate3Img from '../pictures/Cut/bipinate3.JPG';
-import pinnatePinnatifidImg from '../pictures/Cut/pinnate-pinnatifid.JPG';
+import bipinnate2Img from '../pictures/Cut/bipinnate2.jpg';
+import bipinnate3Img from '../pictures/Cut/bipinate3.jpg';
+import pinnatePinnatifidImg from '../pictures/Cut/pinnate-pinnatifid.jpg';
 import bipinnatePinnatifid1x1BwImg from '../pictures/Cut/bipinnate_pinnatifid_1x1_bw.png';
 import bipinnatePinnatifidBwImg from '../pictures/Cut/bipinnate_pinnatifid_bw.png';
-import pedateImg from '../pictures/Cut/pedate.JPG';
+import pedateImg from '../pictures/Cut/pedate.jpg';
 import circularImg from '../pictures/Sori/Circular.JPG';
 import circular2Img from '../pictures/Sori/circular2.JPG';
 import linearImg from '../pictures/Sori/linear.JPG';
