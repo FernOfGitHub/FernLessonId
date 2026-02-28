@@ -77,43 +77,43 @@ function getLatinName(path) {
 
 // Real fern photos from pictures/Cut and pictures/Sori
 import entireImg from '../pictures/Cut/entire.JPG';
-import entire2Img from '../pictures/Cut/entire2.jpg';
+import entire2Img from '../pictures/Cut/entire2.JPG';
 import entire1x1BwImg from '../pictures/Cut/entire_1x1_bw.png';
 import entireBwImg from '../pictures/Cut/entire_bw.png';
 import pinnateImg from '../pictures/Cut/pinnate.JPG';
 import pinnate1x1BwImg from '../pictures/Cut/pinnate_1x1_bw.png';
 import pinnateBwImg from '../pictures/Cut/pinnate_bw.png';
-import pinnatifidImg from '../pictures/Cut/pinnatifid.jpg';
+import pinnatifidImg from '../pictures/Cut/pinnatifid.JPG';
 import pinnatifid1x1BwImg from '../pictures/Cut/pinnatifid_1x1_bw.png';
 import pinnatifidBwImg from '../pictures/Cut/pinnatifid_bw.png';
 import bipinnateImg from '../pictures/Cut/bipinnate.JPG';
 import bipinnate1x1BwImg from '../pictures/Cut/bipinnate_1x1_bw.png';
 import bipinnateBwImg from '../pictures/Cut/bipinnate_bw.png';
-import bipinnate2Img from '../pictures/Cut/bipinnate2.jpg';
+import bipinnate2Img from '../pictures/Cut/bipinnate2.JPG';
 import bipinnate3Img from '../pictures/Cut/bipinate3.JPG';
 import pinnatePinnatifidImg from '../pictures/Cut/pinnate-pinnatifid.JPG';
 import bipinnatePinnatifid1x1BwImg from '../pictures/Cut/bipinnate_pinnatifid_1x1_bw.png';
 import bipinnatePinnatifidBwImg from '../pictures/Cut/bipinnate_pinnatifid_bw.png';
-import pedateImg from '../pictures/Cut/pedate.jpg';
+import pedateImg from '../pictures/Cut/pedate.JPG';
 import circularImg from '../pictures/Sori/Circular.JPG';
 import circular2Img from '../pictures/Sori/circular2.JPG';
-import linearImg from '../pictures/Sori/linear.jpg';
-import fullCoverageImg from '../pictures/Sori/FullCoverage.jpg';
+import linearImg from '../pictures/Sori/linear.JPG';
+import fullCoverageImg from '../pictures/Sori/FullCoverage.JPG';
 import circularPng from '../pictures/Sori/circular.png';
 import linearPng from '../pictures/Sori/linear.png';
 import kidneyPng from '../pictures/Sori/kidney.png';
 import jShapedPng from '../pictures/Sori/j-shaped..png';
 import cupShapedPng from '../pictures/Sori/cup-shaped.png';
 import fullCoveragePng from '../pictures/Sori/full-coverage.png';
-import chainLikeImg from '../pictures/Sori/ChainLike.jpg';
+import chainLikeImg from '../pictures/Sori/ChainLike.JPG';
 import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 import gametophyteImg from '../pictures/anatomy/gametophyte.png';
 import clubmossHorsetailImg from '../pictures/anatomy/clubmoss-horsetail.png';
-import horsetailBranchedImg from '../pictures/anatomy/horsetail-branched.jpg';
-import horsetailUnbranchedImg from '../pictures/anatomy/horsetail-unbranched.jpg';
-import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.jpg';
-import horsetailStrobiliImg from '../pictures/anatomy/horsetail-stroboli.jpg';
+import horsetailBranchedImg from '../pictures/anatomy/horsetail-branched.JPG';
+import horsetailUnbranchedImg from '../pictures/anatomy/horsetail-unbranched.JPG';
+import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.JPG';
+import horsetailStrobiliImg from '../pictures/anatomy/horsetail-stroboli.JPG';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import polystichumAcrostichoides3Img from '../pictures/Id/Polystichum_acrostichoides3.JPG';
@@ -144,6 +144,9 @@ import aspleniumPlatyneuron2Img from '../pictures/Id/asplenium_platyneuron2.JPG'
 import aspleniumPlatyneuron3Img from '../pictures/Id/asplenium_platyneuron3.JPG';
 import aspleniumTrichomanesImg from '../pictures/Id/Asplenium_trichomanes.JPG';
 import aspleniumTrichomanes2Img from '../pictures/Id/Asplenium_trichomanes2.JPG';
+import aspleniumRhizophyllum1Img from '../pictures/Id/Aspensium_rhizophyllum1.JPG';
+import aspleniumRhizophyllum2Img from '../pictures/Id/Aspensium_rhizophyllum2.JPG';
+import aspleniumRhizophyllum3Img from '../pictures/Id/Aspensium_rhizophyllum3.JPG';
 import pteridiumAquilinum1Img from '../pictures/Id/Pteridium_aquilinum1.JPG';
 import pteridiumAquilinum2Img from '../pictures/Id/Pteridium_aquilinum2.JPG';
 import cystopterisBulbifera1Img from '../pictures/Id/Cystopteris_bulbifera1.JPG';
@@ -991,7 +994,7 @@ const FernIdentifier = () => {
     },
     {
       name: 'Netted Chain Fern',
-      scientific: 'Parathelypteris noveboracensis',
+      scientific: 'Woodwardia areolata',
       regions: ['northeast'],
       habitat: ['wetland'],
       frondType: 'once',
@@ -1322,6 +1325,12 @@ const FernIdentifier = () => {
       return [
         { src: aspleniumTrichomanesImg, alt: `${fern.name} 1` },
         { src: aspleniumTrichomanes2Img, alt: `${fern.name} 2` },
+      ];
+    if (fern.scientific === 'Asplenium rhizophyllum')
+      return [
+        { src: aspleniumRhizophyllum1Img, alt: `${fern.name} 1` },
+        { src: aspleniumRhizophyllum2Img, alt: `${fern.name} 2` },
+        { src: aspleniumRhizophyllum3Img, alt: `${fern.name} 3` },
       ];
     if (fern.scientific === 'Pteridium aquilinum')
       return [
