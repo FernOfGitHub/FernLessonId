@@ -110,6 +110,8 @@ import frondImg from '../pictures/anatomy/frond.png';
 import pinnaRachisImg from '../pictures/anatomy/pinna-rachis.png';
 import gametophyteImg from '../pictures/anatomy/gametophyte.png';
 import clubmossHorsetailImg from '../pictures/anatomy/clubmoss-horsetail.png';
+import clubmossPlantImg from '../pictures/anatomy/clubmoss-plant.jpg';
+import clubmossStroboliImg from '../pictures/anatomy/clubmoss-stroboli.jpg';
 import horsetailBranchedImg from '../pictures/anatomy/horsetail-branched.jpg';
 import horsetailUnbranchedImg from '../pictures/anatomy/horsetail-unbranched.jpg';
 import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.jpg';
@@ -155,6 +157,9 @@ import cystopterisBulbifera3Img from '../pictures/Id/Cystopteris_bulbifera3.JPG'
 import polypodiumVirginianum1Img from '../pictures/Id/Polypodium_virginianum1.JPG';
 import polypodiumVirginianum2Img from '../pictures/Id/Polypodium_virginianum2.JPG';
 import polypodiumVirginianum3Img from '../pictures/Id/Polypodium_virginianum3.JPG';
+import polypodiumAppalachianum1Img from '../pictures/Id/Polypodium_appalachianum1.JPG';
+import polypodiumAppalachianum2Img from '../pictures/Id/Polypodium_appalachianum2.JPG';
+import polypodiumAppalachianum3Img from '../pictures/Id/Polypodium_appalachianum3.JPG';
 import dryopterisCristata1Img from '../pictures/Id/Dryopteris_cristata1.JPG';
 import dryopterisCristata2Img from '../pictures/Id/Dryopteris_cristata2.JPG';
 import dryopterisMarginalisImg from '../pictures/Id/Dryopteris_marginalis.JPG';
@@ -170,6 +175,11 @@ import dryopterisGoldiana3Img from '../pictures/Id/Dryopteris_goldiana3.JPG';
 import dennstaedtiaPunctilobula1Img from '../pictures/Id/Dennstaedtia_puncitilobula1.JPG';
 import dennstaedtiaPunctilobula2Img from '../pictures/Id/Dennstaedtia_puncitilobula2.JPG';
 import cyatheaSmithiiImg from '../pictures/Id/Cyathea_smithii.JPG';
+import dendrolycopodiumObscurum1Img from '../pictures/Id/Dendrolycopodium_obscurum1.JPG';
+import dendrolycopodiumObscurum2Img from '../pictures/Id/Dendrolycopodium_obscurum2.JPG';
+import dendrolycopodiumObscurum3Img from '../pictures/Id/Dendrolycopodium_obscurum3.JPG';
+import diphasiastrumTristachyum1Img from '../pictures/Id/Diphasiastrum_tristachyum1.JPG';
+import diphasiastrumTristachyum2Img from '../pictures/Id/Diphasiastrum_tristachyum2.JPG';
 
 const anatomySlides = [
   {
@@ -621,6 +631,32 @@ const INTRO_LINES = [
 
 const LYCOPHYTE_INTRO_PARAGRAPH = `Ferns, lycophytes, and horsetails all reproduce by spores, but they look very different. Ferns have fronds with pinnae and sori; lycophytes have tiny leaves and spore cones (strobili); horsetails have hollow jointed stems and no true fronds. If you've found a plant that doesn't match fern structure, it may be a lycophyte or horsetail—and those use different keys and terms. This section outlines their morphology so you know which kind of key to use.`;
 
+const HORSETAIL_DATABASE = [
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. arvense', commonName: 'Field Horsetail', primaryRange: 'Circumboreal (Northern Hemisphere)' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. bogotense', commonName: 'Andean Horsetail', primaryRange: 'Central & South America' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. diffusum', commonName: 'Himalayan Horsetail', primaryRange: 'Himalayan region' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. fluviatile', commonName: 'Water Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. palustre', commonName: 'Marsh Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. pratense', commonName: 'Meadow Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. sylvaticum', commonName: 'Wood Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. telmateia', commonName: 'Great Horsetail', primaryRange: 'Europe, W. Asia, N. Africa' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. braunii', commonName: 'Giant Horsetail', primaryRange: 'Western North America' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. giganteum', commonName: 'Southern Giant Horsetail', primaryRange: 'Central & South America' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. hyemale', commonName: 'Rough Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. laevigatum', commonName: 'Smooth Horsetail', primaryRange: 'North America' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. myriochaetum', commonName: 'Mexican Giant Horsetail', primaryRange: 'Mexico to Peru' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. praealtum', commonName: 'Scouring Rush', primaryRange: 'North America' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. ramosissimum', commonName: 'Branched Horsetail', primaryRange: 'Asia, Europe, Africa' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. scirpoides', commonName: 'Dwarf Horsetail', primaryRange: 'Arctic/Subarctic regions' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. variegatum', commonName: 'Variegated Horsetail', primaryRange: 'Northern Hemisphere' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. xylochaetum', commonName: 'Atacama Giant Horsetail', primaryRange: 'Chile & Peru' },
+];
+
+const CLUBMOSS_DATABASE = [
+  { scientificName: 'Dendrolycopodium obscurum', commonName: 'Ground Pine', primaryRange: 'Eastern North America' },
+  { scientificName: 'Diphasiastrum tristachyum', commonName: 'Blue Ground Cedar', primaryRange: 'Northern North America' },
+];
+
 const FernIdentifier = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [showDefinitionPage, setShowDefinitionPage] = useState(false);
@@ -629,7 +665,16 @@ const FernIdentifier = () => {
   const [showLycophyteChoice, setShowLycophyteChoice] = useState(false);
   const [showHorsetailsUnderConstruction, setShowHorsetailsUnderConstruction] = useState(false);
   const [showHorsetailDetails, setShowHorsetailDetails] = useState(false);
+  const [showHorsetailDatabase, setShowHorsetailDatabase] = useState(false);
+  const [horsetailSearchQuery, setHorsetailSearchQuery] = useState('');
+  const [horsetailExpandedScientific, setHorsetailExpandedScientific] = useState(null);
   const [showClubmossesUnderConstruction, setShowClubmossesUnderConstruction] = useState(false);
+  const [showClubmossDetails, setShowClubmossDetails] = useState(false);
+  const [showClubmossDatabase, setShowClubmossDatabase] = useState(false);
+  const [clubmossSearchQuery, setClubmossSearchQuery] = useState('');
+  const [clubmossExpandedScientific, setClubmossExpandedScientific] = useState(null);
+  const [showSpikeMossesMorphology, setShowSpikeMossesMorphology] = useState(false);
+  const [showQuillwortsMorphology, setShowQuillwortsMorphology] = useState(false);
   const [showLesson, setShowLesson] = useState(true);
   const [lessonStepIndex, setLessonStepIndex] = useState(0);
   const [practiceSelected, setPracticeSelected] = useState<number | null>(null);
@@ -1349,6 +1394,12 @@ const FernIdentifier = () => {
         { src: polypodiumVirginianum2Img, alt: `${fern.name} 2` },
         { src: polypodiumVirginianum3Img, alt: `${fern.name} 3` },
       ];
+    if (fern.scientific === 'Polypodium appalachianum')
+      return [
+        { src: polypodiumAppalachianum1Img, alt: `${fern.name} 1` },
+        { src: polypodiumAppalachianum2Img, alt: `${fern.name} 2` },
+        { src: polypodiumAppalachianum3Img, alt: `${fern.name} 3` },
+      ];
     if (fern.scientific === 'Dryopteris cristata')
       return [
         { src: dryopterisCristata1Img, alt: `${fern.name} 1` },
@@ -1380,6 +1431,23 @@ const FernIdentifier = () => {
       return [
         { src: dennstaedtiaPunctilobula1Img, alt: `${fern.name} 1` },
         { src: dennstaedtiaPunctilobula2Img, alt: `${fern.name} 2` },
+      ];
+    return [];
+  };
+
+  const getHorsetailIdImages = () => [];
+
+  const getClubmossIdImages = (scientificName) => {
+    if (scientificName === 'Dendrolycopodium obscurum')
+      return [
+        { src: dendrolycopodiumObscurum1Img, alt: 'Ground Pine (Dendrolycopodium obscurum) 1' },
+        { src: dendrolycopodiumObscurum2Img, alt: 'Ground Pine (Dendrolycopodium obscurum) 2' },
+        { src: dendrolycopodiumObscurum3Img, alt: 'Ground Pine (Dendrolycopodium obscurum) 3' },
+      ];
+    if (scientificName === 'Diphasiastrum tristachyum')
+      return [
+        { src: diphasiastrumTristachyum1Img, alt: 'Blue Ground Cedar (Diphasiastrum tristachyum) 1' },
+        { src: diphasiastrumTristachyum2Img, alt: 'Blue Ground Cedar (Diphasiastrum tristachyum) 2' },
       ];
     return [];
   };
@@ -2098,6 +2166,13 @@ const FernIdentifier = () => {
                   <ClickableImg src={polypodiumVirginianum3Img} alt="Common Polypody (Polypodium virginianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
+              {matches[0].scientific === 'Polypodium appalachianum' && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <ClickableImg src={polypodiumAppalachianum1Img} alt="Rock Cap Fern (Polypodium appalachianum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polypodiumAppalachianum2Img} alt="Rock Cap Fern (Polypodium appalachianum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  <ClickableImg src={polypodiumAppalachianum3Img} alt="Rock Cap Fern (Polypodium appalachianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                </div>
+              )}
               {matches[0].scientific === 'Dryopteris cristata' && (
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <ClickableImg src={dryopterisCristata1Img} alt="Crested Wood Fern (Dryopteris cristata) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
@@ -2208,9 +2283,23 @@ const FernIdentifier = () => {
           <div className="max-w-2xl w-full">
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h2 className="text-xl font-bold text-gray-800 mb-4">Definition</h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                <strong>Fern</strong> <em>(n)</em> — A plant that has lignin, to be able to grow tall and reproduces via spores.
-              </p>
+              <div className="text-gray-700 text-lg leading-relaxed mb-8 space-y-4">
+                <p>
+                  A fern is a plant, with xylem and phloem, that reproduces via spores.
+                </p>
+                <p>
+                  Liverworts and moss have spores, but have no xylem and phloem. Always low to the ground.
+                </p>
+                <p>
+                  Flowering plants have xylem and phloem, but reproduce via seeds.
+                </p>
+                <p>
+                  Xylem and phloem developed because of lignin, the substance that makes trees &apos;woody&apos;. It provides structure for xylem and phloem to transport nutrients.
+                </p>
+                <p>
+                  Ferns, actually lycophytes, were the first plants to develop lignin.
+                </p>
+              </div>
               <div className="flex justify-center">
                 <button
                   onClick={() => {
@@ -2350,38 +2439,64 @@ const FernIdentifier = () => {
     return (
       <ImageLightboxProvider>
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
-          <div className="max-w-2xl mx-auto h-full">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col min-h-[calc(100vh-2rem)]">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-6 overflow-y-auto">
               <button
                 onClick={() => {
                   setShowLycophyteChoice(false);
                   setShowLycophyteIntro(true);
                 }}
-                className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 m-4 w-fit transition"
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 mb-4 w-fit transition"
               >
                 <ChevronLeft size={20} />
                 Back
               </button>
-              <button
-                onClick={() => {
-                  setShowLycophyteChoice(false);
-                  setShowHorsetailsUnderConstruction(true);
-                }}
-                className="p-6 text-left border-b border-gray-200 hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
-                aria-label="Horsetails"
-              >
-                <h2 className="text-2xl font-bold text-gray-800">Horsetails</h2>
-              </button>
-              <button
-                onClick={() => {
-                  setShowLycophyteChoice(false);
-                  setShowClubmossesUnderConstruction(true);
-                }}
-                className="p-6 text-left hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
-                aria-label="Clubmosses, spike mosses, and quillworts"
-              >
-                <h2 className="text-2xl font-bold text-gray-800">Clubmosses, spike mosses, and quillworts</h2>
-              </button>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                This group of plants are usually short, &lt;1 foot (25cm). Horsetails can be much taller. These plants will be down at your feet. Look down.
+              </p>
+              <p className="text-gray-600 mb-4">Choose a group to view its morphology:</p>
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => {
+                    setShowLycophyteChoice(false);
+                    setShowHorsetailsUnderConstruction(true);
+                  }}
+                  className="p-5 text-left rounded-xl border-2 border-gray-200 hover:border-green-400 hover:bg-green-50 transition cursor-pointer"
+                  aria-label="Horsetails"
+                >
+                  <h2 className="text-xl font-bold text-gray-800">1. Horsetails</h2>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowLycophyteChoice(false);
+                    setShowClubmossesUnderConstruction(true);
+                  }}
+                  className="p-5 text-left rounded-xl border-2 border-gray-200 hover:border-green-400 hover:bg-green-50 transition cursor-pointer"
+                  aria-label="Clubmosses"
+                >
+                  <h2 className="text-xl font-bold text-gray-800">2. Clubmosses</h2>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowLycophyteChoice(false);
+                    setShowSpikeMossesMorphology(true);
+                  }}
+                  className="p-5 text-left rounded-xl border-2 border-gray-200 hover:border-green-400 hover:bg-green-50 transition cursor-pointer"
+                  aria-label="Spike Mosses"
+                >
+                  <h2 className="text-xl font-bold text-gray-800">3. Spike Mosses</h2>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowLycophyteChoice(false);
+                    setShowQuillwortsMorphology(true);
+                  }}
+                  className="p-5 text-left rounded-xl border-2 border-gray-200 hover:border-green-400 hover:bg-green-50 transition cursor-pointer"
+                  aria-label="Quillworts"
+                >
+                  <h2 className="text-xl font-bold text-gray-800">4. Quillworts</h2>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -2411,6 +2526,103 @@ const FernIdentifier = () => {
     </ImageLightboxProvider>
   );
 
+  if (showHorsetailDatabase) {
+    const searchLower = horsetailSearchQuery.trim().toLowerCase();
+    const filtered = searchLower
+      ? HORSETAIL_DATABASE.filter(h => {
+          const text = `${h.commonName} ${h.scientificName} ${h.primaryRange} ${h.subgenusLabel}`.toLowerCase();
+          return text.includes(searchLower);
+        })
+      : HORSETAIL_DATABASE;
+    const bySubgenus = filtered.reduce((acc, h) => {
+      if (!acc[h.subgenusLabel]) acc[h.subgenusLabel] = [];
+      acc[h.subgenusLabel].push(h);
+      return acc;
+    }, {});
+    const subgenusOrder = ['Subgenus Equisetum (True Horsetails)', 'Subgenus Hippochaete (Scouring Rushes)'];
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => setShowHorsetailDatabase(false)}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-2">Horsetail Identifier</h1>
+              <p className="text-gray-600 mb-4">
+                {HORSETAIL_DATABASE.length} species in the genus <em>Equisetum</em>. Data from equisetum-table.
+              </p>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  value={horsetailSearchQuery}
+                  onChange={e => setHorsetailSearchQuery(e.target.value)}
+                  placeholder="Search by common name, scientific name, or range..."
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
+                  aria-label="Search horsetail database"
+                />
+              </div>
+              {searchLower && (
+                <p className="text-gray-600 mb-4">
+                  Showing {filtered.length} of {HORSETAIL_DATABASE.length} species.
+                </p>
+              )}
+              <div className="space-y-6 max-h-[32rem] overflow-y-auto pr-2">
+                {subgenusOrder.map(label => {
+                  const list = bySubgenus[label];
+                  if (!list || list.length === 0) return null;
+                  return (
+                    <div key={label}>
+                      <h2 className="text-lg font-bold text-gray-800 mb-3 sticky top-0 bg-white py-1">{label}</h2>
+                      <div className="space-y-2">
+                        {list.map((h, idx) => {
+                          const idImages = getHorsetailIdImages(h.scientificName);
+                          const hasPhotos = idImages.length > 0;
+                          const isExpanded = horsetailExpandedScientific === h.scientificName;
+                          return (
+                            <div
+                              key={idx}
+                              className={`border-2 rounded-lg p-4 transition ${hasPhotos ? 'cursor-pointer hover:border-green-400 hover:bg-green-50/50' : ''} ${isExpanded ? 'border-green-500 bg-green-50/70' : 'border-gray-200'}`}
+                              onClick={() => hasPhotos && setHorsetailExpandedScientific(isExpanded ? null : h.scientificName)}
+                              role={hasPhotos ? 'button' : undefined}
+                              tabIndex={hasPhotos ? 0 : undefined}
+                              onKeyDown={e => hasPhotos && (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setHorsetailExpandedScientific(isExpanded ? null : h.scientificName))}
+                            >
+                              <h3 className="font-bold text-gray-800">{h.commonName}</h3>
+                              <p className="text-sm text-gray-600 italic">{h.scientificName}</p>
+                              <p className="text-sm text-gray-700 mt-1">Range: {h.primaryRange}</p>
+                              {isExpanded && hasPhotos && (
+                                <div className="mt-4 pt-4 border-t border-green-200">
+                                  <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
+                                  <div className="grid grid-cols-3 gap-2">
+                                    {idImages.map((img, i) => (
+                                      <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+                {filtered.length === 0 && (
+                  <p className="text-gray-500 py-6 text-center">No species match your search.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
   if (showHorsetailDetails) {
     return (
       <ImageLightboxProvider>
@@ -2424,7 +2636,20 @@ const FernIdentifier = () => {
                 <ChevronLeft size={20} />
                 Back
               </button>
-              <h1 className="text-2xl font-bold text-gray-800">Horsetail Morphology, Details</h1>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Horsetail Morphology, Details</h1>
+              <div className="text-center py-6">
+                <TrafficCone className="mx-auto mb-4 text-orange-500" size={64} />
+                <p className="text-gray-600">Under construction</p>
+              </div>
+              <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => setShowHorsetailDatabase(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -2495,11 +2720,225 @@ const FernIdentifier = () => {
     );
   }
 
+  if (showClubmossDatabase) {
+    const searchLower = clubmossSearchQuery.trim().toLowerCase();
+    const filtered = searchLower
+      ? CLUBMOSS_DATABASE.filter(c => {
+          const text = `${c.commonName} ${c.scientificName} ${c.primaryRange}`.toLowerCase();
+          return text.includes(searchLower);
+        })
+      : CLUBMOSS_DATABASE;
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => setShowClubmossDatabase(false)}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-2">Clubmoss Database</h1>
+              <p className="text-gray-600 mb-4">
+                {CLUBMOSS_DATABASE.length} species in the database.
+              </p>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  value={clubmossSearchQuery}
+                  onChange={e => setClubmossSearchQuery(e.target.value)}
+                  placeholder="Search by common name, scientific name, or range..."
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
+                  aria-label="Search clubmoss database"
+                />
+              </div>
+              {searchLower && (
+                <p className="text-gray-600 mb-4">
+                  Showing {filtered.length} of {CLUBMOSS_DATABASE.length} species.
+                </p>
+              )}
+              <div className="space-y-2 max-h-[32rem] overflow-y-auto pr-2">
+                {filtered.length === 0 ? (
+                  <p className="text-gray-500 py-6 text-center">No species match your search.</p>
+                ) : (
+                  filtered.map((c, idx) => {
+                    const idImages = getClubmossIdImages(c.scientificName);
+                    const hasPhotos = idImages.length > 0;
+                    const isExpanded = clubmossExpandedScientific === c.scientificName;
+                    return (
+                      <div
+                        key={idx}
+                        className={`border-2 rounded-lg p-4 transition ${hasPhotos ? 'cursor-pointer hover:border-green-400 hover:bg-green-50/50' : ''} ${isExpanded ? 'border-green-500 bg-green-50/70' : 'border-gray-200'}`}
+                        onClick={() => hasPhotos && setClubmossExpandedScientific(isExpanded ? null : c.scientificName)}
+                        role={hasPhotos ? 'button' : undefined}
+                        tabIndex={hasPhotos ? 0 : undefined}
+                        onKeyDown={e => hasPhotos && (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setClubmossExpandedScientific(isExpanded ? null : c.scientificName))}
+                      >
+                        <h3 className="font-bold text-gray-800">{c.commonName}</h3>
+                        <p className="text-sm text-gray-600 italic">{c.scientificName}</p>
+                        <p className="text-sm text-gray-700 mt-1">Range: {c.primaryRange}</p>
+                        {isExpanded && hasPhotos && (
+                          <div className="mt-4 pt-4 border-t border-green-200">
+                            <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
+                            <div className="grid grid-cols-3 gap-2">
+                              {idImages.map((img, i) => (
+                                <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
   if (showClubmossesUnderConstruction) {
-    return renderUnderConstructionPage(() => {
-      setShowClubmossesUnderConstruction(false);
-      setShowLycophyteChoice(true);
-    });
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowClubmossesUnderConstruction(false);
+                  setShowLycophyteChoice(true);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Clubmoss Morphology</h1>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Clubmosses (Lycopodiaceae) are low, creeping or upright plants with small, simple leaves and strobili (spore cones). They lack true roots in the fern sense and are often found in moist or wooded habitats. Key features include microphylls and terminal or lateral strobili.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <ClickableImg src={clubmossPlantImg} alt="Clubmoss plant" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Clubmoss plant</p>
+                </div>
+                <div>
+                  <ClickableImg src={clubmossStroboliImg} alt="Clubmoss strobili" className="w-full rounded-lg border border-gray-200" />
+                  <p className="text-sm font-medium text-gray-700 mt-2 text-center">Clubmoss strobili</p>
+                </div>
+              </div>
+              <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    setShowClubmossesUnderConstruction(false);
+                    setShowClubmossDetails(true);
+                  }}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showClubmossDetails) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowClubmossDetails(false);
+                  setShowClubmossesUnderConstruction(true);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Clubmoss Morphology, Details</h1>
+              <div className="text-center py-6">
+                <TrafficCone className="mx-auto mb-4 text-orange-500" size={64} />
+                <p className="text-gray-600">Under construction</p>
+              </div>
+              <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => setShowClubmossDatabase(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showSpikeMossesMorphology) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowSpikeMossesMorphology(false);
+                  setShowLycophyteChoice(true);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Spike Moss Morphology</h1>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Spike mosses (Selaginellaceae) are small, often mat-forming lycophytes with branching stems and tiny scale-like leaves. They bear strobili and many have a ligule. They occur in moist, shady, or rocky habitats.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showQuillwortsMorphology) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => {
+                  setShowQuillwortsMorphology(false);
+                  setShowLycophyteChoice(true);
+                }}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Quillwort Morphology</h1>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Quillworts (<em>Isoetes</em>) are aquatic or semi-aquatic lycophytes with a short, corm-like stem and quill-like leaves in a basal rosette. Spores are produced in sunken sporangia at the leaf bases. They grow in shallow water or wet soils.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
   }
 
   return (
