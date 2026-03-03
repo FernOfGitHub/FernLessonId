@@ -180,6 +180,9 @@ import dendrolycopodiumObscurum2Img from '../pictures/Id/Dendrolycopodium_obscur
 import dendrolycopodiumObscurum3Img from '../pictures/Id/Dendrolycopodium_obscurum3.JPG';
 import diphasiastrumTristachyum1Img from '../pictures/Id/Diphasiastrum_tristachyum1.JPG';
 import diphasiastrumTristachyum2Img from '../pictures/Id/Diphasiastrum_tristachyum2.JPG';
+import eArvense1Img from '../pictures/Id/E.arvense1.JPG';
+import eArvense2Img from '../pictures/Id/E.arvense2.JPG';
+import eArvense3Img from '../pictures/Id/E.arvense3.JPG';
 
 const anatomySlides = [
   {
@@ -645,7 +648,7 @@ const INTRO_LINES = [
 const LYCOPHYTE_INTRO_PARAGRAPH = `Ferns, lycophytes, and horsetails all reproduce by spores, but they look very different. Ferns have fronds with pinnae and sori; lycophytes have tiny leaves and spore cones (strobili); horsetails have hollow jointed stems and no true fronds. If you've found a plant that doesn't match fern structure, it may be a lycophyte or horsetail—and those use different keys and terms. This section outlines their morphology so you know which kind of key to use.`;
 
 const HORSETAIL_DATABASE = [
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. arvense', commonName: 'Field Horsetail', primaryRange: 'Circumboreal (Northern Hemisphere)' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. arvense', commonName: 'Field Horsetail', primaryRange: 'Circumboreal (Northern Hemisphere)', description: 'Field horsetail has a sterile and a fertile form. The sterile form is green with whorls. The fertile form is only seen in spring for a few weeks. It does not have any chlorophyll. The single strobilus is covered in hexagons that open to reveal and release the spores.' },
   { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. bogotense', commonName: 'Andean Horsetail', primaryRange: 'Central & South America' },
   { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. diffusum', commonName: 'Himalayan Horsetail', primaryRange: 'Himalayan region' },
   { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. fluviatile', commonName: 'Water Horsetail', primaryRange: 'Northern Hemisphere' },
@@ -1448,7 +1451,15 @@ const FernIdentifier = () => {
     return [];
   };
 
-  const getHorsetailIdImages = () => [];
+  const getHorsetailIdImages = (scientificName) => {
+    if (scientificName === 'E. arvense')
+      return [
+        { src: eArvense1Img, alt: 'Field Horsetail (E. arvense) 1' },
+        { src: eArvense2Img, alt: 'Field Horsetail (E. arvense) 2' },
+        { src: eArvense3Img, alt: 'Field Horsetail (E. arvense) 3' },
+      ];
+    return [];
+  };
 
   const getClubmossIdImages = (scientificName) => {
     if (scientificName === 'Dendrolycopodium obscurum')
@@ -2609,6 +2620,9 @@ const FernIdentifier = () => {
                               <h3 className="font-bold text-gray-800">{h.commonName}</h3>
                               <p className="text-sm text-gray-600 italic">{h.scientificName}</p>
                               <p className="text-sm text-gray-700 mt-1">Range: {h.primaryRange}</p>
+                              {h.description && (
+                                <p className="text-sm text-gray-700 mt-2 leading-relaxed">{h.description}</p>
+                              )}
                               {isExpanded && hasPhotos && (
                                 <div className="mt-4 pt-4 border-t border-green-200">
                                   <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
