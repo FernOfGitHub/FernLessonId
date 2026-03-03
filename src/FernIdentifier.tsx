@@ -537,13 +537,13 @@ const sectionQuestions: QuizQuestion[][] = [
     { question: 'A pinna is one level of division off the ___.', options: [{ text: 'Stipe', correct: false }, { text: 'Rachis', correct: true }, { text: 'Rhizome', correct: false }, { text: 'Sori', correct: false }] },
     { question: 'The rib the pinnae are attached to is called the ___.', options: [{ text: 'Rachis', correct: false }, { text: 'Costa', correct: true }, { text: 'Stipe', correct: false }, { text: 'Pinnule', correct: false }] },
   ],
-  // Section 2: Frond Division
+  // Section 2: Frond Division (no Pinnatifid / Pinnate pinnatifid / Bipinnate pinnatifid — not yet introduced)
   [
-    { question: 'What type of frond division is shown in this photo?', image: pinnateImg, options: [{ text: 'Once divided (pinnate)', correct: true }, { text: 'Entire (undivided)', correct: false }, { text: 'Twice divided (bipinnate)', correct: false }, { text: 'Pinnatifid', correct: false }] },
-    { question: 'A frond that is divided into pinnae, and each pinna is divided again, is called ___?', options: [{ text: 'Pinnate', correct: false }, { text: 'Bipinnate', correct: true }, { text: 'Entire', correct: false }, { text: 'Pinnatifid', correct: false }] },
+    { question: 'What type of frond division is shown in this photo?', image: pinnateImg, options: [{ text: 'Once divided (pinnate)', correct: true }, { text: 'Entire (undivided)', correct: false }, { text: 'Twice divided (bipinnate)', correct: false }, { text: 'Pedate', correct: false }] },
+    { question: 'A frond that is divided into pinnae, and each pinna is divided again, is called ___?', options: [{ text: 'Pinnate', correct: false }, { text: 'Bipinnate', correct: true }, { text: 'Entire', correct: false }, { text: 'Pedate', correct: false }] },
     { question: 'An undivided fern blade with no leaflets is called ___.', options: [{ text: 'Pinnate', correct: false }, { text: 'Entire', correct: true }, { text: 'Bipinnate', correct: false }, { text: 'Tripinnate', correct: false }] },
     { question: 'Once-divided fronds with pinnae along the rachis are ___.', options: [{ text: 'Pinnate', correct: true }, { text: 'Bipinnate', correct: false }, { text: 'Entire', correct: false }, { text: 'Tripinnate', correct: false }] },
-    { question: 'A very lacy, feathery frond is likely ___.', options: [{ text: 'Entire', correct: false }, { text: 'Pinnate', correct: false }, { text: 'Tripinnate (or more)', correct: true }, { text: 'Pinnatifid', correct: false }] },
+    { question: 'A very lacy, feathery frond is likely ___.', options: [{ text: 'Entire', correct: false }, { text: 'Pinnate', correct: false }, { text: 'Tripinnate (or more)', correct: true }, { text: 'Pedate', correct: false }] },
     { question: 'Pedate or fan-shaped fronds have pinnae that ___.', options: [{ text: 'Alternate along the rachis', correct: false }, { text: 'Radiate from a central point', correct: true }, { text: 'Overlap each other', correct: false }, { text: 'Form a spiral', correct: false }] },
   ],
   // Section 3: Frond Division (Advanced)
@@ -602,15 +602,28 @@ function pickRandom<T>(arr: T[], n: number): T[] {
 
 type LessonStep = { type: 'content'; slideIndex: number } | { type: 'practice'; sectionIndex: number } | { type: 'finalQuizIntro' } | { type: 'finalQuiz' } | { type: 'finalQuizResults' };
 
+const SECTION_TITLES = [
+  'Frond & Stipe',
+  'Pinnae & Pinnules',
+  'Frond Division',
+  'Frond Division (Advanced)',
+  'Sori',
+  'Rhizome & Roots',
+  'Fern Reproduction',
+];
+
 function buildLessonSteps(): LessonStep[] {
   const steps: LessonStep[] = [];
   for (let i = 0; i < anatomySlides.length; i++) {
     steps.push({ type: 'content', slideIndex: i });
-    if (i < 7) steps.push({ type: 'practice', sectionIndex: i }); // Practice after each content slide except "You're Ready"
+    // Add a practice quiz after every content slide except the last ("You're Ready")
+    if (i < anatomySlides.length - 1) {
+      steps.push({ type: 'practice', sectionIndex: i });
+    }
     if (i === 6) {
-      steps.push({ type: 'finalQuizIntro' }); // Title page announcing the final quiz
-      steps.push({ type: 'finalQuiz' }); // Final quiz
-      steps.push({ type: 'finalQuizResults' }); // Score summary after final quiz
+      steps.push({ type: 'finalQuizIntro' });
+      steps.push({ type: 'finalQuiz' });
+      steps.push({ type: 'finalQuizResults' });
     }
   }
   return steps;
@@ -1654,7 +1667,8 @@ const FernIdentifier = () => {
     const displayQuestion = currentQuestion ?? practiceQuestions[0];
     if (isQuizStep && displayQuestion && practiceQuestions.length > 0) {
       const ex = displayQuestion;
-      const quizTitle = isFinalQuizStep ? 'Final Quiz' : 'Practice';
+      const practiceSectionIndex = isPracticeStep ? (currentLessonStep as { type: 'practice'; sectionIndex: number }).sectionIndex : undefined;
+      const quizTitle = isFinalQuizStep ? 'Final Quiz' : (practiceSectionIndex != null && SECTION_TITLES[practiceSectionIndex] ? `${SECTION_TITLES[practiceSectionIndex]} — Practice` : 'Practice');
       const questionProgress = `${practiceQuestionIndex + 1} of ${practiceQuestions.length}`;
 
       return (
