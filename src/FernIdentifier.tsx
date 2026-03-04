@@ -180,6 +180,10 @@ import dendrolycopodiumObscurum2Img from '../pictures/Id/Dendrolycopodium_obscur
 import dendrolycopodiumObscurum3Img from '../pictures/Id/Dendrolycopodium_obscurum3.JPG';
 import diphasiastrumTristachyum1Img from '../pictures/Id/Diphasiastrum_tristachyum1.JPG';
 import diphasiastrumTristachyum2Img from '../pictures/Id/Diphasiastrum_tristachyum2.JPG';
+import diphasiastrumDigitatum1Img from '../pictures/Id/Diphasiastrum_digitatum1.JPG';
+import huperziaLucidula1Img from '../pictures/Id/Huperzia_lucidula1.JPG';
+import huperziaLucidula2Img from '../pictures/Id/Huperzia_lucidula2.JPG';
+import huperziaLucidula3Img from '../pictures/Id/Huperzia_lucidula3.JPG';
 import eArvense1Img from '../pictures/Id/E.arvense1.JPG';
 import eArvense2Img from '../pictures/Id/E.arvense2.JPG';
 import eArvense3Img from '../pictures/Id/E.arvense3.JPG';
@@ -638,7 +642,7 @@ const INTRO_LINES = [
   'This site is for newly minted botanists or those who struggle reading keys in a fern guide.',
   'I hope this site makes those keys more understandable.',
   '',
-  'Hope you enjoy.',
+  'Enjoy.',
   '',
   '[This is an early, early development version]',
   'Version 0.2  28Feb25',
@@ -671,6 +675,8 @@ const HORSETAIL_DATABASE = [
 const CLUBMOSS_DATABASE = [
   { scientificName: 'Dendrolycopodium obscurum', commonName: 'Ground Pine', primaryRange: 'Eastern North America' },
   { scientificName: 'Diphasiastrum tristachyum', commonName: 'Blue Ground Cedar', primaryRange: 'Northern North America' },
+  { scientificName: 'Diphasiastrum digitatum', commonName: 'Fan Clubmoss', primaryRange: 'Eastern North America' },
+  { scientificName: 'Huperzia lucidula', commonName: 'Shining Clubmoss', primaryRange: 'Eastern North America' },
 ];
 
 const FernIdentifier = () => {
@@ -1472,6 +1478,16 @@ const FernIdentifier = () => {
       return [
         { src: diphasiastrumTristachyum1Img, alt: 'Blue Ground Cedar (Diphasiastrum tristachyum) 1' },
         { src: diphasiastrumTristachyum2Img, alt: 'Blue Ground Cedar (Diphasiastrum tristachyum) 2' },
+      ];
+    if (scientificName === 'Diphasiastrum digitatum')
+      return [
+        { src: diphasiastrumDigitatum1Img, alt: 'Fan Clubmoss (Diphasiastrum digitatum) 1' },
+      ];
+    if (scientificName === 'Huperzia lucidula')
+      return [
+        { src: huperziaLucidula1Img, alt: 'Shining Clubmoss (Huperzia lucidula) 1' },
+        { src: huperziaLucidula2Img, alt: 'Shining Clubmoss (Huperzia lucidula) 2' },
+        { src: huperziaLucidula3Img, alt: 'Shining Clubmoss (Huperzia lucidula) 3' },
       ];
     return [];
   };
