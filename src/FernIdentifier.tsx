@@ -187,6 +187,8 @@ import huperziaLucidula3Img from '../pictures/Id/Huperzia_lucidula3.JPG';
 import eArvense1Img from '../pictures/Id/E.arvense1.JPG';
 import eArvense2Img from '../pictures/Id/E.arvense2.JPG';
 import eArvense3Img from '../pictures/Id/E.arvense3.JPG';
+import eHyemale1Img from '../pictures/Id/E.hyemale1.JPG';
+import eHyemale2Img from '../pictures/Id/E.hyemale2.JPG';
 
 const anatomySlides = [
   {
@@ -1463,6 +1465,11 @@ const FernIdentifier = () => {
         { src: eArvense1Img, alt: 'Field Horsetail (E. arvense) 1' },
         { src: eArvense2Img, alt: 'Field Horsetail (E. arvense) 2' },
         { src: eArvense3Img, alt: 'Field Horsetail (E. arvense) 3' },
+      ];
+    if (scientificName === 'E. hyemale')
+      return [
+        { src: eHyemale1Img, alt: 'Rough Horsetail (E. hyemale) 1' },
+        { src: eHyemale2Img, alt: 'Rough Horsetail (E. hyemale) 2' },
       ];
     return [];
   };
