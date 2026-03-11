@@ -708,6 +708,7 @@ const FernIdentifier = () => {
   const [step, setStep] = useState(0);
   const [showDatabase, setShowDatabase] = useState(false);
   const [databaseExpandedScientific, setDatabaseExpandedScientific] = useState(null);
+  const [identifierSpeciesExpandedScientific, setIdentifierSpeciesExpandedScientific] = useState(null);
   const [databaseSearchQuery, setDatabaseSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('common');
   const [selections, setSelections] = useState({
@@ -737,10 +738,10 @@ const FernIdentifier = () => {
   ];
 
   const frondTypes = [
-    { 
+{
       id: 'once', 
-      name: 'Once Divided', 
-      description: 'Simple pinnate - pinnae along rachis',
+      name: 'Once Divided (Pinnate)', 
+      description: 'Pinnae along the rachis — simple pinnate',
       image: pinnate1x1BwImg,
       fullSize: pinnateBwImg,
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
@@ -1313,15 +1314,17 @@ const FernIdentifier = () => {
     }
   ];
 
-  const getMatches = () => {
+  const getMatchesFor = (sel) => {
     return fernDatabase.filter(fern => {
-      if (selections.region && !fern.regions.includes(selections.region)) return false;
-      if (selections.frondType && fern.frondType !== selections.frondType) return false;
-      if (selections.size && fern.size !== selections.size) return false;
-      if (selections.texture && fern.texture !== selections.texture) return false;
+      if (sel.region && !fern.regions.includes(sel.region)) return false;
+      if (sel.frondType && fern.frondType !== sel.frondType) return false;
+      if (sel.size && fern.size !== sel.size) return false;
+      if (sel.texture && fern.texture !== sel.texture) return false;
       return true;
     });
   };
+
+  const getMatches = () => getMatchesFor(selections);
 
   const formatHabitat = (fern) =>
     fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
@@ -1500,15 +1503,24 @@ const FernIdentifier = () => {
   };
 
   const handleSelect = (category, value) => {
-    setSelections({ ...selections, [category]: value });
-    setStep(step + 1);
+    const nextSelections = { ...selections, [category]: value };
+    setSelections(nextSelections);
+    if (category === 'frondType' && getMatchesFor(nextSelections).length === 1) {
+      setStep(5);
+    } else {
+      setStep(step + 1);
+    }
   };
 
   const handleBack = () => {
-    const steps = ['region', 'frondType', 'size', 'texture'];
+    const steps = ['region', 'frondType', null, 'size', 'texture'];
     if (step > 0) {
+      if (step === 5 && selections.size === null && selections.texture === null) {
+        setStep(2);
+        return;
+      }
       const prevCategory = steps[step - 1];
-      setSelections({ ...selections, [prevCategory]: null });
+      if (prevCategory) setSelections(prev => ({ ...prev, [prevCategory]: null }));
       setStep(step - 1);
     }
   };
@@ -1522,6 +1534,7 @@ const FernIdentifier = () => {
     });
     setStep(0);
     setShowDatabase(false);
+    setIdentifierSpeciesExpandedScientific(null);
   };
 
   const currentLessonStep = LESSON_STEPS[lessonStepIndex];
@@ -2070,6 +2083,65 @@ const FernIdentifier = () => {
     }
 
     if (step === 2) {
+      const speciesListMatches = getMatches();
+      return (
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Species Matching Your Choices</h2>
+          <p className="text-gray-600 mb-4">
+            {speciesListMatches.length} species match region and frond division. Click a species to see its photos, or continue to narrow by size.
+          </p>
+          <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-2 mb-6">
+            {speciesListMatches.length === 0 ? (
+              <p className="text-gray-500 py-4">No species match. Use Back to change region or frond division.</p>
+            ) : (
+              speciesListMatches.map((fern, idx) => {
+                const isExpanded = identifierSpeciesExpandedScientific === fern.scientific;
+                const idImages = getFernIdImages(fern);
+                const hasPhotos = idImages.length > 0;
+                return (
+                  <div
+                    key={idx}
+                    className={`border-2 rounded-lg p-4 transition ${hasPhotos ? 'cursor-pointer hover:border-green-400 hover:bg-green-50/50' : ''} ${isExpanded ? 'border-green-500 bg-green-50/70' : 'border-gray-200'}`}
+                    onClick={() => hasPhotos && setIdentifierSpeciesExpandedScientific(isExpanded ? null : fern.scientific)}
+                    role={hasPhotos ? 'button' : undefined}
+                    tabIndex={hasPhotos ? 0 : undefined}
+                    onKeyDown={e => hasPhotos && (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setIdentifierSpeciesExpandedScientific(isExpanded ? null : fern.scientific))}
+                  >
+                    <div className="flex items-start gap-3">
+                      <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-gray-800">{fern.name}</h3>
+                        <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
+                        {hasPhotos && (
+                          <p className="text-xs text-green-600 mt-1">Click to {isExpanded ? 'hide' : 'show'} photos</p>
+                        )}
+                        {isExpanded && hasPhotos && (
+                          <div className="mt-4 pt-4 border-t border-green-200">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                              {idImages.map((img, i) => (
+                                <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+          <button
+            onClick={() => setStep(3)}
+            className="w-full sm:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+          >
+            Continue to size
+          </button>
+        </div>
+      );
+    }
+
+    if (step === 3) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Size</h2>
@@ -2091,7 +2163,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 3) {
+    if (step === 4) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Texture</h2>
@@ -2113,7 +2185,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 4) {
+    if (step === 5) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Identification Results</h2>
