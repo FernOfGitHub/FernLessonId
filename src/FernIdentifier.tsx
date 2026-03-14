@@ -116,6 +116,8 @@ import horsetailBranchedImg from '../pictures/anatomy/horsetail-branched.jpg';
 import horsetailUnbranchedImg from '../pictures/anatomy/horsetail-unbranched.jpg';
 import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.jpg';
 import horsetailStrobiliImg from '../pictures/anatomy/horsetail-stroboli.jpg';
+import branchedUnbranchedImg from '../pictures/anatomy/branched-unbranched.png';
+import equisetumTeethImg from '../pictures/anatomy/equisetum-teeth.png';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import polystichumAcrostichoides3Img from '../pictures/Id/Polystichum_acrostichoides3.JPG';
@@ -2814,9 +2816,15 @@ const FernIdentifier = () => {
               <h1 className="text-2xl font-bold text-gray-800 mb-4">Horsetail Morphology, Details</h1>
               <p className="text-gray-600 mb-4">Characters used to tell horsetail species apart:</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                <li><strong>Branched vs unbranched</strong> — Subgenus <em>Equisetum</em> (true horsetails) have whorled, green branches from the nodes; subgenus <em>Hippochaete</em> (scouring rushes) are usually unbranched or sparsely branched.</li>
+                <li>
+                  <strong>Branched vs unbranched</strong> — Subgenus <em>Equisetum</em> (true horsetails) have whorled, green branches from the nodes; subgenus <em>Hippochaete</em> (scouring rushes) are usually unbranched or sparsely branched.
+                  <img src={branchedUnbranchedImg} alt="Branched vs unbranched horsetail" className="mt-3 w-full max-w-md rounded-lg border border-gray-200" />
+                </li>
                 <li><strong>Separate fertile stems</strong> — Some species (e.g. Field Horsetail) have ephemeral, non-green fertile stems in spring and later green sterile stems; others have fertile cones on green stems.</li>
-                <li><strong>Stem ridges and texture</strong> — Number of ridges (often matches number of sheath teeth); smooth vs rough (silica bands); stem diameter and height.</li>
+                <li>
+                  <strong>Stem ridges and texture</strong> — Number of ridges (often matches number of sheath teeth); smooth vs rough (silica bands); stem diameter and height.
+                  <img src={equisetumTeethImg} alt="Equisetum stem ridges and teeth" className="mt-3 w-full max-w-md rounded-lg border border-gray-200" />
+                </li>
                 <li><strong>Sheath (nodal collar)</strong> — Shape and length of the sheath at each node; number and color of teeth (e.g. black-tipped, white-margined); whether it is loose or tight.</li>
                 <li><strong>Central canal</strong> — Relative size of the hollow center (e.g. large central canal vs smaller or multiple canals) seen in a cross-section.</li>
                 <li><strong>Strobilus</strong> — Position (terminal on fertile stem vs on green stem); shape (pointed vs blunt); persistence.</li>
