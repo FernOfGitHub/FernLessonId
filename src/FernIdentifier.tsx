@@ -698,7 +698,9 @@ const FernIdentifier = () => {
   const [clubmossSearchQuery, setClubmossSearchQuery] = useState('');
   const [clubmossExpandedScientific, setClubmossExpandedScientific] = useState(null);
   const [showSpikeMossesMorphology, setShowSpikeMossesMorphology] = useState(false);
+  const [showSpikeMossDetails, setShowSpikeMossDetails] = useState(false);
   const [showQuillwortsMorphology, setShowQuillwortsMorphology] = useState(false);
+  const [showQuillwortDetails, setShowQuillwortDetails] = useState(false);
   const [showLesson, setShowLesson] = useState(true);
   const [lessonStepIndex, setLessonStepIndex] = useState(0);
   const [practiceSelected, setPracticeSelected] = useState<number | null>(null);
@@ -900,6 +902,11 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'leathery',
+      uniqueCharacters: [
+        'Boot-shaped (auriculate) pinnae at the base of each pinna',
+        'Naked sori only on the upper half of the frond, covering the entire pinna',
+        'Evergreen; fronds stay green through winter'
+      ],
       features: 'Evergreen, dark green fronds with boot-shaped pinnae. Fronds stay green through winter. The naked sori are found across the entire pinna on the upper half of the frond.'
     },
     {
@@ -940,6 +947,11 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'large',
       texture: 'leathery',
+      uniqueCharacters: [
+        'Triangular fronds held more or less horizontally (one main frond per stem)',
+        'Thrice-divided (tripinnate or more), very lacy; forms extensive colonies',
+        'Naked sori along the pinna margin; indusium absent; sori often hard to see'
+      ],
       features: 'Aggressive spreader, triangular fronds held horizontally. Forms extensive colonies. The sori are found along the margin of pinna. They are naked without indusium. It is not common to find sori.'
     },
     {
@@ -970,6 +982,11 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'leathery',
+      uniqueCharacters: [
+        'Fronds undivided (simple), long and tapering to a narrow tip',
+        'Tip often roots where it touches rock or soil, forming new plants ("walking")',
+        'Grows on rocks, especially limestone; small, leathery, dark green'
+      ],
       features: 'Long tapering fronds that root at tips forming new plants. Grows on limestone rocks.'
     },
     {
@@ -1030,6 +1047,11 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'medium',
       texture: 'delicate',
+      uniqueCharacters: [
+        'Sterile fronds broad, triangular, pinnatifid (deeply lobed); die at first frost',
+        'Separate fertile fronds with bead-like segments; persist through winter',
+        'Often in wet or moist sites; lobes of sterile frond with wavy margins'
+      ],
       features: 'Broad triangular fronds, dies at first frost. Separate bead-like fertile fronds persist through winter.'
     },
     {
@@ -1040,6 +1062,11 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      uniqueCharacters: [
+        'Fertile pinnae at the tip of the frond only, tassel-like and brown when mature',
+        'Tall, twice-divided (bipinnate) sterile foliage; can tolerate sun',
+        'Typically in wet soil, stream edges, or swamps'
+      ],
       features: 'Tall stately fern with distinctive tassel-like fertile pinnae at frond tips. Tolerates sun.'
     },
     {
@@ -1050,6 +1077,11 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      uniqueCharacters: [
+        'Fertile pinnae in the middle of the frond; wither and drop off, leaving a visible gap',
+        'Twice-divided (bipinnate), large; sterile pinnae similar to cinnamon fern but no wool',
+        'Often forms large circular clumps in moist woods'
+      ],
       features: 'Fertile pinnae interrupt middle of frond, wither and fall off. Forms large circular clumps.'
     },
     {
@@ -1120,6 +1152,11 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      uniqueCharacters: [
+        'Once-pinnate, evergreen; small leathery fronds on rocks, logs, or stumps',
+        'Pinnae deeply lobed; round sori in two rows on underside, no indusium',
+        'Often on neutral to calcareous rock; drought tolerant'
+      ],
       features: 'Evergreen, grows on rocks and stumps. Deeply lobed pinnae, leathery texture. Drought tolerant.'
     },
     {
@@ -1250,6 +1287,11 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      uniqueCharacters: [
+        'Once-pinnate, evergreen; small leathery fronds on rock, especially acidic (e.g. sandstone)',
+        'Very similar to Common Polypody; best told by substrate and range (e.g. Appalachian region)',
+        'Round sori in two rows on underside, no indusium; pinnae often with pointed tips'
+      ],
       features: 'Evergreen, grows on acidic rocks. Similar to Common Polypody but prefers acidic substrates.'
     },
     {
@@ -2196,6 +2238,16 @@ const FernIdentifier = () => {
             </div>
           ) : matches.length === 1 ? (
             <div className="bg-green-50 border-2 border-green-500 rounded-lg p-6">
+              {matches[0].uniqueCharacters && matches[0].uniqueCharacters.length > 0 && (
+                <div className="mb-4 pb-4 border-b border-green-200">
+                  <p className="text-sm font-semibold text-green-800 mb-2">Distinguishing characters</p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    {matches[0].uniqueCharacters.map((char, i) => (
+                      <li key={i}>{char}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="flex items-start gap-3 mb-4">
                 <Leaf className="text-green-600 mt-1" size={24} />
                 <div>
@@ -2760,10 +2812,17 @@ const FernIdentifier = () => {
                 Back
               </button>
               <h1 className="text-2xl font-bold text-gray-800 mb-4">Horsetail Morphology, Details</h1>
-              <div className="text-center py-6">
-                <TrafficCone className="mx-auto mb-4 text-orange-500" size={64} />
-                <p className="text-gray-600">Under construction</p>
-              </div>
+              <p className="text-gray-600 mb-4">Characters used to tell horsetail species apart:</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                <li><strong>Branched vs unbranched</strong> — Subgenus <em>Equisetum</em> (true horsetails) have whorled, green branches from the nodes; subgenus <em>Hippochaete</em> (scouring rushes) are usually unbranched or sparsely branched.</li>
+                <li><strong>Separate fertile stems</strong> — Some species (e.g. Field Horsetail) have ephemeral, non-green fertile stems in spring and later green sterile stems; others have fertile cones on green stems.</li>
+                <li><strong>Stem ridges and texture</strong> — Number of ridges (often matches number of sheath teeth); smooth vs rough (silica bands); stem diameter and height.</li>
+                <li><strong>Sheath (nodal collar)</strong> — Shape and length of the sheath at each node; number and color of teeth (e.g. black-tipped, white-margined); whether it is loose or tight.</li>
+                <li><strong>Central canal</strong> — Relative size of the hollow center (e.g. large central canal vs smaller or multiple canals) seen in a cross-section.</li>
+                <li><strong>Strobilus</strong> — Position (terminal on fertile stem vs on green stem); shape (pointed vs blunt); persistence.</li>
+                <li><strong>Habitat</strong> — Wet (aquatic, marsh, streamside), moist woodland, or drier ground; sun vs shade.</li>
+                <li><strong>Size and habit</strong> — Dwarf vs tall; single stems vs dense clumps; evergreen vs dying back.</li>
+              </ul>
               <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
                 <button
                   onClick={() => setShowHorsetailDatabase(true)}
@@ -2990,10 +3049,15 @@ const FernIdentifier = () => {
                 Back
               </button>
               <h1 className="text-2xl font-bold text-gray-800 mb-4">Clubmoss Morphology, Details</h1>
-              <div className="text-center py-6">
-                <TrafficCone className="mx-auto mb-4 text-orange-500" size={64} />
-                <p className="text-gray-600">Under construction</p>
-              </div>
+              <p className="text-gray-600 mb-4">Characters of a clubmoss (Lycopodiaceae):</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                <li><strong>Microphylls</strong> — Small, simple leaves with a single unbranched vein; arranged in a spiral or whorled along the stem.</li>
+                <li><strong>Stems</strong> — Creeping (along the ground), ascending, or upright; branching variable (dichotomous or lateral); no true roots like ferns—roots are adventitious.</li>
+                <li><strong>Strobili (spore cones)</strong> — Terminal or lateral; sessile or on a stalk; shape (cylindrical, club-like) and number vary; bear sporangia that release spores.</li>
+                <li><strong>Size and habit</strong> — Low, often under 1 foot; mat-forming, trailing, or with upright shoots; evergreen.</li>
+                <li><strong>Leaves</strong> — Scale-like to needle-like; uniform or dimorphic (e.g. on strobilus vs on vegetative stem); persistent.</li>
+                <li><strong>Habitat</strong> — Typically moist or wooded; forest floor, bogs, rock; often in shade.</li>
+              </ul>
               <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
                 <button
                   onClick={() => setShowClubmossDatabase(true)}
@@ -3003,6 +3067,37 @@ const FernIdentifier = () => {
                   <ChevronRight size={20} />
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showSpikeMossDetails) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => setShowSpikeMossDetails(false)}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Spike Moss Morphology, Details</h1>
+              <p className="text-gray-600 mb-4">Characters of a spike moss (Selaginellaceae):</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                <li><strong>Microphylls</strong> — Tiny, scale-like leaves with a single vein; arranged in four ranks or flattened (frond-like); often dimorphic (lateral vs median leaves).</li>
+                <li><strong>Ligule</strong> — Small tongue-like flap near the base of each leaf on the upper side; present in all <em>Selaginella</em> and useful for identification.</li>
+                <li><strong>Stems</strong> — Branching (often dichotomous); creeping, ascending, or erect; may bear rhizophores (root-like structures that grow down from the stem).</li>
+                <li><strong>Rhizophores</strong> — Leafless, root-like branches that produce roots; position (along stem) can help tell species apart.</li>
+                <li><strong>Strobili (spore cones)</strong> — Terminal, often four-sided or flattened; heterosporous (produce both megaspores and microspores), unlike most clubmosses.</li>
+                <li><strong>Size and habit</strong> — Small, low; mat-forming or trailing; some species can curl when dry and revive when wet (resurrection plants).</li>
+                <li><strong>Habitat</strong> — Moist, shady, or rocky; forest floor, cliffs, stream banks; a few in seasonally dry or xeric sites.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -3027,9 +3122,49 @@ const FernIdentifier = () => {
                 Back
               </button>
               <h1 className="text-2xl font-bold text-gray-800 mb-4">Spike Moss Morphology</h1>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 Spike mosses (Selaginellaceae) are small, often mat-forming lycophytes with branching stems and tiny scale-like leaves. They bear strobili and many have a ligule. They occur in moist, shady, or rocky habitats.
               </p>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setShowSpikeMossDetails(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Details
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (showQuillwortDetails) {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <button
+                onClick={() => setShowQuillwortDetails(false)}
+                className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
+              >
+                <ChevronLeft size={20} />
+                Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Quillwort Morphology, Details</h1>
+              <p className="text-gray-600 mb-4">Characters of a quillwort (<em>Isoetes</em>):</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                <li><strong>Leaves</strong> — Quill-like, narrow, in a basal rosette; microphylls with a single vein; often hollow or with internal air channels; base expanded and wrapping the stem (where sporangium sits).</li>
+                <li><strong>Stem (corm)</strong> — Short, tuberous, corm-like; mostly below ground; bears the leaves above and roots below.</li>
+                <li><strong>Sporangia</strong> — Sunken in the expanded, spoon-shaped base of each leaf; heterosporous (megaspores and microspores in different sporangia).</li>
+                <li><strong>Ligule</strong> — Small flap on the upper side of the leaf base, near the sporangium; present in all <em>Isoetes</em>.</li>
+                <li><strong>Roots</strong> — Emerge from the lower part of the corm; often simple and unbranched.</li>
+                <li><strong>Size and habit</strong> — Small; leaves usually a few inches to about a foot; rosette often submerged or at the water edge.</li>
+                <li><strong>Habitat</strong> — Aquatic or semi-aquatic; shallow water, wet mud, seasonally flooded pools, lake margins; a few in wet terrestrial sites.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -3054,9 +3189,18 @@ const FernIdentifier = () => {
                 Back
               </button>
               <h1 className="text-2xl font-bold text-gray-800 mb-4">Quillwort Morphology</h1>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 Quillworts (<em>Isoetes</em>) are aquatic or semi-aquatic lycophytes with a short, corm-like stem and quill-like leaves in a basal rosette. Spores are produced in sunken sporangia at the leaf bases. They grow in shallow water or wet soils.
               </p>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setShowQuillwortDetails(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                >
+                  Details
+                  <ChevronRight size={20} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
