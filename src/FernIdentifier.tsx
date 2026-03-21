@@ -656,24 +656,24 @@ const INTRO_LINES = [
 const LYCOPHYTE_INTRO_PARAGRAPH = `Ferns, lycophytes, and horsetails all reproduce by spores, but they look very different. Ferns have fronds with pinnae and sori; lycophytes have tiny leaves and spore cones (strobili); horsetails have hollow jointed stems and no true fronds. If you've found a plant that doesn't match fern structure, it may be a lycophyte or horsetail—and those use different keys and terms. This section outlines their morphology so you know which kind of key to use.`;
 
 const HORSETAIL_DATABASE = [
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. arvense', commonName: 'Field Horsetail', primaryRange: 'Circumboreal (Northern Hemisphere)', description: 'Field horsetail has a sterile and a fertile form. The sterile form is green with whorls. The fertile form is only seen in spring for a few weeks. It does not have any chlorophyll. The single strobilus is covered in hexagons that open to reveal and release the spores.' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. bogotense', commonName: 'Andean Horsetail', primaryRange: 'Central & South America' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. diffusum', commonName: 'Himalayan Horsetail', primaryRange: 'Himalayan region' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. fluviatile', commonName: 'Water Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. palustre', commonName: 'Marsh Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. pratense', commonName: 'Meadow Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. sylvaticum', commonName: 'Wood Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. telmateia', commonName: 'Great Horsetail', primaryRange: 'Europe, W. Asia, N. Africa' },
-  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. braunii', commonName: 'Giant Horsetail', primaryRange: 'Western North America' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. giganteum', commonName: 'Southern Giant Horsetail', primaryRange: 'Central & South America' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. hyemale', commonName: 'Rough Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. laevigatum', commonName: 'Smooth Horsetail', primaryRange: 'North America' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. myriochaetum', commonName: 'Mexican Giant Horsetail', primaryRange: 'Mexico to Peru' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. praealtum', commonName: 'Scouring Rush', primaryRange: 'North America' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. ramosissimum', commonName: 'Branched Horsetail', primaryRange: 'Asia, Europe, Africa' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. scirpoides', commonName: 'Dwarf Horsetail', primaryRange: 'Arctic/Subarctic regions' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. variegatum', commonName: 'Variegated Horsetail', primaryRange: 'Northern Hemisphere' },
-  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. xylochaetum', commonName: 'Atacama Giant Horsetail', primaryRange: 'Chile & Peru' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. arvense', commonName: 'Field Horsetail', primaryRange: 'Circumboreal (Northern Hemisphere)', branching: 'branched', description: 'Field horsetail has a sterile and a fertile form. The sterile form is green with whorls. The fertile form is only seen in spring for a few weeks. It does not have any chlorophyll. The single strobilus is covered in hexagons that open to reveal and release the spores.' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. bogotense', commonName: 'Andean Horsetail', primaryRange: 'Central & South America', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. diffusum', commonName: 'Himalayan Horsetail', primaryRange: 'Himalayan region', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. fluviatile', commonName: 'Water Horsetail', primaryRange: 'Northern Hemisphere', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. palustre', commonName: 'Marsh Horsetail', primaryRange: 'Northern Hemisphere', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. pratense', commonName: 'Meadow Horsetail', primaryRange: 'Northern Hemisphere', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. sylvaticum', commonName: 'Wood Horsetail', primaryRange: 'Northern Hemisphere', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. telmateia', commonName: 'Great Horsetail', primaryRange: 'Europe, W. Asia, N. Africa', branching: 'branched' },
+  { subgenus: 'Equisetum', subgenusLabel: 'Subgenus Equisetum (True Horsetails)', scientificName: 'E. braunii', commonName: 'Giant Horsetail', primaryRange: 'Western North America', branching: 'branched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. giganteum', commonName: 'Southern Giant Horsetail', primaryRange: 'Central & South America', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. hyemale', commonName: 'Rough Horsetail', primaryRange: 'Northern Hemisphere', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. laevigatum', commonName: 'Smooth Horsetail', primaryRange: 'North America', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. myriochaetum', commonName: 'Mexican Giant Horsetail', primaryRange: 'Mexico to Peru', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. praealtum', commonName: 'Scouring Rush', primaryRange: 'North America', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. ramosissimum', commonName: 'Branched Horsetail', primaryRange: 'Asia, Europe, Africa', branching: 'branched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. scirpoides', commonName: 'Dwarf Horsetail', primaryRange: 'Arctic/Subarctic regions', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. variegatum', commonName: 'Variegated Horsetail', primaryRange: 'Northern Hemisphere', branching: 'unbranched' },
+  { subgenus: 'Hippochaete', subgenusLabel: 'Subgenus Hippochaete (Scouring Rushes)', scientificName: 'E. xylochaetum', commonName: 'Atacama Giant Horsetail', primaryRange: 'Chile & Peru', branching: 'unbranched' },
 ];
 
 const CLUBMOSS_DATABASE = [
@@ -682,6 +682,33 @@ const CLUBMOSS_DATABASE = [
   { scientificName: 'Diphasiastrum digitatum', commonName: 'Fan Clubmoss', primaryRange: 'Eastern North America' },
   { scientificName: 'Huperzia lucidula', commonName: 'Shining Clubmoss', primaryRange: 'Eastern North America' },
 ];
+
+/** Horsetail DB uses "E. arvense"; expand to "Equisetum arvense" for iNaturalist search */
+function inaturalistTaxonSearchQuery(scientificName) {
+  const t = (scientificName || '').trim();
+  if (!t) return '';
+  if (/^E\.\s+/i.test(t)) return 'Equisetum ' + t.replace(/^E\.\s+/i, '');
+  return t;
+}
+
+function InaturalistSpeciesLink({ scientificName, className = 'mt-3 text-sm' }) {
+  const q = inaturalistTaxonSearchQuery(scientificName);
+  if (!q) return null;
+  const href = `https://www.inaturalist.org/observations?taxon_name=${encodeURIComponent(q)}`;
+  return (
+    <p className={className}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-green-700 hover:text-green-900 font-medium underline underline-offset-2"
+        onClick={(e) => e.stopPropagation()}
+      >
+        View map and observations on iNaturalist (opens in new tab)
+      </a>
+    </p>
+  );
+}
 
 const FernIdentifier = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -694,6 +721,7 @@ const FernIdentifier = () => {
   const [showHorsetailDatabase, setShowHorsetailDatabase] = useState(false);
   const [horsetailSearchQuery, setHorsetailSearchQuery] = useState('');
   const [horsetailExpandedScientific, setHorsetailExpandedScientific] = useState(null);
+  const [horsetailDetailsBranchingChoice, setHorsetailDetailsBranchingChoice] = useState(null);
   const [showClubmossesUnderConstruction, setShowClubmossesUnderConstruction] = useState(false);
   const [showClubmossDetails, setShowClubmossDetails] = useState(false);
   const [showClubmossDatabase, setShowClubmossDatabase] = useState(false);
@@ -2047,6 +2075,7 @@ const FernIdentifier = () => {
                       <div className="mt-1 text-xs text-gray-500">
                         Habitat: {formatHabitat(fern)}
                       </div>
+                      <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
                       {isExpanded && hasPhotos && (
                         <div className="mt-4 pt-4 border-t border-green-200">
                           <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
@@ -2159,6 +2188,7 @@ const FernIdentifier = () => {
                         {hasPhotos && (
                           <p className="text-xs text-green-600 mt-1">Click to {isExpanded ? 'hide' : 'show'} photos</p>
                         )}
+                        <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
                         {isExpanded && hasPhotos && (
                           <div className="mt-4 pt-4 border-t border-green-200">
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -2380,6 +2410,7 @@ const FernIdentifier = () => {
                   <ClickableImg src={dennstaedtiaPunctilobula2Img} alt="Hay-scented Fern (Dennstaedtia punctilobula) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
                 </div>
               )}
+              <InaturalistSpeciesLink scientificName={matches[0].scientific} className="mt-4 text-sm" />
             </div>
           ) : (
             <div>
@@ -2401,6 +2432,7 @@ const FernIdentifier = () => {
                             ))}
                           </div>
                         )}
+                        <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-3 text-sm" />
                       </div>
                     </div>
                   </div>
@@ -2704,7 +2736,7 @@ const FernIdentifier = () => {
     const searchLower = horsetailSearchQuery.trim().toLowerCase();
     const filtered = searchLower
       ? HORSETAIL_DATABASE.filter(h => {
-          const text = `${h.commonName} ${h.scientificName} ${h.primaryRange} ${h.subgenusLabel}`.toLowerCase();
+          const text = `${h.commonName} ${h.scientificName} ${h.primaryRange} ${h.subgenusLabel} ${h.branching}`.toLowerCase();
           return text.includes(searchLower);
         })
       : HORSETAIL_DATABASE;
@@ -2735,7 +2767,7 @@ const FernIdentifier = () => {
                   type="text"
                   value={horsetailSearchQuery}
                   onChange={e => setHorsetailSearchQuery(e.target.value)}
-                  placeholder="Search by common name, scientific name, or range..."
+                  placeholder="Search by name, range, branched, unbranched..."
                   className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
                   aria-label="Search horsetail database"
                 />
@@ -2769,9 +2801,14 @@ const FernIdentifier = () => {
                               <h3 className="font-bold text-gray-800">{h.commonName}</h3>
                               <p className="text-sm text-gray-600 italic">{h.scientificName}</p>
                               <p className="text-sm text-gray-700 mt-1">Range: {h.primaryRange}</p>
+                              <p className="text-sm text-gray-700 mt-1">
+                                <span className="font-semibold text-gray-800">Key:</span>{' '}
+                                {h.branching === 'branched' ? 'Branched (whorled side branches)' : 'Unbranched (scouring-rush type)'}
+                              </p>
                               {h.description && (
                                 <p className="text-sm text-gray-700 mt-2 leading-relaxed">{h.description}</p>
                               )}
+                              <InaturalistSpeciesLink scientificName={h.scientificName} className="mt-2 text-sm" />
                               {isExpanded && hasPhotos && (
                                 <div className="mt-4 pt-4 border-t border-green-200">
                                   <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
@@ -2807,7 +2844,10 @@ const FernIdentifier = () => {
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <button
-                onClick={() => setShowHorsetailDetails(false)}
+                onClick={() => {
+                  setHorsetailDetailsBranchingChoice(null);
+                  setShowHorsetailDetails(false);
+                }}
                 className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg px-3 py-2 -ml-2 transition w-fit"
               >
                 <ChevronLeft size={20} />
@@ -2831,9 +2871,50 @@ const FernIdentifier = () => {
                 <li><strong>Habitat</strong> — Wet (aquatic, marsh, streamside), moist woodland, or drier ground; sun vs shade.</li>
                 <li><strong>Size and habit</strong> — Dwarf vs tall; single stems vs dense clumps; evergreen vs dying back.</li>
               </ul>
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <p className="font-semibold text-gray-800 mb-3">Is your plant branched or unbranched?</p>
+                <p className="text-sm text-gray-600 mb-4">Choose what best matches the stems you see. This helps narrow the species list on the next screen.</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setHorsetailDetailsBranchingChoice('branched')}
+                    className={`flex-1 px-4 py-3 rounded-lg border-2 text-left transition font-medium ${
+                      horsetailDetailsBranchingChoice === 'branched'
+                        ? 'border-green-600 bg-green-50 text-green-900'
+                        : 'border-gray-200 hover:border-green-400 hover:bg-green-50/50 text-gray-800'
+                    }`}
+                  >
+                    <span className="block font-semibold">Branched</span>
+                    <span className="text-sm font-normal text-gray-600">Whorls of green side branches from the nodes (true horsetails, subgenus <em>Equisetum</em>)</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setHorsetailDetailsBranchingChoice('unbranched')}
+                    className={`flex-1 px-4 py-3 rounded-lg border-2 text-left transition font-medium ${
+                      horsetailDetailsBranchingChoice === 'unbranched'
+                        ? 'border-green-600 bg-green-50 text-green-900'
+                        : 'border-gray-200 hover:border-green-400 hover:bg-green-50/50 text-gray-800'
+                    }`}
+                  >
+                    <span className="block font-semibold">Unbranched</span>
+                    <span className="text-sm font-normal text-gray-600">Mostly a single stem, no whorls of branches (scouring rushes, subgenus <em>Hippochaete</em>)</span>
+                  </button>
+                </div>
+                {horsetailDetailsBranchingChoice === 'branched' && (
+                  <p className="text-sm text-gray-600 mt-3">Next will open the list filtered to <strong>branched</strong> species. Clear the search box to see all species again.</p>
+                )}
+                {horsetailDetailsBranchingChoice === 'unbranched' && (
+                  <p className="text-sm text-gray-600 mt-3">Next will open the list filtered to <strong>unbranched</strong> species. (<em>E. ramosissimum</em> is branched and won’t appear in this filter.) Clear the search box to see all species again.</p>
+                )}
+              </div>
               <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
                 <button
-                  onClick={() => setShowHorsetailDatabase(true)}
+                  onClick={() => {
+                    setShowHorsetailDatabase(true);
+                    if (horsetailDetailsBranchingChoice) {
+                      setHorsetailSearchQuery(horsetailDetailsBranchingChoice);
+                    }
+                  }}
                   className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
                 >
                   Next
@@ -2869,7 +2950,10 @@ const FernIdentifier = () => {
               </p>
               <div className="flex justify-center mb-8">
                 <button
-                  onClick={() => setShowHorsetailDetails(true)}
+                  onClick={() => {
+                    setHorsetailDetailsBranchingChoice(null);
+                    setShowHorsetailDetails(true);
+                  }}
                   className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
                 >
                   Next
@@ -2896,7 +2980,10 @@ const FernIdentifier = () => {
               </div>
               <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
                 <button
-                  onClick={() => setShowHorsetailDetails(true)}
+                  onClick={() => {
+                    setHorsetailDetailsBranchingChoice(null);
+                    setShowHorsetailDetails(true);
+                  }}
                   className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
                 >
                   Next
@@ -2969,6 +3056,7 @@ const FernIdentifier = () => {
                         <h3 className="font-bold text-gray-800">{c.commonName}</h3>
                         <p className="text-sm text-gray-600 italic">{c.scientificName}</p>
                         <p className="text-sm text-gray-700 mt-1">Range: {c.primaryRange}</p>
+                        <InaturalistSpeciesLink scientificName={c.scientificName} className="mt-2 text-sm" />
                         {isExpanded && hasPhotos && (
                           <div className="mt-4 pt-4 border-t border-green-200">
                             <p className="text-xs font-medium text-green-800 mb-2">Photos</p>
