@@ -1087,7 +1087,7 @@ const FernIdentifier = () => {
     {
       name: 'Royal Fern',
       scientific: 'Osmunda regalis',
-      regions: ['northeast', 'atlantic', 'uk'],
+      regions: ['northeast', 'atlantic', 'uk', 'europe'],
       habitat: ['wetland', 'stream'],
       frondType: 'twice',
       size: 'large',
@@ -1147,7 +1147,7 @@ const FernIdentifier = () => {
     {
       name: 'Marsh Fern',
       scientific: 'Thelypteris palustris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
       habitat: ['wetland', 'stream'],
       frondType: 'once',
       size: 'medium',
@@ -1177,7 +1177,7 @@ const FernIdentifier = () => {
     {
       name: 'Common Polypody',
       scientific: 'Polypodium virginianum',
-      regions: ['northeast', 'atlantic', 'uk'],
+      regions: ['northeast', 'atlantic'],
       habitat: ['rock', 'forest'],
       frondType: 'once',
       size: 'small',
@@ -1192,7 +1192,7 @@ const FernIdentifier = () => {
     {
       name: 'Spinulose Wood Fern',
       scientific: 'Dryopteris carthusiana',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
       habitat: ['forest', 'wetland'],
       frondType: 'thrice',
       size: 'medium',
@@ -1212,7 +1212,7 @@ const FernIdentifier = () => {
     {
       name: 'Long Beech Fern',
       scientific: 'Phegopteris connectilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
       habitat: ['forest', 'rock'],
       frondType: 'pinnatifid',
       size: 'small',
@@ -1252,7 +1252,7 @@ const FernIdentifier = () => {
     {
       name: 'Fragile Fern',
       scientific: 'Cystopteris fragilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
       habitat: ['rock'],
       frondType: 'twice',
       size: 'small',
@@ -1282,7 +1282,7 @@ const FernIdentifier = () => {
     {
       name: 'Crested Wood Fern',
       scientific: 'Dryopteris cristata',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'uk', 'europe'],
       habitat: ['wetland', 'forest'],
       frondType: 'twice',
       size: 'medium',
@@ -1357,7 +1357,7 @@ const FernIdentifier = () => {
     {
       name: 'Hart\'s-tongue Fern',
       scientific: 'Asplenium scolopendrium',
-      regions: ['uk'],
+      regions: ['uk', 'europe'],
       habitat: ['rock', 'forest'],
       frondType: 'simple',
       size: 'medium',
@@ -1373,6 +1373,436 @@ const FernIdentifier = () => {
       size: 'large',
       texture: 'leathery',
       features: 'Robust semi-evergreen fern with golden-brown scales on stems. Very common in woodlands. Fronds arch gracefully.'
+    },
+    {
+      name: 'Adder\'s Tongue',
+      scientific: 'Ophioglossum vulgatum',
+      regions: ['uk', 'europe'],
+      habitat: ['open', 'wetland'],
+      frondType: 'simple',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Small fern with a single simple sterile blade and separate fertile spike bearing sporangia. Grassland, meadows, and damp places in the British Isles.'
+    },
+    {
+      name: 'Small Adder\'s Tongue',
+      scientific: 'Ophioglossum azoricum',
+      regions: ['uk', 'europe'],
+      habitat: ['wetland', 'open'],
+      frondType: 'simple',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Tiny; very rare in the British Isles (e.g. western Ireland, Scilly). Damp short turf and mossy ground.'
+    },
+    {
+      name: 'Least Adder\'s Tongue',
+      scientific: 'Ophioglossum lusitanicum',
+      regions: ['uk', 'europe'],
+      habitat: ['wetland', 'open'],
+      frondType: 'simple',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Minute; rare in southwest England and Wales. Seasonally wet, often bare ground on heaths.'
+    },
+    {
+      name: 'Rustyback',
+      scientific: 'Asplenium ceterach',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'pinnatifid',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Gray-green pinnatifid fronds; underside turns rusty brown. Walls, mortar, and limestone rocks.'
+    },
+    {
+      name: 'Holly Fern',
+      scientific: 'Polystichum lonchitis',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'once',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Evergreen; stiff dark fronds with spine-tipped pinnae. Montane rocks and ledges in Scotland and north.'
+    },
+    {
+      name: 'Green Spleenwort',
+      scientific: 'Asplenium viride',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Bright green pinnae on dark stems. Basic rocks, montane; Scottish Highlands and north Wales.'
+    },
+    {
+      name: 'Sea Spleenwort',
+      scientific: 'Asplenium marinum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Thick leathery fronds; tolerates sea spray. Coastal rocks, crevices, and walls.'
+    },
+    {
+      name: 'Moonwort',
+      scientific: 'Botrychium lunaria',
+      regions: ['uk', 'europe'],
+      habitat: ['open', 'forest'],
+      frondType: 'simple',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Small sterile fan-shaped blade and erect fertile segment with grape-like sporangia. Unimproved grassland, uplands; widespread but local.'
+    },
+    {
+      name: 'Hard Fern',
+      scientific: 'Struthiopteris spicant',
+      regions: ['uk', 'europe'],
+      habitat: ['forest'],
+      frondType: 'once',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Dimorphic: flat dark sterile fronds and erect fertile fronds with narrow segments. Acid woodland and moorland; also known as Blechnum spicant.'
+    },
+    {
+      name: 'Southern Polypody',
+      scientific: 'Polypodium cambricum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Evergreen polypody; often on rocks and trees. Mainly western and southern Britain and Ireland.'
+    },
+    {
+      name: 'Intermediate Polypody',
+      scientific: 'Polypodium interjectum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Hybrid-derived aggregate member; evergreen on rocks, walls, and bark. Widespread in the British Isles.'
+    },
+    {
+      name: 'Polypody',
+      scientific: 'Polypodium vulgare',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Common evergreen polypody on rocks, walls, and tree trunks. The typical Polypodium of the British Isles (distinct from North American P. virginianum).'
+    },
+    {
+      name: 'Killarney Fern',
+      scientific: 'Vandenboschia speciosa',
+      regions: ['uk', 'europe'],
+      habitat: ['wetland', 'rock'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Rare filmy fern; translucent fronds. Deeply shaded humid rock crevices and gorges, mainly western Ireland and Britain.'
+    },
+    {
+      name: 'Tunbridge Filmy-fern',
+      scientific: 'Hymenophyllum tunbridgense',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'One cell thick; requires constant moisture. Shaded wet rocks and banks, mainly western Britain and Ireland. Epithet often spelled tunbridgense (from Tunbridge Wells); synonym H. tunbrigense in some checklists.'
+    },
+    {
+      name: 'Wilson\'s Filmy-fern',
+      scientific: 'Hymenophyllum wilsonii',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Similar to Tunbridge; on damp shaded rocks, especially in the west.'
+    },
+    {
+      name: 'Forked Spleenwort',
+      scientific: 'Asplenium septentrionale',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Forked pinnae; basic rock crevices. Local in Scotland, north Wales, and northern England.'
+    },
+    {
+      name: 'Wall-rue',
+      scientific: 'Asplenium ruta-muraria',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'pinnatifid',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Small blue-green pinnatifid fronds. Mortar, old walls, and limestone.'
+    },
+    {
+      name: 'Maidenhair Fern (Southern)',
+      scientific: 'Adiantum capillus-veneris',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'stream'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Fan-shaped leaflets on black stalks; needs humid lime-rich or coastal sites. Southwest England, Ireland, Wales; not the North American A. pedatum.'
+    },
+    {
+      name: 'Jersey Fern',
+      scientific: 'Anogramma leptophylla',
+      regions: ['uk'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Very rare; tiny delicate fern. Sheltered rocky places; mainly Channel Islands and a few mainland sites.'
+    },
+    {
+      name: 'Alpine Woodsia',
+      scientific: 'Woodsia alpina',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Small tufted fern of montane basic rock crevices. Scottish Highlands.'
+    },
+    {
+      name: 'Oblong Woodsia',
+      scientific: 'Woodsia ilvensis',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Rusty-hairy stipes; rocks and cliffs. Northern and western Britain, local.'
+    },
+    {
+      name: 'Lanceolate Spleenwort',
+      scientific: 'Asplenium obovatum subsp. lanceolatum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Coastal rocks and walls; southwest England, Wales, Ireland, Isles of Scilly.'
+    },
+    {
+      name: 'Black Spleenwort',
+      scientific: 'Asplenium adiantum-nigrum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Dark stalks, triangular blade; basic rocks, walls, and woodland. Widespread in the British Isles.'
+    },
+    {
+      name: 'Rigid Buckler-fern',
+      scientific: 'Dryopteris submontana',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Compact evergreen; limestone rocks and scree. North Wales, northern England, Scotland.'
+    },
+    {
+      name: 'Mountain Male-fern',
+      scientific: 'Dryopteris oreades',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Montane rocky habitats; similar to other male-ferns. Scottish Highlands and north.'
+    },
+    {
+      name: 'Golden Scaly Male-fern',
+      scientific: 'Dryopteris affinis',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'stream'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      features: 'Large evergreen with golden scales on stipe; wet woods and stream sides. Widespread in the British Isles.'
+    },
+    {
+      name: 'Borrer\'s Scaly Male-fern',
+      scientific: 'Dryopteris borreri',
+      regions: ['uk', 'europe'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      features: 'Part of the Dryopteris affinis complex; woodland and shady places.'
+    },
+    {
+      name: 'Narrow Scaly Male-fern',
+      scientific: 'Dryopteris cambrensis',
+      regions: ['uk'],
+      habitat: ['forest', 'rock'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Scottish endemic aggregate taxon; rocky woods and montane areas.'
+    },
+    {
+      name: 'Alpine Lady-fern',
+      scientific: 'Athyrium distentifolium',
+      regions: ['uk', 'europe'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Montane lady-fern of cool rocky places and high ground. Scottish Highlands (also recorded as Pseudathyrium distentifolium).'
+    },
+    {
+      name: 'Flexile Lady-fern',
+      scientific: 'Athyrium distentifolium var. flexile',
+      regions: ['uk'],
+      habitat: ['rock', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Variety of alpine lady-fern with more arching fronds; montane rocks and ledges, mainly Scotland.'
+    },
+    {
+      name: 'Lemon-scented Fern',
+      scientific: 'Oreopteris limbosperma',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'wetland'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Smells of lemon when crushed; upland moors, woods, and acidic soils. Widespread in Britain and Ireland.'
+    },
+    {
+      name: 'Soft Shield-fern',
+      scientific: 'Polystichum setiferum',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'rock'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Common evergreen with finely divided soft pinnae. Hedges, woods, and rocky banks.'
+    },
+    {
+      name: 'Hard Shield-fern',
+      scientific: 'Polystichum aculeatum',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'rock'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      features: 'Stiffer than soft shield-fern; spine-tipped pinnae. Woods, rocks, and walls.'
+    },
+    {
+      name: 'Diaphanous Bladder-fern',
+      scientific: 'Cystopteris diaphana',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Similar to brittle bladder-fern; montane and western oceanic sites.'
+    },
+    {
+      name: 'Dickie\'s Bladder-fern',
+      scientific: 'Cystopteris dickieana',
+      regions: ['uk'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Coastal and basic rocks; northeast Scotland and Orkney, local elsewhere.'
+    },
+    {
+      name: 'Pinewood Bracken',
+      scientific: 'Pteridium pinetorum',
+      regions: ['uk', 'europe'],
+      habitat: ['forest'],
+      frondType: 'thrice',
+      size: 'large',
+      texture: 'leathery',
+      features: 'Often treated as part of or closely related to P. aquilinum (e.g. subsp. pinetorum or regional segregate); typical in pinewoods and open woodland in Britain, Ireland, and parts of Europe.'
+    },
+    {
+      name: 'Limestone Fern',
+      scientific: 'Gymnocarpium robertianum',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Delicate triangular fronds; limestone pavements and basic rocks. North and west Britain, local.'
+    },
+    {
+      name: 'Parsley Fern',
+      scientific: 'Cryptogramma crispa',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Sterile fronds parsley-like, fertile taller and narrow. Montane rocks and scree.'
+    },
+    {
+      name: 'Mountain Bladder-fern',
+      scientific: 'Cystopteris montana',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'twice',
+      size: 'small',
+      texture: 'delicate',
+      features: 'Montane rock crevices; Scottish Highlands and rare elsewhere.'
+    },
+    {
+      name: 'Irish Spleenwort',
+      scientific: 'Asplenium onopteris',
+      regions: ['uk', 'europe'],
+      habitat: ['rock'],
+      frondType: 'once',
+      size: 'small',
+      texture: 'leathery',
+      features: 'Similar to maidenhair spleenwort; basic rocks. Ireland, western Britain, local.'
+    },
+    {
+      name: 'Hay-scented Buckler-fern',
+      scientific: 'Dryopteris aemula',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'wetland'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Hay scent when crushed; moist Atlantic woodland. West Britain and Ireland.'
+    },
+    {
+      name: 'Northern Buckler-fern',
+      scientific: 'Dryopteris expansa',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'wetland'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Moist woods, stream sides, and uplands; northern and western British Isles.'
+    },
+    {
+      name: 'Broad Buckler-fern',
+      scientific: 'Dryopteris dilatata',
+      regions: ['uk', 'europe'],
+      habitat: ['forest', 'wetland'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      features: 'Common in damp acid woodland and moorland edges; very widespread in the British Isles.'
     },
     {
       name: 'Soft Tree Fern (Kātote)',
@@ -3421,7 +3851,7 @@ const FernIdentifier = () => {
 
         {!showLesson && (
           <p className="text-center text-sm text-gray-600 mt-4">
-            Database includes 40 fern species across North America, UK, and Europe
+            Database includes 84 fern species across North America, UK, and Europe
           </p>
         )}
 
