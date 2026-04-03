@@ -1813,6 +1813,79 @@ const FernIdentifier = () => {
       size: 'large',
       texture: 'leathery',
       features: 'New Zealand tree fern. Also known as Kātote. Large fern with trunk; soft fronds.'
+    },
+    {
+      name: 'Soft Tree Fern (Tasmanian)',
+      scientific: 'Dicksonia antarctica',
+      regions: ['australia'],
+      habitat: ['forest', 'wetland'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      uniqueCharacters: [
+        'Trunk often thick and covered in persistent roots and old stipe bases (fibrous “skirt”)',
+        'Crown of very large arching fronds; stipes densely hairy or woolly when young',
+        'Sori in marginal cups on reduced fertile pinnules (no indusia like many Cyathea)'
+      ],
+      features: 'Common tree fern of cool-temperate rainforest, gullies, and wet sclerophyll in Tasmania, Victoria, and New South Wales. Often the default “tree fern” of parks and gardens in southern Australia.'
+    },
+    {
+      name: 'Rough Tree Fern',
+      scientific: 'Cyathea australis',
+      regions: ['australia'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      uniqueCharacters: [
+        'Trunk usually tall, slender, with rough persistent stipe bases (rougher than many Dicksonia trunks)',
+        'Fronds large; sori on pinnules, typically with cup- or hood-like indusia',
+        'Often grows with Dicksonia antarctica; rougher trunk and different soral detail help separate them'
+      ],
+      features: 'Widespread in eastern Australian forests from Queensland through New South Wales and Victoria. Frequently planted; sometimes placed in Alsophila in modern classifications.'
+    },
+    {
+      name: 'Lacy Tree Fern',
+      scientific: 'Cyathea cooperi',
+      regions: ['australia'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'delicate',
+      uniqueCharacters: [
+        'Very finely divided, “lacy” fronds compared to rough tree fern',
+        'Trunk often relatively smooth with neat circular leaf scars; fronds may be crown-forming',
+        'Popular ornamental; naturalized in some regions outside native range'
+      ],
+      features: 'Subtropical to warm-temperate eastern Australia (e.g. Queensland, New South Wales). Often sold as Australian tree fern. Also treated as Sphaeropteris cooperi in some modern systems.'
+    },
+    {
+      name: 'Prickly Tree Fern',
+      scientific: 'Cyathea leichhardtiana',
+      regions: ['australia'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      uniqueCharacters: [
+        'Stipes and rachises with noticeable prickles or spines',
+        'Large crown fronds; prefers moist gullies and rainforest margins in eastern Australia'
+      ],
+      features: 'Eastern Australian rainforest tree fern, overlapping in range with other Cyathea and Dicksonia; armature on the stipe is a good field clue.'
+    },
+    {
+      name: 'Bristly Tree Fern',
+      scientific: 'Dicksonia youngiae',
+      regions: ['australia'],
+      habitat: ['forest', 'rock'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      uniqueCharacters: [
+        'Stipes very bristly or hairy; trunk often shorter than Dicksonia antarctica in many sites',
+        'Restricted to wet escarpment and rainforest habitats in northern New South Wales and nearby'
+      ],
+      features: 'Specialist of cool, very humid forests on the Great Dividing Range; less widespread than D. antarctica.'
     }
   ];
 
@@ -3851,7 +3924,7 @@ const FernIdentifier = () => {
 
         {!showLesson && (
           <p className="text-center text-sm text-gray-600 mt-4">
-            Database includes 84 fern species across North America, UK, and Europe
+            Database includes 89 fern species across North America, UK, Europe, Australia, and New Zealand
           </p>
         )}
 
