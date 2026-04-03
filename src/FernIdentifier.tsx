@@ -177,6 +177,7 @@ import dryopterisGoldiana3Img from '../pictures/Id/Dryopteris_goldiana3.JPG';
 import dennstaedtiaPunctilobula1Img from '../pictures/Id/Dennstaedtia_puncitilobula1.JPG';
 import dennstaedtiaPunctilobula2Img from '../pictures/Id/Dennstaedtia_puncitilobula2.JPG';
 import cyatheaSmithiiImg from '../pictures/Id/Cyathea_smithii.JPG';
+import trichomanesReniformeImg from '../pictures/Id/Trichomanes_reniforme.JPG';
 import dendrolycopodiumObscurum1Img from '../pictures/Id/Dendrolycopodium_obscurum1.JPG';
 import dendrolycopodiumObscurum2Img from '../pictures/Id/Dendrolycopodium_obscurum2.JPG';
 import dendrolycopodiumObscurum3Img from '../pictures/Id/Dendrolycopodium_obscurum3.JPG';
@@ -1815,6 +1816,21 @@ const FernIdentifier = () => {
       features: 'New Zealand tree fern. Also known as Kātote. Large fern with trunk; soft fronds.'
     },
     {
+      name: 'Kidney Fern',
+      scientific: 'Trichomanes reniforme',
+      regions: ['new-zealand'],
+      habitat: ['wetland', 'rock', 'forest'],
+      frondType: 'simple',
+      size: 'small',
+      texture: 'delicate',
+      uniqueCharacters: [
+        'Sterile fronds undivided—rounded to kidney-shaped blades with entire margins',
+        'Thin, translucent filmy texture (Hymenophyllaceae); needs constant moisture',
+        'Creeping rhizome; often on wet rock faces, stream banks, and dripping banks'
+      ],
+      features: 'Endemic to New Zealand. Entire, undivided sterile fronds; grows in deeply shaded, constantly moist sites. Sometimes placed in Cardiomanes in modern classifications.'
+    },
+    {
       name: 'Soft Tree Fern (Tasmanian)',
       scientific: 'Dicksonia antarctica',
       regions: ['australia'],
@@ -1909,6 +1925,10 @@ const FernIdentifier = () => {
     if (scientific === 'Cyathea smithii')
       return [
         { src: cyatheaSmithiiImg, alt: `${fern.name} 1` },
+      ];
+    if (scientific === 'Trichomanes reniforme')
+      return [
+        { src: trichomanesReniformeImg, alt: `${fern.name} 1` },
       ];
     if (fern.scientific === 'Polystichum acrostichoides')
       return [
@@ -2792,125 +2812,11 @@ const FernIdentifier = () => {
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
-              {matches[0].name === 'Christmas Fern' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={polystichumAcrostichoides1Img} alt="Christmas Fern (Polystichum acrostichoides) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polystichumAcrostichoides2Img} alt="Christmas Fern (Polystichum acrostichoides) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polystichumAcrostichoides3Img} alt="Christmas Fern (Polystichum acrostichoides) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Adiantum pedatum' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={adiantumPedatum1Img} alt="Adiantum pedatum 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={adiantumPedatum2Img} alt="Adiantum pedatum 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Osmundastrum cinnamomeum' && (
-                <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <ClickableImg src={osmundastrumCinnamomeum1Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundastrumCinnamomeum2Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundastrumCinnamomeum3Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundastrumCinnamomeum4Img} alt="Cinnamon Fern (Osmundastrum cinnamomeum) 4" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Matteuccia struthiopteris' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={matteucciaStruthiopteris1Img} alt="Ostrich Fern (Matteuccia struthiopteris) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={matteucciaStruthiopteris2Img} alt="Ostrich Fern (Matteuccia struthiopteris) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={matteucciaStruthiopteris3Img} alt="Ostrich Fern (Matteuccia struthiopteris) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Osmunda claytoniana' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={osmundaClaytoniana1Img} alt="Interrupted Fern (Osmunda claytoniana) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundaClaytoniana2Img} alt="Interrupted Fern (Osmunda claytoniana) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundaClaytoniana3Img} alt="Interrupted Fern (Osmunda claytoniana) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Osmunda regalis' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={osmundaRegalis1Img} alt="Royal Fern (Osmunda regalis) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={osmundaRegalis2Img} alt="Royal Fern (Osmunda regalis) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {(matches[0].scientific === 'Thelypteris noveboracensis' || matches[0].scientific === 'Parathelypteris noveboracensis') && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={parathelypterisNoveboracensis1Img} alt={`${matches[0].name} (Parathelypteris noveboracensis) 1`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={parathelypterisNoveboracensis2Img} alt={`${matches[0].name} (Parathelypteris noveboracensis) 2`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Woodwardia areolata' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={woodwardiaAreolata1Img} alt={`${matches[0].name} (Woodwardia areolata) 1`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={woodwardiaAreolata2Img} alt={`${matches[0].name} (Woodwardia areolata) 2`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={woodwardiaAreolata3Img} alt={`${matches[0].name} (Woodwardia areolata) 3`} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Asplenium platyneuron' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={aspleniumPlatyneuron1Img} alt="Ebony Spleenwort (Asplenium platyneuron) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={aspleniumPlatyneuron2Img} alt="Ebony Spleenwort (Asplenium platyneuron) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={aspleniumPlatyneuron3Img} alt="Ebony Spleenwort (Asplenium platyneuron) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Pteridium aquilinum' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={pteridiumAquilinum1Img} alt="Bracken Fern (Pteridium aquilinum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={pteridiumAquilinum2Img} alt="Bracken Fern (Pteridium aquilinum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Cystopteris bulbifera' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={cystopterisBulbifera1Img} alt="Bulblet Fern (Cystopteris bulbifera) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={cystopterisBulbifera2Img} alt="Bulblet Fern (Cystopteris bulbifera) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={cystopterisBulbifera3Img} alt="Bulblet Fern (Cystopteris bulbifera) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Polypodium virginianum' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={polypodiumVirginianum1Img} alt="Common Polypody (Polypodium virginianum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polypodiumVirginianum2Img} alt="Common Polypody (Polypodium virginianum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polypodiumVirginianum3Img} alt="Common Polypody (Polypodium virginianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Polypodium appalachianum' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={polypodiumAppalachianum1Img} alt="Rock Cap Fern (Polypodium appalachianum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polypodiumAppalachianum2Img} alt="Rock Cap Fern (Polypodium appalachianum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={polypodiumAppalachianum3Img} alt="Rock Cap Fern (Polypodium appalachianum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Dryopteris cristata' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={dryopterisCristata1Img} alt="Crested Wood Fern (Dryopteris cristata) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={dryopterisCristata2Img} alt="Crested Wood Fern (Dryopteris cristata) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Sceptridium dissectum' && (
-                <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <ClickableImg src={sceptridiumDissectum1Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={sceptridiumDissectum2Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={sceptridiumDissectum3Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={sceptridiumDissectum4Img} alt="Cut-leaved Grape Fern (Sceptridium dissectum) 4" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Cystopteris fragilis' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={cystopterisFragilis1Img} alt="Fragile Fern (Cystopteris fragilis) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={cystopterisFragilis2Img} alt="Fragile Fern (Cystopteris fragilis) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Dryopteris goldiana' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <ClickableImg src={dryopterisGoldiana1Img} alt="Goldie's Fern (Dryopteris goldiana) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={dryopterisGoldiana2Img} alt="Goldie's Fern (Dryopteris goldiana) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={dryopterisGoldiana3Img} alt="Goldie's Fern (Dryopteris goldiana) 3" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                </div>
-              )}
-              {matches[0].scientific === 'Dennstaedtia punctilobula' && (
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ClickableImg src={dennstaedtiaPunctilobula1Img} alt="Hay-scented Fern (Dennstaedtia punctilobula) 1" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
-                  <ClickableImg src={dennstaedtiaPunctilobula2Img} alt="Hay-scented Fern (Dennstaedtia punctilobula) 2" className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+              {getFernIdImages(matches[0]).length > 0 && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {getFernIdImages(matches[0]).map((img, i) => (
+                    <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-64 shadow-sm" />
+                  ))}
                 </div>
               )}
               <InaturalistSpeciesLink scientificName={matches[0].scientific} className="mt-4 text-sm" />
@@ -3924,7 +3830,7 @@ const FernIdentifier = () => {
 
         {!showLesson && (
           <p className="text-center text-sm text-gray-600 mt-4">
-            Database includes 89 fern species across North America, UK, Europe, Australia, and New Zealand
+            Database includes 90 fern species across North America, UK, Europe, Australia, and New Zealand
           </p>
         )}
 
