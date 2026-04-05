@@ -773,7 +773,7 @@ const INTRO_LINES = [
   'Enjoy.',
   '',
   '[This is an early, early development version]',
-  'Version 0.2  28Feb25',
+  'Version 0.3  5Apr26',
   '@fernleaf07.bsky.social',
 ];
 
@@ -3325,10 +3325,15 @@ const FernIdentifier = () => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col min-h-[calc(100vh-2rem)]">
               <div className="p-6 border-b border-gray-200">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Ferns are not just the frilly frond plants. The tutorial is separated into Ferns and Lycophytes. The plants are different enough to require different tutorials. Enjoy.
+                  Ferns are not just the frilly frond plants. What follows is split into{' '}
+                  <strong>two separate tutorials</strong>, each with its own path: one for ferns (morphology lesson
+                  and identifier), and one for lycophytes and horsetails. The plants differ enough that they need
+                  different keys and terms—there is not a single linear “next” through both.{' '}
+                  <strong>Tap the section you want</strong> to start that tutorial.
                 </p>
               </div>
               <button
+                type="button"
                 onClick={() => {
                   setShowChoicePage(false);
                   setShowLesson(true);
@@ -3338,41 +3343,38 @@ const FernIdentifier = () => {
                   handleReset();
                 }}
                 className="p-6 text-left border-b border-gray-200 hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
-                aria-label="Fern Tutorial and Identifier"
+                aria-label="Start the fern tutorial and identifier"
               >
                 <div className="flex items-center gap-3">
                   <Leaf className="text-green-600 flex-shrink-0" size={36} />
-                  <h2 className="text-2xl font-bold text-gray-800">Fern Tutorial and Identifier</h2>
+                  <div>
+                    <h2 className="text-2xl font-bold text-gray-800">Fern Tutorial and Identifier</h2>
+                    <p className="text-sm text-gray-600 mt-1">Opens the fern morphology lesson and identification key.</p>
+                  </div>
                 </div>
               </button>
               <button
+                type="button"
                 onClick={() => {
                   setShowChoicePage(false);
                   setShowLycophyteIntro(true);
                 }}
                 className="p-6 text-left hover:bg-green-50 transition cursor-pointer flex-1 flex flex-col justify-center"
-                aria-label="Lycophytes and Horsetails"
+                aria-label="Start the lycophytes and horsetails tutorial"
               >
                 <div className="flex items-center gap-3">
                   <img src={clubmossHorsetailImg} alt="Clubmoss and horsetail" className="w-9 h-9 object-contain flex-shrink-0" />
-                  <h2 className="text-2xl font-bold text-gray-800">Lycophytes and Horsetails</h2>
+                  <div>
+                    <h2 className="text-2xl font-bold text-gray-800">Lycophytes and Horsetails</h2>
+                    <p className="text-sm text-gray-600 mt-1">Opens the separate lycophyte and horsetail material.</p>
+                  </div>
                 </div>
               </button>
-              <div className="p-4 border-t border-gray-200 flex justify-center">
-                <button
-                  onClick={() => {
-                    setShowChoicePage(false);
-                    setShowLesson(true);
-                    setLessonStepIndex(0);
-                    setPracticeSelected(null);
-                    setPracticeChecked(false);
-                    handleReset();
-                  }}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
-                >
-                  Next
-                  <ChevronRight size={20} />
-                </button>
+              <div className="p-4 border-t border-gray-200 bg-gray-50/80">
+                <p className="text-center text-sm text-gray-600 leading-relaxed px-2">
+                  No shared “Next” here—each row is its own entry point. Use the back control inside a tutorial if
+                  you want to return and switch paths.
+                </p>
               </div>
             </div>
           </div>

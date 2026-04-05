@@ -1,25 +1,25 @@
 ---
-description: Update intro page date on every project change
-globs: src/FernIdentifier.tsx, fern_id_intro.txt
+description: On each app update refresh intro date; bump version only when user asks
+globs: src/FernIdentifier.tsx, package.json, package-lock.json
 alwaysApply: true
 ---
 
-# Introductory Page Version Date
+# Intro version line (date vs version)
 
-With each update to this project—regardless of what changed—always update the date on the introductory page to the current date.
+## Date — update on every project update
 
-## Location
+Whenever you complete work that updates this app (features, fixes, copy, data, etc.), refresh the **date** in the welcome intro:
 
-The date lives in `src/FernIdentifier.tsx` in the `INTRO_LINES` constant, on the line that starts with `'Version 0.1  '`.
+- **Where:** `src/FernIdentifier.tsx` → `INTRO_LINES` → the entry shaped like `'Version 0.3  5Apr26'`.
+- **What to change:** only the **`DDMonYY`** suffix to **today’s real calendar date** (e.g. `5Apr26`).
+- **Do not** skip this after substantive edits.
+
+## Version number — only when explicitly requested
+
+- **Do not** change the semantic version (`0.3`, `0.3.0`, etc.) on routine updates.
+- Change **`package.json`** `version`, **`package-lock.json`** root `version`, and the **`Version X.Y`** part of that `INTRO_LINES` string **only when the user explicitly asks** to update or bump the version (e.g. “set version to 0.4”).
+- When the user **does** ask for a version bump, update all of those places together and still set the intro **date** to today.
 
 ## Format
 
-Use the format `DDMonYY` (e.g., `27Feb26`, `15Mar26`).
-
-## Example
-
-When making any edit (UI change, bug fix, new feature, etc.), update that line:
-
-```
-'Version 0.1  [today's date in DDMonYY format]',
-```
+- Intro line pattern: `'Version X.Y  DDMonYY'` (two spaces before the date, same style as existing entries).
