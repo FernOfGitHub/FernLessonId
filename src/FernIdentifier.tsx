@@ -118,6 +118,7 @@ import horsetailSegmentsImg from '../pictures/anatomy/horsetail-segments.jpg';
 import horsetailStrobiliImg from '../pictures/anatomy/horsetail-stroboli.jpg';
 import branchedUnbranchedImg from '../pictures/anatomy/branched-unbranched.png';
 import equisetumTeethImg from '../pictures/anatomy/equisetum-teeth.png';
+import vaseShapedImg from '../pictures/anatomy/vase-shaped.jpg';
 import polystichumAcrostichoides1Img from '../pictures/Id/Polystichum_ acrostichoides1.JPG';
 import polystichumAcrostichoides2Img from '../pictures/Id/Polystichum_ acrostichoides2.JPG';
 import polystichumAcrostichoides3Img from '../pictures/Id/Polystichum_acrostichoides3.JPG';
@@ -403,6 +404,109 @@ const anatomySlides = [
     ),
   },
   {
+    title: 'Growth Patterns',
+    icon: Leaf,
+    content: (
+      <>
+        <p className="text-gray-700 mb-4">
+          Ferns exhibit distinct growth habits, primarily determined by the orientation and structure of their <strong>rhizomes</strong> (underground or surface-creeping stems). Understanding these patterns helps in both identification and determining how a plant will fill a space over time.
+        </p>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">1. Clump-forming (vase-shaped)</h3>
+        <p className="text-gray-700 mb-3">
+          Perhaps the most iconic fern silhouette. The rhizome is short, stout, and grows vertically or at a slight angle. Fronds emerge from a central growing point, radiating outward into a symmetrical, circular crown.
+        </p>
+        <div className="bg-green-50 rounded-xl px-6 py-4 flex flex-col items-center mb-4">
+          <ClickableImg
+            src={vaseShapedImg}
+            alt="Ostrich fern (Matteuccia struthiopteris), vase-shaped clump-forming growth"
+            className="max-w-full max-h-80 w-full object-contain rounded-lg shadow-sm"
+          />
+          <p className="text-sm text-gray-600 text-center mt-2 max-w-lg">
+            Ostrich fern (<em>Matteuccia struthiopteris</em>)
+          </p>
+        </div>
+        <ul className="text-gray-700 mb-4 space-y-1 list-disc list-inside">
+          <li><strong>Visual cue:</strong> Often like a shuttlecock or vase.</li>
+          <li><strong>Examples:</strong> Ostrich fern (<em>Matteuccia struthiopteris</em>) — very upright &quot;basket&quot; shape; male fern (<em>Dryopteris filix-mas</em>) — tidy circular clump; royal fern (<em>Osmunda regalis</em>) — large crowns.</li>
+        </ul>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">2. Creeping or spreading</h3>
+        <p className="text-gray-700 mb-3">
+          Long, slender, horizontal rhizomes do not stay in one neat clump. The plant &quot;walks&quot; across soil or up surfaces. Fronds emerge at intervals along the rhizome rather than from a single central point.
+        </p>
+        <ul className="text-gray-700 mb-4 space-y-1 list-disc list-inside">
+          <li><strong>Visual cue:</strong> A carpet or colony of fronds that look separate above ground but are connected below.</li>
+          <li><strong>Examples:</strong> Bracken (<em>Pteridium</em>); sensitive fern (<em>Onoclea sensibilis</em>); resurrection fern (<em>Pleopeltis polypodioides</em>) creeping on branches.</li>
+        </ul>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">3. Arborescent (tree-like)</h3>
+        <p className="text-gray-700 mb-3">
+          Common in tropical and subtropical areas (and a few temperate taxa): a thick, woody &quot;trunk&quot; built from rhizome tissue and adventitious roots, with a crown of fronds aloft—palm-like.
+        </p>
+        <ul className="text-gray-700 mb-4 space-y-1 list-disc list-inside">
+          <li><strong>Visual cue:</strong> Single tall stem with fronds at the top.</li>
+          <li><strong>Examples:</strong> Australian tree fern (<em>Cyathea cooperi</em>); Tasmanian tree fern (<em>Dicksonia antarctica</em>).</li>
+        </ul>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">4. Tufted or caespitose</h3>
+        <p className="text-gray-700 mb-3">
+          Like clump-forming, but on a smaller, denser scale: rhizomes branch often but stay short, so many small crowns pack together.
+        </p>
+        <ul className="text-gray-700 mb-4 space-y-1 list-disc list-inside">
+          <li><strong>Visual cue:</strong> A dense tussock or cushion.</li>
+          <li><strong>Examples:</strong> Maidenhair spleenwort (<em>Asplenium trichomanes</em>) in crevices; alpine woodsia (<em>Woodsia alpina</em>).</li>
+        </ul>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">5. Pendulous or scrambling</h3>
+        <ul className="text-gray-700 mb-4 space-y-2 list-disc list-inside">
+          <li><strong>Pendulous:</strong> Fronds hang downward—common in epiphytes such as staghorn fern (<em>Platycerium</em>).</li>
+          <li><strong>Scrambling:</strong> Long, vine-like fronds that climb on other vegetation, e.g. climbing fern (<em>Lygodium</em>).</li>
+        </ul>
+
+        <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-3">Summary</h3>
+        <div className="overflow-x-auto rounded-lg border border-gray-200">
+          <table className="w-full text-sm text-gray-800">
+            <thead>
+              <tr className="bg-green-50 border-b border-gray-200">
+                <th className="text-left px-3 py-2 font-semibold">Pattern</th>
+                <th className="text-left px-3 py-2 font-semibold">Rhizome type</th>
+                <th className="text-left px-3 py-2 font-semibold">Shape</th>
+                <th className="text-left px-3 py-2 font-semibold">Typical garden use</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              <tr>
+                <td className="px-3 py-2 font-medium">Vase / crown</td>
+                <td className="px-3 py-2">Short, vertical</td>
+                <td className="px-3 py-2">Symmetrical shuttlecock</td>
+                <td className="px-3 py-2">Focal specimen</td>
+              </tr>
+              <tr className="bg-gray-50/80">
+                <td className="px-3 py-2 font-medium">Creeping</td>
+                <td className="px-3 py-2">Long, horizontal</td>
+                <td className="px-3 py-2">Spread-out fronds</td>
+                <td className="px-3 py-2">Groundcover</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 font-medium">Tufted</td>
+                <td className="px-3 py-2">Short, much-branched</td>
+                <td className="px-3 py-2">Dense cushion</td>
+                <td className="px-3 py-2">Rock gardens, crevices</td>
+              </tr>
+              <tr className="bg-gray-50/80">
+                <td className="px-3 py-2 font-medium">Arborescent</td>
+                <td className="px-3 py-2">Thick trunk-like mass</td>
+                <td className="px-3 py-2">Tree-like canopy</td>
+                <td className="px-3 py-2">Tropical / architectural</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    ),
+  },
+  {
     title: 'Rhizome & Roots',
     icon: Leaf,
     content: (
@@ -449,7 +553,7 @@ const anatomySlides = [
     content: (
       <>
         <p className="text-gray-700 mb-4">
-          You now know the basics of fern anatomy: <strong>frond</strong> and <strong>stipe</strong>, <strong>pinnae</strong> and <strong>pinnules</strong>, division types, <strong>sori</strong>, and rhizome structure.
+          You now know the basics of fern anatomy: <strong>frond</strong> and <strong>stipe</strong>, <strong>pinnae</strong> and <strong>pinnules</strong>, division types, <strong>sori</strong>, growth patterns from the <strong>rhizome</strong>, and rhizome and root structure.
         </p>
         <p className="text-gray-700 mb-6">
           Use these terms as you work through the identification key. When in doubt, flip a frond over and check the sori—they often hold the answer.
@@ -505,7 +609,16 @@ const sectionTrueFalse: TrueFalseQuestion[][] = [
     { question: 'Sori shapes are important for fern identification.', correct: true },
     { question: 'Sori are usually visible only with a microscope.', correct: false },
   ],
-  // Section 5: Rhizome & Roots
+  // Section 5: Growth Patterns
+  [
+    { question: 'Growth habit is influenced by rhizome orientation and structure.', correct: true },
+    { question: 'Clump-forming ferns usually have a long, creeping rhizome only.', correct: false },
+    { question: 'Creeping rhizomes can produce fronds at intervals along their length.', correct: true },
+    { question: 'Arborescent ferns develop a trunk-like structure from rhizome and root mass.', correct: true },
+    { question: 'Tufted ferns form dense cushions from short, much-branched rhizomes.', correct: true },
+    { question: 'Bracken is a classic example of a strictly clump-forming, non-spreading fern.', correct: false },
+  ],
+  // Section 6: Rhizome & Roots
   [
     { question: 'The rhizome is the underground stem.', correct: true },
     { question: 'Rhizomes can be creeping, clump-forming, or erect.', correct: true },
@@ -513,7 +626,7 @@ const sectionTrueFalse: TrueFalseQuestion[][] = [
     { question: 'Roots extend off the rhizome.', correct: true },
     { question: 'Stipe scales usually match rhizome scales.', correct: true },
   ],
-  // Section 6: Fern Reproduction
+  // Section 7: Fern Reproduction
   [
     { question: 'The sporophyte is the familiar fern plant.', correct: true },
     { question: 'The gametophyte is haploid.', correct: true },
@@ -575,7 +688,16 @@ const sectionQuestions: QuizQuestion[][] = [
     { question: 'Sori shapes (circular, linear, kidney-shaped) are crucial for ___.', options: [{ text: 'Growth rate', correct: false }, { text: 'Identification', correct: true }, { text: 'Water retention', correct: false }, { text: 'Height', correct: false }] },
     { question: 'Sori are often visible with a ___.', options: [{ text: 'Microscope only', correct: false }, { text: 'Hand lens', correct: true }, { text: 'Naked eye at 10 ft', correct: false }, { text: 'Telescope', correct: false }] },
   ],
-  // Section 5: Rhizome & Roots
+  // Section 5: Growth Patterns
+  [
+    { question: 'Fronds emerging from one central point in a circular crown suggest which habit?', options: [{ text: 'Creeping carpet', correct: false }, { text: 'Clump-forming (vase-shaped)', correct: true }, { text: 'Scrambling vine', correct: false }, { text: 'Pendulous epiphyte only', correct: false }] },
+    { question: 'Which is a hallmark of long-creeping rhizomes?', options: [{ text: 'A single shuttlecock crown', correct: false }, { text: 'Fronds spaced along the ground from connected stems', correct: true }, { text: 'A woody trunk 2 m tall', correct: false }, { text: 'No roots on the rhizome', correct: false }] },
+    { question: 'Tree ferns such as Cyathea or Dicksonia are described as ___.', options: [{ text: 'Tufted cushions', correct: false }, { text: 'Arborescent', correct: true }, { text: 'Strictly annual herbs', correct: false }, { text: 'Seed plants', correct: false }] },
+    { question: 'Maidenhair spleenwort in a tight rock crevice often illustrates ___.', options: [{ text: 'Arborescent habit', correct: false }, { text: 'Tufted / caespitose habit', correct: true }, { text: 'Marginal sori only', correct: false }, { text: 'Aquatic floating mats', correct: false }] },
+    { question: 'Staghorn fern (Platycerium) fronds hanging from a mount illustrate ___.', options: [{ text: 'Scrambling', correct: false }, { text: 'Pendulous habit', correct: true }, { text: 'Clump vase only', correct: false }, { text: 'Rhizome indusia', correct: false }] },
+    { question: 'Climbing fern (Lygodium) is an example of ___.', options: [{ text: 'Pendulous only', correct: false }, { text: 'Scrambling / climbing fronds', correct: true }, { text: 'Acrostichoid sori', correct: false }, { text: 'No rhizome', correct: false }] },
+  ],
+  // Section 6: Rhizome & Roots
   [
     { question: 'The underground stem that produces fronds and roots is the ___?', options: [{ text: 'Stipe', correct: false }, { text: 'Rhizome', correct: true }, { text: 'Rachis', correct: false }, { text: 'Blade', correct: false }] },
     { question: 'Rhizome growth types include creeping, clump-forming, and ___.', options: [{ text: 'Erect (ascending)', correct: true }, { text: 'Floating', correct: false }, { text: 'Annual', correct: false }, { text: 'Deciduous', correct: false }] },
@@ -583,7 +705,7 @@ const sectionQuestions: QuizQuestion[][] = [
     { question: 'Roots extend off the rhizome and can be fibrous, fleshy, or ___.', options: [{ text: 'Stolons (creeping stems)', correct: true }, { text: 'Sori', correct: false }, { text: 'Pinnae', correct: false }, { text: 'Sporangia', correct: false }] },
     { question: 'Scales on the stipe usually match those on the ___.', options: [{ text: 'Blade', correct: false }, { text: 'Rhizome', correct: true }, { text: 'Sori', correct: false }, { text: 'Pinnae', correct: false }] },
   ],
-  // Section 6: Fern Reproduction
+  // Section 7: Fern Reproduction
   [
     { question: 'The familiar fern plant (diploid) is the ___.', options: [{ text: 'Gametophyte', correct: false }, { text: 'Sporophyte', correct: true }, { text: 'Prothallus', correct: false }, { text: 'Rhizoid', correct: false }] },
     { question: 'The gametophyte (prothallus) is ___ and bears antheridia and archegonia.', options: [{ text: 'Diploid', correct: false }, { text: 'Haploid', correct: true }, { text: 'Triploid', correct: false }, { text: 'Tetraploid', correct: false }] },
@@ -620,6 +742,7 @@ const SECTION_TITLES = [
   'Frond Division',
   'Frond Division (Advanced)',
   'Sori',
+  'Growth Patterns',
   'Rhizome & Roots',
   'Fern Reproduction',
 ];
@@ -632,7 +755,7 @@ function buildLessonSteps(): LessonStep[] {
     if (i < anatomySlides.length - 1) {
       steps.push({ type: 'practice', sectionIndex: i });
     }
-    if (i === 6) {
+    if (i === 7) {
       steps.push({ type: 'finalQuizIntro' });
       steps.push({ type: 'finalQuiz' });
       steps.push({ type: 'finalQuizResults' });
@@ -712,8 +835,8 @@ function InaturalistSpeciesLink({ scientificName, className = 'mt-3 text-sm' }) 
 }
 
 const FernIdentifier = () => {
-  const [showIntro, setShowIntro] = useState(true);
-  const [showDefinitionPage, setShowDefinitionPage] = useState(false);
+  /** Single onboarding step before the Fern vs Lycophytes choice (avoids conflicting flags). */
+  const [preChoiceScreen, setPreChoiceScreen] = useState<'welcome' | 'quotes' | 'definition' | null>('welcome');
   const [showChoicePage, setShowChoicePage] = useState(false);
   const [showLycophyteIntro, setShowLycophyteIntro] = useState(false);
   const [showLycophyteChoice, setShowLycophyteChoice] = useState(false);
@@ -771,9 +894,29 @@ const FernIdentifier = () => {
   ];
 
   const frondTypes = [
-{
-      id: 'once', 
-      name: 'Once Divided (Pinnate)', 
+    {
+      id: 'simple',
+      name: 'Undivided (Entire)',
+      description: 'Simple blade, not divided into leaflets',
+      image: entire1x1BwImg,
+      fullSize: entireBwImg,
+      svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="90" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
+        <ellipse cx="50" cy="50" rx="35" ry="42" fill="#4a7c59"/>
+        <path d="M 50 8 Q 50 30, 50 50" stroke="#3d6847" stroke-width="2" fill="none"/>
+      </svg>`
+    },
+    {
+      id: 'pinnatifid',
+      name: 'Pinnatifid',
+      description: 'Deeply lobed blade, lobes connected at base — between entire and pinnate',
+      image: pinnatifid1x1BwImg,
+      fullSize: pinnatifidBwImg,
+      svg: null
+    },
+    {
+      id: 'once',
+      name: 'Once Divided (Pinnate)',
       description: 'Pinnae along the rachis — simple pinnate',
       image: pinnate1x1BwImg,
       fullSize: pinnateBwImg,
@@ -791,17 +934,9 @@ const FernIdentifier = () => {
         <ellipse cx="70" cy="90" rx="18" ry="8" fill="#4a7c59"/>
       </svg>`
     },
-    { 
-      id: 'pinnatifid', 
-      name: 'Pinnatifid', 
-      description: 'Deeply lobed blade, lobes connected at base — between entire and pinnate',
-      image: pinnatifid1x1BwImg,
-      fullSize: pinnatifidBwImg,
-      svg: null
-    },
-    { 
-      id: 'twice', 
-      name: 'Twice Divided', 
+    {
+      id: 'twice',
+      name: 'Twice Divided (Bipinnate)',
       description: 'Bipinnate - pinnae have pinnules',
       image: bipinnate1x1BwImg,
       fullSize: bipinnateBwImg,
@@ -833,17 +968,17 @@ const FernIdentifier = () => {
         <ellipse cx="65" cy="95" rx="7" ry="5" fill="#4a7c59"/>
       </svg>`
     },
-    { 
-      id: 'bipinnatePinnatifid', 
-      name: 'Bipinnate Pinnatifid', 
+    {
+      id: 'bipinnatePinnatifid',
+      name: 'Bipinnate Pinnatifid',
       description: 'Pinnules deeply lobed but not fully divided — between bipinnate and tripinnate',
       image: bipinnatePinnatifid1x1BwImg,
       fullSize: bipinnatePinnatifidBwImg,
       svg: null
     },
-    { 
-      id: 'thrice', 
-      name: 'Thrice+ Divided', 
+    {
+      id: 'thrice',
+      name: 'Thrice+ Divided',
       description: 'Tripinnate or more - very lacy/feathery',
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <line x1="50" y1="10" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
@@ -881,9 +1016,9 @@ const FernIdentifier = () => {
         <ellipse cx="66" cy="94" rx="4" ry="3" fill="#4a7c59"/>
       </svg>`
     },
-    { 
-      id: 'pedate', 
-      name: 'Pedate', 
+    {
+      id: 'pedate',
+      name: 'Pedate',
       description: 'Fan-shaped - pinnae radiate from central point',
       image: pedateImg,
       svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
@@ -896,18 +1031,6 @@ const FernIdentifier = () => {
         <ellipse cx="80" cy="28" rx="12" ry="6" fill="#4a7c59"/>
         <ellipse cx="15" cy="53" rx="12" ry="6" fill="#4a7c59"/>
         <ellipse cx="85" cy="53" rx="12" ry="6" fill="#4a7c59"/>
-      </svg>`
-    },
-    { 
-      id: 'simple', 
-      name: 'Undivided', 
-      description: 'Simple blade, not divided into leaflets',
-      image: entire1x1BwImg,
-      fullSize: entireBwImg,
-      svg: `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-        <line x1="50" y1="90" x2="50" y2="110" stroke="#2d5016" stroke-width="3"/>
-        <ellipse cx="50" cy="50" rx="35" ry="42" fill="#4a7c59"/>
-        <path d="M 50 8 Q 50 30, 50 50" stroke="#3d6847" stroke-width="2" fill="none"/>
       </svg>`
     }
   ];
@@ -933,6 +1056,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — short erect rhizome, fronds in a vase-like cluster',
+      soriType: 'Naked, covering pinnae — roundish sori on upper half of each pinna, no indusium',
       uniqueCharacters: [
         'Boot-shaped (auriculate) pinnae at the base of each pinna',
         'Naked sori only on the upper half of the frond, covering the entire pinna',
@@ -948,6 +1073,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming to short-creeping — upright crown, may spread slowly into patches',
+      soriType: 'Curved linear (J- or horseshoe-shaped) — along vein endings, indusiate',
       features: 'Light green, delicate fronds in vase-like clusters. Very variable species with curved sori.'
     },
     {
@@ -958,6 +1085,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — erect crown from stout short rhizome in wet soil',
+      soriType: 'Separate fertile fronds — sporangia on dedicated brown fertile stems, not on green sterile blade',
       features: 'Separate fertile fronds turn cinnamon brown in spring. Woolly cinnamon-colored fiddleheads. A unique character is the white fuzzy dot at the intersection of the rachis and costa.'
     },
     {
@@ -968,6 +1097,8 @@ const FernIdentifier = () => {
       frondType: 'pedate',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Short-creeping patches — wiry rhizomes form loose colonies in humus',
+      soriType: 'Marginal, false indusium — sori under rolled leaf margin segments along lobe tips',
       features: 'Distinctive horseshoe-shaped frond with black wiry stems. Very delicate appearance.'
     },
     {
@@ -978,6 +1109,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Long-creeping, colonial — extensive horizontal rhizomes, widely spaced fronds',
+      soriType: 'Marginal, continuous — naked sori along pinna edges, often hard to see',
       uniqueCharacters: [
         'Triangular fronds held more or less horizontally (one main frond per stem)',
         'Thrice-divided (tripinnate or more), very lacy; forms extensive colonies',
@@ -993,6 +1126,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'hairy',
+      growthPattern: 'Long-creeping, colonial — aggressive mats from slender rhizomes',
+      soriType: 'Marginal cup — small cup-like indusia on recurved segment margins',
       features: 'Forms dense colonies, smells like hay when crushed. Yellow-green color, fine hairs.'
     },
     {
@@ -1003,6 +1138,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      growthPattern: 'Clump-forming (vase) — upright shuttlecock crown; may spread by rhizome in ideal sites',
+      soriType: 'Separate fertile fronds — dense sporangia on persistent dark fertile fronds, sterile fronds lack blade sori',
       features: 'Tall vase-like clusters up to 6 feet. Separate brown fertile fronds in center persist through winter.'
     },
     {
@@ -1013,6 +1150,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Creeping on rock — frond tips root; chain of rosettes along substrate',
+      soriType: 'Linear along veins — oblong sori following veins on frond underside',
       uniqueCharacters: [
         'Fronds undivided (simple), long and tapering to a narrow tip',
         'Tip often roots where it touches rock or soil, forming new plants ("walking")',
@@ -1028,6 +1167,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — short erect or ascending rhizome, shuttlecock silhouette',
+      soriType: 'Round with peltate indusium — scattered on pinnule undersides',
       features: 'Evergreen, stiff upright fronds. Pinnae have pointed tips with small tooth. Most common fern in PNW forests.'
     },
     {
@@ -1038,6 +1179,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — evergreen rosette from short rhizome',
+      soriType: 'Round with peltate indusium — on pinnules like other Polystichum',
       features: 'Evergreen with glossy fronds covered in golden-brown scales. Pinnules have bristle-tipped teeth.'
     },
     {
@@ -1048,6 +1191,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Short-creeping clump — slowly spreading crown in moist forest',
+      soriType: 'Round with peltate indusium — on pinnules; bulblets sometimes present',
       features: 'Similar to Western Sword Fern but bipinnate. Produces bulblets on fronds. Found in moist forests.'
     },
     {
@@ -1058,6 +1203,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — small tight crowns on rock from short rhizome',
+      soriType: 'Round with peltate indusium — small round sori on pinnules',
       features: 'Small evergreen fern of rocky habitats. Narrow fronds with spiny-toothed pinnae. Endemic to PNW.'
     },
     {
@@ -1068,6 +1215,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted to short-creep — compact crowns, often on rocky slopes',
+      soriType: 'Round with peltate indusium — on undersides of overlapping pinnae',
       features: 'Compact evergreen fern with overlapping pinnae. Drought tolerant, often on rocky slopes.'
     },
     {
@@ -1078,6 +1227,8 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — loose patches in moist soil',
+      soriType: 'Bead-like on fertile fronds — separate fertile fronds with globose sporangial segments',
       uniqueCharacters: [
         'Sterile fronds broad, triangular, pinnatifid (deeply lobed); die at first frost',
         'Separate fertile fronds with bead-like segments; persist through winter',
@@ -1093,6 +1244,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — large vase-shaped crown from short rhizome',
+      soriType: 'Clustered at fertile pinna tips — naked sporangia on modified upper pinnae (tassel-like)',
       uniqueCharacters: [
         'Fertile pinnae at the tip of the frond only, tassel-like and brown when mature',
         'Tall, twice-divided (bipinnate) sterile foliage; can tolerate sun',
@@ -1108,6 +1261,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — large circular clumps, short rhizome',
+      soriType: 'Naked clusters on fertile pinnae — fertile segments mid-blade, wither and leave gaps',
       uniqueCharacters: [
         'Fertile pinnae in the middle of the frond; wither and drop off, leaving a visible gap',
         'Twice-divided (bipinnate), large; sterile pinnae similar to cinnamon fern but no wool',
@@ -1123,6 +1278,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — slender rhizomes, scattered fronds',
+      soriType: 'Round with kidney-shaped indusium — small round sori on pinnules',
       features: 'Distinctive tapering at both top and bottom of frond. Forms colonies, yellow-green color.'
     },
     {
@@ -1133,6 +1290,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Short- to long-creeping, colonial — spreading patches in wet woods',
+      soriType: 'Chain-like (catenulate) — elongated sori joined in rows between veins',
       features: 'Once-divided fronds in wet places. Net-like vein pattern. Often in swamps and wet woods.'
     },
     {
@@ -1143,6 +1302,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — short erect rhizome, evergreen rosette',
+      soriType: 'Round with kidney-shaped indusium — near margins of pinnules',
       features: 'Semi-evergreen with blue-green fronds. Sori at margins of pinnules. Common in rocky woods.'
     },
     {
@@ -1153,6 +1314,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — forms patches in wet ground',
+      soriType: 'Round with kidney-shaped indusium — on pinnules, marsh fern pattern',
       features: 'Narrow fronds with pinnae nearly perpendicular to rachis. Grows in very wet areas. The sori cover the underside of a pinna and cause the pinna to be cupped. Thelypteris palustris can be mistaken for Thelypteris noveboracensis and Coryphopteris simulata.'
     },
     {
@@ -1163,6 +1326,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Short-creeping tufts — small crowns along cracks and walls',
+      soriType: 'Linear along lateral veins — oblong, often angled, indusiate',
       features: 'Small evergreen fern with dark brown to black stems. Pinnae alternate along stem.'
     },
     {
@@ -1173,6 +1338,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — dense cushions in rock crevices from short branched rhizome',
+      soriType: 'Linear oblong — along veins on pinnules, one-sided indusium',
       features: 'Delicate evergreen with shiny black stems. Tiny round pinnae. Grows in rock crevices.'
     },
     {
@@ -1183,6 +1350,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Rock-creeping — long creeping rhizome on bark or stone',
+      soriType: 'Round, naked — no indusium, sunken or flat round sori',
       uniqueCharacters: [
         'Once-pinnate, evergreen; small leathery fronds on rocks, logs, or stumps',
         'Pinnae deeply lobed; round sori in two rows on underside, no indusium',
@@ -1198,6 +1367,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — short-creeping erect crown',
+      soriType: 'Round with kidney-shaped indusium — on pinnule undersides',
       features: 'Lacy appearance with finely divided fronds. Semi-evergreen. Very common in moist woods.'
     },
     {
@@ -1208,6 +1379,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming to short-creep — upright crown, may clump widely',
+      soriType: 'Round with kidney-shaped indusium — wood fern pattern',
       features: 'Similar to Spinulose but more evergreen. Lowest pinnule on bottom pinnae longest.'
     },
     {
@@ -1218,6 +1391,8 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — slender rhizomes, beech-fern mats',
+      soriType: 'Round — small round sori near vein endings, indusiate',
       features: 'Triangular fronds with bottom pinnae pointing downward. Grows in cool, moist woods.'
     },
     {
@@ -1228,6 +1403,8 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — broad-triangle fronds from creeping rhizome',
+      soriType: 'Round — on pinnules, broad beech-fern',
       features: 'Broadly triangular fronds held horizontally. Bottom pinnae very large. Forms colonies.'
     },
     {
@@ -1238,6 +1415,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — triangular fronds from widely creeping rhizome',
+      soriType: 'Round — small round sori at vein tips, thin indusium',
       features: 'Delicate triangular fronds in three sections. Forms extensive colonies in cool woods.'
     },
     {
@@ -1248,6 +1427,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Short-creeping clusters — bulblets aid spread along moist rock',
+      soriType: 'Round — small sori with hood-like indusium',
       features: 'Long narrow fronds with tiny bulblets underneath. Grows on moist limestone cliffs.'
     },
     {
@@ -1258,6 +1439,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted to short-creep — small crowns, cracks and talus',
+      soriType: 'Round — bladder-fern round sori with hood indusium',
       features: 'Very delicate, brittle fronds. Grows in rock crevices, especially limestone.'
     },
     {
@@ -1268,6 +1451,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — silvery fiddleheads from creeping rhizome',
+      soriType: 'Linear along veins — silvery sori, indusiate along costae or veins',
       features: 'Silvery appearance from indusial covering on sori. Prefers rich, moist soil.'
     },
     {
@@ -1278,6 +1463,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — large rosette from short rhizome',
+      soriType: 'Round with kidney-shaped indusium — large wood fern sori',
       features: 'Large impressive fern up to 4 feet. Broadest near middle. Rich moist woods.'
     },
     {
@@ -1288,6 +1475,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming to short-creep — wetland crowns, may form patches',
+      soriType: 'Round with kidney-shaped indusium — fertile tip often with crested sporangia',
       features: 'Fertile fronds narrow and upright, sterile fronds shorter and spreading. Wet woods and swamps.'
     },
     {
@@ -1298,6 +1487,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — hybrid complex habit like wood ferns',
+      soriType: 'Round with kidney-shaped indusium — hybrid-type wood fern',
       features: 'Hybrid between Crested and Goldie\'s fern. Larger than Crested, grows in wet areas.'
     },
     {
@@ -1308,6 +1499,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Short-creeping tufts — rock and cliff clusters',
+      soriType: 'Linear along veins — sori along segment midribs, false indusium from reflexed margin',
       features: 'Blue-green fronds with dark purple stems. Grows on dry limestone cliffs and rocks.'
     },
     {
@@ -1318,6 +1511,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Rock-creeping — mat-forming rhizome on rock',
+      soriType: 'Round, naked — like polypodies, no indusium',
       uniqueCharacters: [
         'Once-pinnate, evergreen; small leathery fronds on rock, especially acidic (e.g. sandstone)',
         'Very similar to Common Polypody; best told by substrate and range (e.g. Appalachian region)',
@@ -1333,6 +1528,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Subterranean tuber-like stem — solitary or few fronds from buried stem',
+      soriType: 'Sporangia on fertile spike — grape-fern fertile branch bears sporangia, not blade sori',
       features: 'Single broadly triangular sterile frond with separate fertile spike. Related to grape ferns.'
     },
     {
@@ -1343,6 +1540,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Short rhizome, scattered — grape-fern habit, fronds from underground stem',
+      soriType: 'Sporangia on fertile spike — dissected sterile blade; fertile spike with sporangia',
       features: 'Bronze-green fronds appear in autumn, persist through winter. Separate fertile spike.'
     },
     {
@@ -1353,6 +1552,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — similar to lady fern, upright cluster',
+      soriType: 'Curved linear — like lady fern along vein endings',
       features: 'Similar to Lady Fern but more northern. Lighter green, more upright growth.'
     },
     {
@@ -1363,6 +1564,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Short-creeping rosettes — tongue fronds in tufts along basic rock',
+      soriType: 'Linear oblong — on one side of veins, indusiate',
       features: 'Distinctive undivided strap-like fronds with wavy edges. Evergreen, glossy bright green. Prefers limestone.'
     },
     {
@@ -1373,6 +1576,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — classic male-fern shuttlecock from short rhizome',
+      soriType: 'Round with kidney-shaped indusium — classic male-fern sori',
       features: 'Robust semi-evergreen fern with golden-brown scales on stems. Very common in woodlands. Fronds arch gracefully.'
     },
     {
@@ -1383,6 +1588,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Small rosette — short underground stem, few fronds per year',
+      soriType: 'Sporangia on separate fertile spike — simple blade; spike bears sporangia',
       features: 'Small fern with a single simple sterile blade and separate fertile spike bearing sporangia. Grassland, meadows, and damp places in the British Isles.'
     },
     {
@@ -1393,6 +1600,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Small rosette — tiny plants in short turf',
+      soriType: 'Sporangia on fertile spike — tiny adders-tongue spike',
       features: 'Tiny; very rare in the British Isles (e.g. western Ireland, Scilly). Damp short turf and mossy ground.'
     },
     {
@@ -1403,6 +1612,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Small rosette — minute seasonal shoots from short stem',
+      soriType: 'Sporangia on fertile spike — minute fertile segment',
       features: 'Minute; rare in southwest England and Wales. Seasonally wet, often bare ground on heaths.'
     },
     {
@@ -1413,6 +1624,8 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted mats — short-creeping on mortar and limestone',
+      soriType: 'Linear along veins — rusty-backed sori, indusiate',
       features: 'Gray-green pinnatifid fronds; underside turns rusty brown. Walls, mortar, and limestone rocks.'
     },
     {
@@ -1423,6 +1636,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — stiff rosette, short erect rhizome',
+      soriType: 'Round with peltate indusium — holly fern pattern',
       features: 'Evergreen; stiff dark fronds with spine-tipped pinnae. Montane rocks and ledges in Scotland and north.'
     },
     {
@@ -1433,6 +1648,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — bright green rosettes in basic rock crevices',
+      soriType: 'Linear oblong — along veins on pinnae',
       features: 'Bright green pinnae on dark stems. Basic rocks, montane; Scottish Highlands and north Wales.'
     },
     {
@@ -1443,6 +1660,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted to short-creep — coastal rock and wall clusters',
+      soriType: 'Linear — along veins, sea spleenwort',
       features: 'Thick leathery fronds; tolerates sea spray. Coastal rocks, crevices, and walls.'
     },
     {
@@ -1453,6 +1672,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Small rosette — single frond pair from subterranean gametophyte-linked stem',
+      soriType: 'Sporangia on fertile segment — moonwort sporangia on branched fertile part',
       features: 'Small sterile fan-shaped blade and erect fertile segment with grape-like sporangia. Unimproved grassland, uplands; widespread but local.'
     },
     {
@@ -1463,6 +1684,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Dimorphic rosettes — short-creeping, sterile mats with erect fertile shoots',
+      soriType: 'Linear on fertile fronds — separate erect fertile fronds with continuous sori; sterile pinnae lack typical round sori',
       features: 'Dimorphic: flat dark sterile fronds and erect fertile fronds with narrow segments. Acid woodland and moorland; also known as Blechnum spicant.'
     },
     {
@@ -1473,6 +1696,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Creeping on rock and bark — long rhizome, spaced fronds',
+      soriType: 'Round, naked — polypody sori without indusium',
       features: 'Evergreen polypody; often on rocks and trees. Mainly western and southern Britain and Ireland.'
     },
     {
@@ -1483,6 +1708,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Creeping — mat-forming rhizome on walls and trees',
+      soriType: 'Round, naked — sunken round sori',
       features: 'Hybrid-derived aggregate member; evergreen on rocks, walls, and bark. Widespread in the British Isles.'
     },
     {
@@ -1493,6 +1720,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Creeping — long-creeping evergreen rhizome, colonial on substrate',
+      soriType: 'Round, naked — common polypody pattern',
       features: 'Common evergreen polypody on rocks, walls, and tree trunks. The typical Polypodium of the British Isles (distinct from North American P. virginianum).'
     },
     {
@@ -1503,6 +1732,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Creeping mat — thin rhizome in deep shade on wet rock',
+      soriType: 'Tubular involucre — filmy fern sporangia often in fused cup or tube',
       features: 'Rare filmy fern; translucent fronds. Deeply shaded humid rock crevices and gorges, mainly western Ireland and Britain.'
     },
     {
@@ -1513,6 +1744,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Creeping mat — filmy fronds from thread-like rhizome on wet rock',
+      soriType: 'Marginal or immersed — filmy fern; sporangia in marginal or enclosed structures',
       features: 'One cell thick; requires constant moisture. Shaded wet rocks and banks, mainly western Britain and Ireland. Epithet often spelled tunbridgense (from Tunbridge Wells); synonym H. tunbrigense in some checklists.'
     },
     {
@@ -1523,6 +1756,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Creeping mat — similar filmy habit on damp rock',
+      soriType: 'Marginal or immersed — similar filmy-fern habit',
       features: 'Similar to Tunbridge; on damp shaded rocks, especially in the west.'
     },
     {
@@ -1533,6 +1768,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — forked fronds in basic rock crevices',
+      soriType: 'Linear along veins — forked spleenwort',
       features: 'Forked pinnae; basic rock crevices. Local in Scotland, north Wales, and northern England.'
     },
     {
@@ -1543,6 +1780,8 @@ const FernIdentifier = () => {
       frondType: 'pinnatifid',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted cushions — wall and mortar mats from short rhizome',
+      soriType: 'Linear oblong — along veins, wall-rue',
       features: 'Small blue-green pinnatifid fronds. Mortar, old walls, and limestone.'
     },
     {
@@ -1553,6 +1792,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Short-creeping patches — black stems, loose colonies in lime',
+      soriType: 'Marginal, false indusium — maidenhair sori under reflexed margins',
       features: 'Fan-shaped leaflets on black stalks; needs humid lime-rich or coastal sites. Southwest England, Ireland, Wales; not the North American A. pedatum.'
     },
     {
@@ -1563,6 +1804,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tiny tufts — short rhizome, scattered delicate plants',
+      soriType: 'Linear along veins — tiny sori following veins',
       features: 'Very rare; tiny delicate fern. Sheltered rocky places; mainly Channel Islands and a few mainland sites.'
     },
     {
@@ -1573,6 +1816,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted — dense small crowns in montane crevices',
+      soriType: 'Round with hood-like indusium — Woodsia cup under indusium',
       features: 'Small tufted fern of montane basic rock crevices. Scottish Highlands.'
     },
     {
@@ -1583,6 +1828,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted — rusty-scaly crowns, short rhizome on rock',
+      soriType: 'Round with hood-like indusium — hairy woodsia',
       features: 'Rusty-hairy stipes; rocks and cliffs. Northern and western Britain, local.'
     },
     {
@@ -1593,6 +1840,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — coastal rock clusters',
+      soriType: 'Linear along veins — coastal spleenwort',
       features: 'Coastal rocks and walls; southwest England, Wales, Ireland, Isles of Scilly.'
     },
     {
@@ -1603,6 +1852,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Short-creeping clumps — rosettes spreading on basic ground',
+      soriType: 'Linear along veins — black spleenwort pattern',
       features: 'Dark stalks, triangular blade; basic rocks, walls, and woodland. Widespread in the British Isles.'
     },
     {
@@ -1613,6 +1864,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — limestone male-fern complex habit',
+      soriType: 'Round with kidney-shaped indusium — rigid buckler',
       features: 'Compact evergreen; limestone rocks and scree. North Wales, northern England, Scotland.'
     },
     {
@@ -1623,6 +1876,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — montane rosettes, short rhizome',
+      soriType: 'Round with kidney-shaped indusium — mountain male-fern',
       features: 'Montane rocky habitats; similar to other male-ferns. Scottish Highlands and north.'
     },
     {
@@ -1633,6 +1888,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — large scaly shuttlecock clumps',
+      soriType: 'Round with kidney-shaped indusium — golden-scaled male-fern',
       features: 'Large evergreen with golden scales on stipe; wet woods and stream sides. Widespread in the British Isles.'
     },
     {
@@ -1643,6 +1900,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — woodland rosette, short rhizome',
+      soriType: 'Round with kidney-shaped indusium — scaly male-fern complex',
       features: 'Part of the Dryopteris affinis complex; woodland and shady places.'
     },
     {
@@ -1653,6 +1912,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — Scottish aggregate, tight crowns',
+      soriType: 'Round with kidney-shaped indusium — narrow scaly male-fern',
       features: 'Scottish endemic aggregate taxon; rocky woods and montane areas.'
     },
     {
@@ -1663,6 +1924,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — alpine lady-fern tufts',
+      soriType: 'Curved linear — alpine lady-fern like Athyrium',
       features: 'Montane lady-fern of cool rocky places and high ground. Scottish Highlands (also recorded as Pseudathyrium distentifolium).'
     },
     {
@@ -1673,6 +1936,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — arching-frond variety, montane',
+      soriType: 'Curved linear — same genus pattern',
       features: 'Variety of alpine lady-fern with more arching fronds; montane rocks and ledges, mainly Scotland.'
     },
     {
@@ -1683,6 +1948,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming to tussock — lemon-scented upright crowns',
+      soriType: 'Round with kidney-shaped indusium — lemon-scented fern',
       features: 'Smells of lemon when crushed; upland moors, woods, and acidic soils. Widespread in Britain and Ireland.'
     },
     {
@@ -1693,6 +1960,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — soft shield rosette, short rhizome',
+      soriType: 'Round with peltate indusium — soft shield-fern',
       features: 'Common evergreen with finely divided soft pinnae. Hedges, woods, and rocky banks.'
     },
     {
@@ -1703,6 +1972,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'leathery',
+      growthPattern: 'Clump-forming crown — stiff rosette from short erect rhizome',
+      soriType: 'Round with peltate indusium — hard shield-fern',
       features: 'Stiffer than soft shield-fern; spine-tipped pinnae. Woods, rocks, and walls.'
     },
     {
@@ -1713,6 +1984,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted — small fragile crowns, montane/western',
+      soriType: 'Round — bladder-fern hood indusium',
       features: 'Similar to brittle bladder-fern; montane and western oceanic sites.'
     },
     {
@@ -1723,6 +1996,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted — local coastal and basic-rock clusters',
+      soriType: 'Round — bladder-fern',
       features: 'Coastal and basic rocks; northeast Scotland and Orkney, local elsewhere.'
     },
     {
@@ -1733,6 +2008,8 @@ const FernIdentifier = () => {
       frondType: 'thrice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Long-creeping, colonial — like bracken, wide rhizome systems',
+      soriType: 'Marginal, naked — like bracken along pinna margins',
       features: 'Often treated as part of or closely related to P. aquilinum (e.g. subsp. pinetorum or regional segregate); typical in pinewoods and open woodland in Britain, Ireland, and parts of Europe.'
     },
     {
@@ -1743,6 +2020,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Short-creep to tufted — limestone pavements, small crowns',
+      soriType: 'Round — small at vein endings',
       features: 'Delicate triangular fronds; limestone pavements and basic rocks. North and west Britain, local.'
     },
     {
@@ -1753,6 +2032,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted rosettes — parsley sterile fronds in dense mats',
+      soriType: 'Round on sterile fronds — fertile fronds narrow with linear sporangia along segments',
       features: 'Sterile fronds parsley-like, fertile taller and narrow. Montane rocks and scree.'
     },
     {
@@ -1763,6 +2044,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Tufted — alpine bladder-fern clusters',
+      soriType: 'Round — alpine bladder-fern',
       features: 'Montane rock crevices; Scottish Highlands and rare elsewhere.'
     },
     {
@@ -1773,6 +2056,8 @@ const FernIdentifier = () => {
       frondType: 'once',
       size: 'small',
       texture: 'leathery',
+      growthPattern: 'Tufted — Irish spleenwort habit in rock',
+      soriType: 'Linear along veins — Irish spleenwort',
       features: 'Similar to maidenhair spleenwort; basic rocks. Ireland, western Britain, local.'
     },
     {
@@ -1783,6 +2068,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — hay-scented relative habit, woodland clump',
+      soriType: 'Round with kidney-shaped indusium — hay-scented relative',
       features: 'Hay scent when crushed; moist Atlantic woodland. West Britain and Ireland.'
     },
     {
@@ -1793,6 +2080,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Short-creeping clump — spreading wood fern rosettes',
+      soriType: 'Round with kidney-shaped indusium — spreading wood fern',
       features: 'Moist woods, stream sides, and uplands; northern and western British Isles.'
     },
     {
@@ -1803,6 +2092,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'medium',
       texture: 'delicate',
+      growthPattern: 'Clump-forming crown — broad buckler shuttlecock',
+      soriType: 'Round with kidney-shaped indusium — broad buckler',
       features: 'Common in damp acid woodland and moorland edges; very widespread in the British Isles.'
     },
     {
@@ -1813,6 +2104,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Arborescent — trunk-like stem, crown of large fronds aloft',
+      soriType: 'Round on pinnules with indusium — tree fern sori, often cup- or scale-covered',
       features: 'New Zealand tree fern. Also known as Kātote. Large fern with trunk; soft fronds.'
     },
     {
@@ -1823,6 +2116,8 @@ const FernIdentifier = () => {
       frondType: 'simple',
       size: 'small',
       texture: 'delicate',
+      growthPattern: 'Creeping mat — thread-like rhizome, kidney fronds on wet banks',
+      soriType: 'Tubular involucre — sporangia in urn-shaped indusium on frond',
       uniqueCharacters: [
         'Sterile fronds undivided—rounded to kidney-shaped blades with entire margins',
         'Thin, translucent filmy texture (Hymenophyllaceae); needs constant moisture',
@@ -1838,6 +2133,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Arborescent — thick trunk of rhizome/root mantle, crown aloft',
+      soriType: 'Marginal or near-marginal — often in cup-like structures on pinnule edges (Dicksonia-type)',
       uniqueCharacters: [
         'Trunk often thick and covered in persistent roots and old stipe bases (fibrous “skirt”)',
         'Crown of very large arching fronds; stipes densely hairy or woolly when young',
@@ -1853,6 +2150,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Arborescent — rough tree fern trunk with canopy crown',
+      soriType: 'Round on pinnules with indusium — typical Cyathea soral cover',
       uniqueCharacters: [
         'Trunk usually tall, slender, with rough persistent stipe bases (rougher than many Dicksonia trunks)',
         'Fronds large; sori on pinnules, typically with cup- or hood-like indusia',
@@ -1868,6 +2167,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'delicate',
+      growthPattern: 'Arborescent — slender trunk, lacy crown (often cultivated)',
+      soriType: 'Round on pinnules with indusium — lacy tree fern',
       uniqueCharacters: [
         'Very finely divided, “lacy” fronds compared to rough tree fern',
         'Trunk often relatively smooth with neat circular leaf scars; fronds may be crown-forming',
@@ -1883,6 +2184,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Arborescent — prickly tree fern trunk and crown',
+      soriType: 'Round on pinnules with indusium — prickly tree fern',
       uniqueCharacters: [
         'Stipes and rachises with noticeable prickles or spines',
         'Large crown fronds; prefers moist gullies and rainforest margins in eastern Australia'
@@ -1897,6 +2200,8 @@ const FernIdentifier = () => {
       frondType: 'twice',
       size: 'large',
       texture: 'leathery',
+      growthPattern: 'Arborescent (short trunk) — bristly stipes, subcanopy tree fern habit',
+      soriType: 'Marginal cups — Dicksonia-type fertile segments',
       uniqueCharacters: [
         'Stipes very bristly or hairy; trunk often shorter than Dicksonia antarctica in many sites',
         'Restricted to wet escarpment and rainforest habitats in northern New South Wales and nearby'
@@ -1919,6 +2224,10 @@ const FernIdentifier = () => {
 
   const formatHabitat = (fern) =>
     fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
+
+  const formatGrowthPattern = (fern) => fern.growthPattern || '—';
+
+  const formatSoriType = (fern) => fern.soriType || '—';
 
   const getFernIdImages = (fern) => {
     const scientific = (fern.scientific || '').trim().replace(/\s+/g, ' ');
@@ -2150,7 +2459,7 @@ const FernIdentifier = () => {
     }
     if (step?.type === 'finalQuiz') {
       const all: QuizQuestion[] = [];
-      const perSection = [4, 4, 4, 4, 4, 3, 2]; // 25 total
+      const perSection = [4, 4, 4, 4, 3, 3, 2, 1]; // 25 total (8 sections before "You're Ready")
       for (let s = 0; s < sectionQuestions.length; s++) {
         all.push(...pickRandom(getSectionPool(s), perSection[s]));
       }
@@ -2503,7 +2812,9 @@ const FernIdentifier = () => {
             const features = (fern.features || '').toLowerCase();
             const regionNames = fern.regions.map(r => regions.find(reg => reg.id === r)?.name || '').join(' ').toLowerCase();
             const habitatNames = formatHabitat(fern).toLowerCase();
-            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames}`;
+            const growthText = (fern.growthPattern || '').toLowerCase();
+            const soriText = (fern.soriType || '').toLowerCase();
+            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames} ${growthText} ${soriText}`;
             return searchText.includes(searchLower);
           })
         : sortedFerns;
@@ -2539,7 +2850,7 @@ const FernIdentifier = () => {
               type="text"
               value={databaseSearchQuery}
               onChange={e => setDatabaseSearchQuery(e.target.value)}
-              placeholder="Search by name, Latin name, features, region, or habitat..."
+              placeholder="Search by name, Latin name, features, growth, sori type, region, or habitat..."
               className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
               aria-label="Search database"
             />
@@ -2597,6 +2908,12 @@ const FernIdentifier = () => {
                       </div>
                       <div className="mt-1 text-xs text-gray-500">
                         Habitat: {formatHabitat(fern)}
+                      </div>
+                      <div className="mt-1 text-xs text-gray-500">
+                        Growth: {formatGrowthPattern(fern)}
+                      </div>
+                      <div className="mt-1 text-xs text-gray-500">
+                        Sori: {formatSoriType(fern)}
                       </div>
                       <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
                       {isExpanded && hasPhotos && (
@@ -2708,6 +3025,8 @@ const FernIdentifier = () => {
                       <div className="flex-1 min-w-0">
                         <h3 className="font-bold text-gray-800">{fern.name}</h3>
                         <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
+                        <p className="text-xs text-gray-500 mt-1">Growth: {formatGrowthPattern(fern)}</p>
+                        <p className="text-xs text-gray-500 mt-1">Sori: {formatSoriType(fern)}</p>
                         {hasPhotos && (
                           <p className="text-xs text-green-600 mt-1">Click to {isExpanded ? 'hide' : 'show'} photos</p>
                         )}
@@ -2809,6 +3128,8 @@ const FernIdentifier = () => {
                   <h3 className="text-xl font-bold text-gray-800">{matches[0].name}</h3>
                   <p className="text-gray-600 italic">{matches[0].scientific}</p>
                   <p className="text-sm text-gray-600 mt-1">Habitat: {formatHabitat(matches[0])}</p>
+                  <p className="text-sm text-gray-600 mt-1">Growth: {formatGrowthPattern(matches[0])}</p>
+                  <p className="text-sm text-gray-600 mt-1">Sori: {formatSoriType(matches[0])}</p>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
@@ -2833,6 +3154,8 @@ const FernIdentifier = () => {
                         <h3 className="font-bold text-gray-800">{fern.name}</h3>
                         <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
                         <p className="text-xs text-gray-500 mb-2">Habitat: {formatHabitat(fern)}</p>
+                        <p className="text-xs text-gray-500 mb-2">Growth: {formatGrowthPattern(fern)}</p>
+                        <p className="text-xs text-gray-500 mb-2">Sori: {formatSoriType(fern)}</p>
                         <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
                         {getFernIdImages(fern).length > 0 && (
                           <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -2854,7 +3177,7 @@ const FernIdentifier = () => {
     }
   };
 
-  if (showIntro) {
+  if (preChoiceScreen === 'welcome') {
     return (
       <ImageLightboxProvider>
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4 flex items-center justify-center">
@@ -2876,13 +3199,11 @@ const FernIdentifier = () => {
                 )}
               </div>
               <button
-                onClick={() => {
-                  setShowIntro(false);
-                  setShowDefinitionPage(true);
-                }}
+                type="button"
+                onClick={() => setPreChoiceScreen('quotes')}
                 className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
               >
-                Get started
+                Getting Started
               </button>
             </div>
           </div>
@@ -2891,7 +3212,58 @@ const FernIdentifier = () => {
     );
   }
 
-  if (showDefinitionPage) {
+  if (preChoiceScreen === 'quotes') {
+    return (
+      <ImageLightboxProvider>
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4 flex items-center justify-center">
+          <div className="max-w-2xl w-full">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h2 className="text-xl font-bold text-gray-800 mb-8 text-center">Quotes</h2>
+              <div className="space-y-8 text-gray-700">
+                <figure>
+                  <blockquote className="border-l-4 border-green-500 pl-5 py-1 text-lg leading-relaxed italic">
+                    Nature made ferns for pure leaves to show what she could in that line
+                  </blockquote>
+                  <figcaption className="mt-3 pl-5 text-sm text-gray-600 not-italic">
+                    — Henry David Thoreau
+                  </figcaption>
+                </figure>
+                <figure>
+                  <blockquote className="border-l-4 border-green-500 pl-5 py-1 text-lg leading-relaxed italic">
+                    Love of ferns and form often go hand in hand
+                  </blockquote>
+                  <figcaption className="mt-3 pl-5 text-sm text-gray-600 not-italic">
+                    — Translation, from the book{' '}
+                    <cite className="not-italic font-medium">Farne: Ein Portrait von Solvejg Nitzke</cite>
+                  </figcaption>
+                </figure>
+                <figure>
+                  <blockquote className="border-l-4 border-green-500 pl-5 py-1 text-lg leading-relaxed italic">
+                    Read the directions and directly you will be directed in the right direction.
+                  </blockquote>
+                  <figcaption className="mt-3 pl-5 text-sm text-gray-600 not-italic">
+                    — Lewis Carroll
+                  </figcaption>
+                </figure>
+              </div>
+              <div className="flex justify-center mt-10 pt-6 border-t border-gray-200">
+                <button
+                  type="button"
+                  onClick={() => setPreChoiceScreen('definition')}
+                  className="flex items-center gap-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
+                >
+                  Next
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ImageLightboxProvider>
+    );
+  }
+
+  if (preChoiceScreen === 'definition') {
     return (
       <ImageLightboxProvider>
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4 flex items-center justify-center">
@@ -2917,8 +3289,9 @@ const FernIdentifier = () => {
               </div>
               <div className="flex justify-center">
                 <button
+                  type="button"
                   onClick={() => {
-                    setShowDefinitionPage(false);
+                    setPreChoiceScreen(null);
                     setShowChoicePage(true);
                   }}
                   className="flex items-center gap-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-lg"
@@ -2952,7 +3325,7 @@ const FernIdentifier = () => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col min-h-[calc(100vh-2rem)]">
               <div className="p-6 border-b border-gray-200">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  The ferns are not just the frilly frond plants. The tutorial is separated into Ferns and Lycophytes. The plants are different enough to require different tutorials. Enjoy.
+                  Ferns are not just the frilly frond plants. The tutorial is separated into Ferns and Lycophytes. The plants are different enough to require different tutorials. Enjoy.
                 </p>
               </div>
               <button
