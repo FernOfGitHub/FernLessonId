@@ -878,10 +878,12 @@ const FernIdentifier = () => {
     { id: 'northeast', name: 'Northeast US', description: 'ME, NH, VT, MA, RI, CT, NY, NJ, PA' },
     { id: 'atlantic', name: 'Atlantic US', description: 'MD, VA, WV, NC, SC, GA, FL, AL, MS, LA, AR, TN, KY, OH, IN, IL, MI, WI, MN, IA, MO, TX' },
     { id: 'pacific-northwest', name: 'Pacific Northwest US', description: 'WA, OR, northern CA, BC' },
+    { id: 'canada', name: 'Canada', description: 'All provinces and territories' },
     { id: 'uk', name: 'UK', description: 'England, Scotland, Wales, Northern Ireland' },
     { id: 'europe', name: 'Western and Central Europe', description: 'France, Germany, Austria, Switzerland, Netherlands, Belgium, Spain, Portugal, Italy' },
     { id: 'hawaii', name: 'Hawaii', description: 'Hawaiian Islands' },
     { id: 'australia', name: 'Australia', description: 'Mainland Australia' },
+    { id: 'tasmania', name: 'Tasmania', description: 'Tasmania (island state of Australia)' },
     { id: 'new-zealand', name: 'New Zealand', description: 'North and South Islands' }
   ];
 
@@ -1051,7 +1053,7 @@ const FernIdentifier = () => {
     {
       name: 'Christmas Fern',
       scientific: 'Polystichum acrostichoides',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'rock'],
       frondType: 'once',
       size: 'medium',
@@ -1068,7 +1070,7 @@ const FernIdentifier = () => {
     {
       name: 'Lady Fern',
       scientific: 'Athyrium filix-femina',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['forest', 'stream'],
       frondType: 'twice',
       size: 'medium',
@@ -1080,7 +1082,7 @@ const FernIdentifier = () => {
     {
       name: 'Cinnamon Fern',
       scientific: 'Osmundastrum cinnamomeum',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['wetland', 'stream'],
       frondType: 'twice',
       size: 'large',
@@ -1092,7 +1094,7 @@ const FernIdentifier = () => {
     {
       name: 'Maidenhair Fern',
       scientific: 'Adiantum pedatum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
       habitat: ['forest'],
       frondType: 'pedate',
       size: 'small',
@@ -1104,7 +1106,7 @@ const FernIdentifier = () => {
     {
       name: 'Bracken Fern',
       scientific: 'Pteridium aquilinum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['open', 'forest'],
       frondType: 'thrice',
       size: 'large',
@@ -1121,7 +1123,7 @@ const FernIdentifier = () => {
     {
       name: 'Hay-scented Fern',
       scientific: 'Dennstaedtia punctilobula',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'open'],
       frondType: 'twice',
       size: 'medium',
@@ -1133,7 +1135,7 @@ const FernIdentifier = () => {
     {
       name: 'Ostrich Fern',
       scientific: 'Matteuccia struthiopteris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
       habitat: ['stream', 'wetland'],
       frondType: 'twice',
       size: 'large',
@@ -1145,7 +1147,7 @@ const FernIdentifier = () => {
     {
       name: 'Walking Fern',
       scientific: 'Asplenium rhizophyllum',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock'],
       frondType: 'simple',
       size: 'small',
@@ -1162,7 +1164,7 @@ const FernIdentifier = () => {
     {
       name: 'Sword Fern',
       scientific: 'Polystichum munitum',
-      regions: ['pacific-northwest'],
+      regions: ['pacific-northwest', 'canada'],
       habitat: ['forest'],
       frondType: 'once',
       size: 'large',
@@ -1174,7 +1176,7 @@ const FernIdentifier = () => {
     {
       name: 'Braun\'s Holly Fern',
       scientific: 'Polystichum braunii',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'medium',
@@ -1186,7 +1188,7 @@ const FernIdentifier = () => {
     {
       name: 'Anderson\'s Sword Fern',
       scientific: 'Polystichum andersonii',
-      regions: ['pacific-northwest'],
+      regions: ['pacific-northwest', 'canada'],
       habitat: ['forest'],
       frondType: 'twice',
       size: 'large',
@@ -1198,7 +1200,7 @@ const FernIdentifier = () => {
     {
       name: 'Kruckeberg\'s Sword Fern',
       scientific: 'Polystichum kruckebergii',
-      regions: ['pacific-northwest'],
+      regions: ['pacific-northwest', 'canada'],
       habitat: ['rock'],
       frondType: 'once',
       size: 'small',
@@ -1210,7 +1212,7 @@ const FernIdentifier = () => {
     {
       name: 'Imbricate Sword Fern',
       scientific: 'Polystichum imbricans',
-      regions: ['pacific-northwest'],
+      regions: ['pacific-northwest', 'canada'],
       habitat: ['rock', 'forest'],
       frondType: 'once',
       size: 'small',
@@ -1222,7 +1224,7 @@ const FernIdentifier = () => {
     {
       name: 'Sensitive Fern',
       scientific: 'Onoclea sensibilis',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['wetland', 'stream', 'forest'],
       frondType: 'pinnatifid',
       size: 'medium',
@@ -1239,7 +1241,7 @@ const FernIdentifier = () => {
     {
       name: 'Royal Fern',
       scientific: 'Osmunda regalis',
-      regions: ['northeast', 'atlantic', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'canada', 'uk', 'europe'],
       habitat: ['wetland', 'stream'],
       frondType: 'twice',
       size: 'large',
@@ -1256,7 +1258,7 @@ const FernIdentifier = () => {
     {
       name: 'Interrupted Fern',
       scientific: 'Osmunda claytoniana',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'large',
@@ -1273,7 +1275,7 @@ const FernIdentifier = () => {
     {
       name: 'New York Fern',
       scientific: 'Thelypteris noveboracensis',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'medium',
@@ -1285,7 +1287,7 @@ const FernIdentifier = () => {
     {
       name: 'Netted Chain Fern',
       scientific: 'Woodwardia areolata',
-      regions: ['northeast'],
+      regions: ['northeast', 'canada'],
       habitat: ['wetland'],
       frondType: 'once',
       size: 'medium',
@@ -1297,7 +1299,7 @@ const FernIdentifier = () => {
     {
       name: 'Marginal Wood Fern',
       scientific: 'Dryopteris marginalis',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'medium',
@@ -1309,7 +1311,7 @@ const FernIdentifier = () => {
     {
       name: 'Marsh Fern',
       scientific: 'Thelypteris palustris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['wetland', 'stream'],
       frondType: 'once',
       size: 'medium',
@@ -1321,7 +1323,7 @@ const FernIdentifier = () => {
     {
       name: 'Ebony Spleenwort',
       scientific: 'Asplenium platyneuron',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock', 'forest'],
       frondType: 'once',
       size: 'small',
@@ -1333,7 +1335,7 @@ const FernIdentifier = () => {
     {
       name: 'Maidenhair Spleenwort',
       scientific: 'Asplenium trichomanes',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['rock'],
       frondType: 'once',
       size: 'small',
@@ -1345,7 +1347,7 @@ const FernIdentifier = () => {
     {
       name: 'Common Polypody',
       scientific: 'Polypodium virginianum',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock', 'forest'],
       frondType: 'once',
       size: 'small',
@@ -1362,7 +1364,7 @@ const FernIdentifier = () => {
     {
       name: 'Spinulose Wood Fern',
       scientific: 'Dryopteris carthusiana',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['forest', 'wetland'],
       frondType: 'thrice',
       size: 'medium',
@@ -1374,7 +1376,7 @@ const FernIdentifier = () => {
     {
       name: 'Intermediate Wood Fern',
       scientific: 'Dryopteris intermedia',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'rock'],
       frondType: 'thrice',
       size: 'medium',
@@ -1386,7 +1388,7 @@ const FernIdentifier = () => {
     {
       name: 'Long Beech Fern',
       scientific: 'Phegopteris connectilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['forest', 'rock'],
       frondType: 'pinnatifid',
       size: 'small',
@@ -1398,7 +1400,7 @@ const FernIdentifier = () => {
     {
       name: 'Broad Beech Fern',
       scientific: 'Phegopteris hexagonoptera',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest'],
       frondType: 'pinnatifid',
       size: 'medium',
@@ -1410,7 +1412,7 @@ const FernIdentifier = () => {
     {
       name: 'Oak Fern',
       scientific: 'Gymnocarpium dryopteris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'small',
@@ -1422,7 +1424,7 @@ const FernIdentifier = () => {
     {
       name: 'Bulblet Fern',
       scientific: 'Cystopteris bulbifera',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock', 'stream'],
       frondType: 'twice',
       size: 'medium',
@@ -1434,7 +1436,7 @@ const FernIdentifier = () => {
     {
       name: 'Fragile Fern',
       scientific: 'Cystopteris fragilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['rock'],
       frondType: 'twice',
       size: 'small',
@@ -1446,7 +1448,7 @@ const FernIdentifier = () => {
     {
       name: 'Silvery Glade Fern',
       scientific: 'Deparia acrostichoides',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'stream'],
       frondType: 'once',
       size: 'medium',
@@ -1458,7 +1460,7 @@ const FernIdentifier = () => {
     {
       name: 'Goldie\'s Fern',
       scientific: 'Dryopteris goldiana',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest'],
       frondType: 'twice',
       size: 'large',
@@ -1470,7 +1472,7 @@ const FernIdentifier = () => {
     {
       name: 'Crested Wood Fern',
       scientific: 'Dryopteris cristata',
-      regions: ['northeast', 'atlantic', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'canada', 'uk', 'europe'],
       habitat: ['wetland', 'forest'],
       frondType: 'twice',
       size: 'medium',
@@ -1482,7 +1484,7 @@ const FernIdentifier = () => {
     {
       name: 'Clinton\'s Wood Fern',
       scientific: 'Dryopteris clintoniana',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['wetland', 'forest'],
       frondType: 'twice',
       size: 'large',
@@ -1494,7 +1496,7 @@ const FernIdentifier = () => {
     {
       name: 'Purple-stemmed Cliff Brake',
       scientific: 'Pellaea atropurpurea',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock'],
       frondType: 'once',
       size: 'small',
@@ -1506,7 +1508,7 @@ const FernIdentifier = () => {
     {
       name: 'Rock Cap Fern',
       scientific: 'Polypodium appalachianum',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['rock'],
       frondType: 'once',
       size: 'small',
@@ -1523,7 +1525,7 @@ const FernIdentifier = () => {
     {
       name: 'Rattlesnake Fern',
       scientific: 'Botrypus virginianus',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
       habitat: ['forest', 'open'],
       frondType: 'thrice',
       size: 'small',
@@ -1535,7 +1537,7 @@ const FernIdentifier = () => {
     {
       name: 'Cut-leaved Grape Fern',
       scientific: 'Sceptridium dissectum',
-      regions: ['northeast', 'atlantic'],
+      regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'open'],
       frondType: 'thrice',
       size: 'small',
@@ -1547,7 +1549,7 @@ const FernIdentifier = () => {
     {
       name: 'Northern Lady Fern',
       scientific: 'Athyrium angustum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'medium',
@@ -1571,7 +1573,7 @@ const FernIdentifier = () => {
     {
       name: 'Male Fern',
       scientific: 'Dryopteris filix-mas',
-      regions: ['northeast', 'pacific-northwest', 'uk', 'europe'],
+      regions: ['northeast', 'pacific-northwest', 'canada', 'uk', 'europe'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'large',
@@ -2128,7 +2130,7 @@ const FernIdentifier = () => {
     {
       name: 'Soft Tree Fern (Tasmanian)',
       scientific: 'Dicksonia antarctica',
-      regions: ['australia'],
+      regions: ['australia', 'tasmania'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'large',
@@ -4205,7 +4207,7 @@ const FernIdentifier = () => {
 
         {!showLesson && (
           <p className="text-center text-sm text-gray-600 mt-4">
-            Database includes 90 fern species across North America, UK, Europe, Australia, and New Zealand
+            Database includes 90 fern species across North America (including Canada), UK, Europe, Australia, Tasmania, and New Zealand
           </p>
         )}
 
