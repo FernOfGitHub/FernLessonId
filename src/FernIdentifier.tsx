@@ -870,7 +870,8 @@ const FernIdentifier = () => {
   const [selections, setSelections] = useState({
     region: null,
     frondType: null,
-    size: null,
+    soriPresent: null,
+    soriBucket: null,
     texture: null
   });
 
@@ -1037,17 +1038,115 @@ const FernIdentifier = () => {
     }
   ];
 
-  const sizes = [
-    { id: 'small', name: 'Small (< 12")', description: 'Less than 1 foot tall' },
-    { id: 'medium', name: 'Medium (12-36")', description: '1-3 feet tall' },
-    { id: 'large', name: 'Large (> 36")', description: 'More than 3 feet tall' }
-  ];
-
   const textures = [
     { id: 'delicate', name: 'Delicate/Thin', description: 'Papery, translucent texture' },
     { id: 'leathery', name: 'Leathery/Thick', description: 'Tough, evergreen texture' },
     { id: 'hairy', name: 'Fuzzy/Hairy', description: 'Visible hairs on fronds or stems' }
   ];
+
+  /** Classifier for the identifier “sori type” step; order is first-match. */
+  const identifierSoriBuckets = [
+    {
+      id: 'fertile-spike-separate',
+      name: 'Spikes or separate fertile fronds',
+      description:
+        'Sporangia on fertile spikes, separate brown fertile fronds, or fertile segments—not ordinary round sori on green pinnae (e.g. grapeferns, adder’s-tongues, many Osmundaceae).',
+      test: (t) =>
+        /fertile spike|Separate fertile|Sporangia on fertile spike|grape-fern|moonwort|on fertile branch|bead-like on fertile|clustered at fertile|tassel-like|fertile pinna tips|fertile segment/i.test(
+          t
+        )
+    },
+    {
+      id: 'tubular-filmy',
+      name: 'Tubular urn (filmy ferns)',
+      description: 'Sporangia in an urn- or tube-shaped indusium (typical Hymenophyllaceae).',
+      test: (t) => /tubular involucre|Tubular|filmy fern sporangia/i.test(t)
+    },
+    {
+      id: 'tree-fern-round',
+      name: 'Tree fern (round sori on pinnae)',
+      description: 'Large Cyathea- or tree-fern type sori on pinnules, often with scale or cup indusia.',
+      test: (t) =>
+        /tree fern sori|typical Cyathea|lacy tree|prickly tree|rough tree|Round on pinnules with indusium/i.test(t) ||
+        (/Cyathea|Soft Tree Fern/i.test(t) && /pinnule|indusium|tree fern/i.test(t))
+    },
+    {
+      id: 'dicksonia-marginal',
+      name: 'Dicksonia-type marginal cups',
+      description: 'Sori in marginal cup-like structures (typical Dicksonia).',
+      test: (t) => /Marginal cups — Dicksonia|marginal or near-marginal — often in cup/i.test(t)
+    },
+    {
+      id: 'chain-like',
+      name: 'Chain-like (joined in rows)',
+      description: 'Elongate sori linked in rows between veins.',
+      test: (t) => /chain-like|catenulate/i.test(t)
+    },
+    {
+      id: 'curved-linear',
+      name: 'Curved linear (J- or horseshoe-shaped)',
+      description: 'Often Athyrium- or adiantum-like along vein endings.',
+      test: (t) => /Curved linear|curved linear|horseshoe-shaped/i.test(t)
+    },
+    {
+      id: 'linear-veins',
+      name: 'Linear along veins',
+      description: 'Oblong sori following veins, one-sided or false-indusium types included.',
+      test: (t) =>
+        /Linear along vein|Linear oblong|linear along|Linear — silvery|Linear on fertile fronds/i.test(t) &&
+        !/Curved linear|curved linear/i.test(t)
+    },
+    {
+      id: 'round-peltate',
+      name: 'Round with peltate (shield) indusium',
+      description: 'Round sori with a central stalked indusium (polystichum-type and similar).',
+      test: (t) => /[Pp]eltate indusium|peltate/i.test(t)
+    },
+    {
+      id: 'round-kidney',
+      name: 'Round with kidney-shaped indusium',
+      description: 'Classic wood-fern and male-fern type round sori with kidney indusia.',
+      test: (t) => /kidney-shaped indusium/i.test(t)
+    },
+    {
+      id: 'naked-round',
+      name: 'Round, naked (no indusium)',
+      description: 'Polypody-style exposed round sori without indusia.',
+      test: (t) =>
+        /[Rr]ound, naked|naked round|Naked, covering pinnae|polypody/i.test(t) && !/kidney-shaped/i.test(t)
+    },
+    {
+      id: 'marginal-other',
+      name: 'Other marginal / false indusium',
+      description: 'Along segment margins—rolled leaf margin, bracken-like, or maidenhair reflex.',
+      test: (t) =>
+        /[Mm]arginal, false indusium|[Mm]arginal cup|[Mm]arginal, continuous|[Mm]arginal, naked — like bracken|[Mm]arginal or immersed/i.test(
+          t
+        )
+    },
+    {
+      id: 'round-generic',
+      name: 'Round (hood or generic round indusiate)',
+      description: 'Small round sori with a hood or thin indusium; bladder ferns and similar.',
+      test: (t) =>
+        /^[Rr]ound —|Round — small|Round on sterile|bladder-fern|Round with hood/i.test(t) ||
+        (/^[Rr]ound /i.test(t) && !/kidney-shaped|peltate|naked/i.test(t))
+    },
+    {
+      id: 'other',
+      name: 'Other / less common',
+      description: 'Anything that does not fit the categories above.',
+      test: () => true
+    }
+  ];
+
+  function getIdentifierSoriBucket(fern) {
+    const raw = fern.soriType || '';
+    for (const b of identifierSoriBuckets) {
+      if (b.test(raw)) return b.id;
+    }
+    return 'other';
+  }
 
   const fernDatabase = [
     {
@@ -2216,7 +2315,9 @@ const FernIdentifier = () => {
     return fernDatabase.filter(fern => {
       if (sel.region && !fern.regions.includes(sel.region)) return false;
       if (sel.frondType && fern.frondType !== sel.frondType) return false;
-      if (sel.size && fern.size !== sel.size) return false;
+      if (sel.soriPresent === 'yes' && sel.soriBucket) {
+        if (getIdentifierSoriBucket(fern) !== sel.soriBucket) return false;
+      }
       if (sel.texture && fern.texture !== sel.texture) return false;
       return true;
     });
@@ -2412,22 +2513,53 @@ const FernIdentifier = () => {
     const nextSelections = { ...selections, [category]: value };
     setSelections(nextSelections);
     if (category === 'frondType' && getMatchesFor(nextSelections).length === 1) {
-      setStep(5);
+      setStep(6);
     } else {
       setStep(step + 1);
     }
   };
 
   const handleBack = () => {
-    const steps = ['region', 'frondType', null, 'size', 'texture'];
-    if (step > 0) {
-      if (step === 5 && selections.size === null && selections.texture === null) {
-        setStep(2);
-        return;
+    if (step === 0) return;
+    if (step === 6 && selections.texture === null && selections.soriPresent === null) {
+      setStep(2);
+      return;
+    }
+    if (step === 6) {
+      setSelections(prev => ({ ...prev, texture: null }));
+      setStep(5);
+      return;
+    }
+    if (step === 5) {
+      setSelections(prev => ({ ...prev, texture: null }));
+      if (selections.soriPresent === 'yes') {
+        setSelections(prev => ({ ...prev, soriBucket: null }));
+        setStep(4);
+      } else {
+        setSelections(prev => ({ ...prev, soriPresent: null, soriBucket: null }));
+        setStep(3);
       }
-      const prevCategory = steps[step - 1];
-      if (prevCategory) setSelections(prev => ({ ...prev, [prevCategory]: null }));
-      setStep(step - 1);
+      return;
+    }
+    if (step === 4) {
+      setSelections(prev => ({ ...prev, soriBucket: null, soriPresent: null }));
+      setStep(3);
+      return;
+    }
+    if (step === 3) {
+      setSelections(prev => ({ ...prev, soriPresent: null, soriBucket: null }));
+      setStep(2);
+      return;
+    }
+    if (step === 2) {
+      setSelections(prev => ({ ...prev, frondType: null }));
+      setStep(1);
+      return;
+    }
+    if (step === 1) {
+      setSelections(prev => ({ ...prev, region: null }));
+      setStep(0);
+      return;
     }
   };
 
@@ -2435,7 +2567,8 @@ const FernIdentifier = () => {
     setSelections({
       region: null,
       frondType: null,
-      size: null,
+      soriPresent: null,
+      soriBucket: null,
       texture: null
     });
     setStep(0);
@@ -3003,7 +3136,7 @@ const FernIdentifier = () => {
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Species Matching Your Choices</h2>
           <p className="text-gray-600 mb-4">
-            {speciesListMatches.length} species match region and frond division. Click a species to see its photos, or continue to narrow by size.
+            {speciesListMatches.length} species match region and frond division. Click a species to see its photos, or continue to narrow by sori.
           </p>
           <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-2 mb-6">
             {speciesListMatches.length === 0 ? (
@@ -3050,30 +3183,82 @@ const FernIdentifier = () => {
             )}
           </div>
           <button
+            type="button"
             onClick={() => setStep(3)}
             className="w-full sm:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
           >
-            Continue to size
+            Continue to sori
           </button>
         </div>
       );
     }
 
     if (step === 3) {
+      const beforeSori = getMatchesFor({ ...selections, soriPresent: null, soriBucket: null, texture: null });
+      const n = beforeSori.length;
       return (
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Size</h2>
-          <p className="text-gray-600 mb-2">How tall is the fern?</p>
-          <p className="text-sm text-green-600 mb-6">{matchCount} possible matches</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Sori</h2>
+          <p className="text-gray-600 mb-2">
+            On the fronds you are keying (often the underside of pinnae or pinnules), do you see sori—clusters of
+            sporangia?
+          </p>
+          <p className="text-sm text-green-600 mb-6">{n} possible matches at this point</p>
           <div className="grid gap-3">
-            {sizes.map(size => (
+            <button
+              type="button"
+              onClick={() => {
+                setSelections(s => ({ ...s, soriPresent: 'yes', soriBucket: null }));
+                setStep(4);
+              }}
+              className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
+            >
+              <div className="font-semibold text-gray-800">Yes — sori visible on the blade</div>
+              <div className="text-sm text-gray-500 mt-1">Next you will choose which sori type best matches.</div>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setSelections(s => ({ ...s, soriPresent: 'no', soriBucket: null }));
+                setStep(5);
+              }}
+              className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
+            >
+              <div className="font-semibold text-gray-800">No / not on ordinary green pinnae</div>
+              <div className="text-sm text-gray-500 mt-1">
+                e.g. sporangia only on fertile spikes, separate fertile fronds, or not visible yet — skip sori type
+                and go to texture.
+              </div>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    if (step === 4) {
+      const partial = getMatchesFor({ ...selections, soriBucket: null, texture: null });
+      const availableBuckets = new Set(partial.map(getIdentifierSoriBucket));
+      const bucketOptions = identifierSoriBuckets.filter(b => b.id === 'other' || availableBuckets.has(b.id));
+      return (
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Sori type</h2>
+          <p className="text-gray-600 mb-2">
+            Which description fits best? This matches the database sori pattern for each species.
+          </p>
+          <p className="text-sm text-green-600 mb-6">{partial.length} possible matches</p>
+          <div className="grid gap-3">
+            {bucketOptions.map(b => (
               <button
-                key={size.id}
-                onClick={() => handleSelect('size', size.id)}
+                key={b.id}
+                type="button"
+                onClick={() => {
+                  setSelections(s => ({ ...s, soriPresent: 'yes', soriBucket: b.id }));
+                  setStep(5);
+                }}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
               >
-                <div className="font-semibold text-gray-800">{size.name}</div>
-                <div className="text-sm text-gray-500 mt-1">{size.description}</div>
+                <div className="font-semibold text-gray-800">{b.name}</div>
+                <div className="text-sm text-gray-500 mt-1">{b.description}</div>
               </button>
             ))}
           </div>
@@ -3081,7 +3266,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 4) {
+    if (step === 5) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Texture</h2>
@@ -3091,6 +3276,7 @@ const FernIdentifier = () => {
             {textures.map(texture => (
               <button
                 key={texture.id}
+                type="button"
                 onClick={() => handleSelect('texture', texture.id)}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
               >
@@ -3103,7 +3289,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 5) {
+    if (step === 6) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Identification Results</h2>
@@ -4149,12 +4335,12 @@ const FernIdentifier = () => {
             <div className="mb-8">
               <div className="flex justify-between text-xs text-gray-500 mb-2">
                 <span>Progress</span>
-                <span>Step {step} of 4</span>
+                <span>Step {step} of 6</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-green-500 transition-all duration-300"
-                  style={{ width: `${(step / 4) * 100}%` }}
+                  style={{ width: `${(step / 6) * 100}%` }}
                 />
               </div>
             </div>
@@ -4174,9 +4360,14 @@ const FernIdentifier = () => {
                     {frondTypes.find(f => f.id === selections.frondType)?.name}
                   </span>
                 )}
-                {selections.size && (
+                {selections.soriPresent && (
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
-                    {sizes.find(s => s.id === selections.size)?.name}
+                    Sori: {selections.soriPresent === 'yes' ? 'visible' : 'not on blade / skipped'}
+                  </span>
+                )}
+                {selections.soriPresent === 'yes' && selections.soriBucket && (
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+                    {identifierSoriBuckets.find(sb => sb.id === selections.soriBucket)?.name ?? selections.soriBucket}
                   </span>
                 )}
                 {selections.texture && (
