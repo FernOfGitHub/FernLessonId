@@ -58,6 +58,7 @@ function ClickableImg({ src, alt, className, fullSizeSrc }) {
 }
 
 // Picture to latin name mapping (file: relative path, latin name)
+import { STIPE_RACHIS_BY_SCIENTIFIC, inferStipeColorBucket } from './fernStipeRachisIndument';
 import mapRaw from '../pictures/picture-latin-name-map.txt?raw';
 const latinNameMap = Object.fromEntries(
   mapRaw
@@ -773,7 +774,7 @@ const INTRO_LINES = [
   'Enjoy.',
   '',
   '[This is an early, early development version]',
-  'Version 0.3  2May26',
+  'Version 0.3  23May26',
   '@fernleaf07.bsky.social',
 ];
 
@@ -862,6 +863,8 @@ const FernIdentifier = () => {
   const [practiceQuestionIndex, setPracticeQuestionIndex] = useState(0);
   const [finalQuizScore, setFinalQuizScore] = useState(0);
   const [step, setStep] = useState(0);
+  /** Sub-step within wizard step 5 (stipe/rachis): 0 = surface, 1 = grooved, 2 = color. */
+  const [indumentSubStep, setIndumentSubStep] = useState(0);
   const [showDatabase, setShowDatabase] = useState(false);
   const [databaseExpandedScientific, setDatabaseExpandedScientific] = useState(null);
   const [identifierSpeciesExpandedScientific, setIdentifierSpeciesExpandedScientific] = useState(null);
@@ -872,7 +875,9 @@ const FernIdentifier = () => {
     frondType: null,
     soriPresent: null,
     soriBucket: null,
-    texture: null
+    stipeSurface: null,
+    stipeGroovedUser: null,
+    stipeColorBucket: null,
   });
 
   const regions = [
@@ -886,7 +891,8 @@ const FernIdentifier = () => {
     { id: 'hawaii', name: 'Hawaii', description: 'Hawaiian Islands' },
     { id: 'australia', name: 'Australia', description: 'Mainland Australia' },
     { id: 'tasmania', name: 'Tasmania', description: 'Tasmania (island state of Australia)' },
-    { id: 'new-zealand', name: 'New Zealand', description: 'North and South Islands' }
+    { id: 'new-zealand', name: 'New Zealand', description: 'North and South Islands' },
+    { id: 'japan', name: 'Japan', description: 'Honshu, Hokkaido, Kyushu, Shikoku, and the Ryukyu Islands' }
   ];
 
   const habitats = [
@@ -1149,7 +1155,7 @@ const FernIdentifier = () => {
     return 'other';
   }
 
-  const fernDatabase = [
+  const fernDatabaseBase = [
     {
       name: 'Christmas Fern',
       scientific: 'Polystichum acrostichoides',
@@ -1170,7 +1176,7 @@ const FernIdentifier = () => {
     {
       name: 'Lady Fern',
       scientific: 'Athyrium filix-femina',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'japan'],
       habitat: ['forest', 'stream'],
       frondType: 'twice',
       size: 'medium',
@@ -1194,7 +1200,7 @@ const FernIdentifier = () => {
     {
       name: 'Maidenhair Fern',
       scientific: 'Adiantum pedatum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'japan'],
       habitat: ['forest'],
       frondType: 'pedate',
       size: 'small',
@@ -1206,7 +1212,7 @@ const FernIdentifier = () => {
     {
       name: 'Bracken Fern',
       scientific: 'Pteridium aquilinum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'japan'],
       habitat: ['open', 'forest'],
       frondType: 'thrice',
       size: 'large',
@@ -1235,7 +1241,7 @@ const FernIdentifier = () => {
     {
       name: 'Ostrich Fern',
       scientific: 'Matteuccia struthiopteris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'japan'],
       habitat: ['stream', 'wetland'],
       frondType: 'twice',
       size: 'large',
@@ -1276,7 +1282,7 @@ const FernIdentifier = () => {
     {
       name: 'Braun\'s Holly Fern',
       scientific: 'Polystichum braunii',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'japan'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'medium',
@@ -1435,7 +1441,7 @@ const FernIdentifier = () => {
     {
       name: 'Maidenhair Spleenwort',
       scientific: 'Asplenium trichomanes',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland', 'japan'],
       habitat: ['rock'],
       frondType: 'once',
       size: 'small',
@@ -1488,7 +1494,7 @@ const FernIdentifier = () => {
     {
       name: 'Long Beech Fern',
       scientific: 'Phegopteris connectilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland', 'japan'],
       habitat: ['forest', 'rock'],
       frondType: 'pinnatifid',
       size: 'small',
@@ -1512,7 +1518,7 @@ const FernIdentifier = () => {
     {
       name: 'Oak Fern',
       scientific: 'Gymnocarpium dryopteris',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland', 'japan'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'small',
@@ -1536,7 +1542,7 @@ const FernIdentifier = () => {
     {
       name: 'Fragile Fern',
       scientific: 'Cystopteris fragilis',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland', 'japan'],
       habitat: ['rock'],
       frondType: 'twice',
       size: 'small',
@@ -1625,7 +1631,7 @@ const FernIdentifier = () => {
     {
       name: 'Rattlesnake Fern',
       scientific: 'Botrypus virginianus',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'japan'],
       habitat: ['forest', 'open'],
       frondType: 'thrice',
       size: 'small',
@@ -1649,7 +1655,7 @@ const FernIdentifier = () => {
     {
       name: 'Northern Lady Fern',
       scientific: 'Athyrium angustum',
-      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada'],
+      regions: ['northeast', 'atlantic', 'pacific-northwest', 'canada', 'japan'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'medium',
@@ -1673,7 +1679,7 @@ const FernIdentifier = () => {
     {
       name: 'Male Fern',
       scientific: 'Dryopteris filix-mas',
-      regions: ['northeast', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland'],
+      regions: ['northeast', 'pacific-northwest', 'canada', 'uk', 'europe', 'iceland', 'japan'],
       habitat: ['forest', 'rock'],
       frondType: 'twice',
       size: 'large',
@@ -1733,7 +1739,7 @@ const FernIdentifier = () => {
     {
       name: 'Holly Fern',
       scientific: 'Polystichum lonchitis',
-      regions: ['uk', 'europe', 'iceland'],
+      regions: ['uk', 'europe', 'iceland', 'japan'],
       habitat: ['rock', 'forest'],
       frondType: 'once',
       size: 'medium',
@@ -1913,7 +1919,7 @@ const FernIdentifier = () => {
     {
       name: 'Alpine Woodsia',
       scientific: 'Woodsia alpina',
-      regions: ['uk', 'europe'],
+      regions: ['uk', 'europe', 'japan'],
       habitat: ['rock'],
       frondType: 'twice',
       size: 'small',
@@ -2177,7 +2183,7 @@ const FernIdentifier = () => {
     {
       name: 'Northern Buckler-fern',
       scientific: 'Dryopteris expansa',
-      regions: ['uk', 'europe', 'iceland'],
+      regions: ['uk', 'europe', 'iceland', 'japan'],
       habitat: ['forest', 'wetland'],
       frondType: 'twice',
       size: 'medium',
@@ -2309,8 +2315,189 @@ const FernIdentifier = () => {
         'Restricted to wet escarpment and rainforest habitats in northern New South Wales and nearby'
       ],
       features: 'Specialist of cool, very humid forests on the Great Dividing Range; less widespread than D. antarctica.'
+    },
+    {
+      name: 'Japanese Tassel Fern',
+      scientific: 'Polystichum polyblepharum',
+      regions: ['japan'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      growthPattern: 'Clump-forming crown — evergreen rosette from short erect rhizome',
+      soriType: 'Round with peltate indusium — on pinnules; young pinnae with drooping tassel tips',
+      uniqueCharacters: [
+        'Evergreen; young unfolding pinnae hang down like tassels before spreading',
+        'Stiff dark green fronds with spiny-toothed pinnae; very common in Japanese gardens and woods'
+      ],
+      features: 'Iconic Japanese woodland fern. Evergreen clumps; the “tassels” are the tips of newly emerging pinnae. Widely planted outside Japan.'
+    },
+    {
+      name: 'Japanese Painted Fern',
+      scientific: 'Athyrium niponicum',
+      regions: ['japan'],
+      habitat: ['forest', 'stream'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      growthPattern: 'Short-creeping clump — slowly spreading crown in moist shade',
+      soriType: 'Curved linear (J- or horseshoe-shaped) — along vein endings, indusiate',
+      uniqueCharacters: [
+        'Silvery-gray fronds with contrasting dark maroon rachis (cultivars especially vivid)',
+        'Deciduous; moist woodland and stream banks; extremely popular in horticulture'
+      ],
+      features: 'Native to Japan, Korea, and adjacent Asia. The wild form is subtle; garden cultivars (e.g. ‘Pictum’) show strong silver and burgundy tones.'
+    },
+    {
+      name: 'Japanese Holly Fern',
+      scientific: 'Cyrtomium falcatum',
+      regions: ['japan'],
+      habitat: ['forest', 'rock'],
+      frondType: 'once',
+      size: 'medium',
+      texture: 'leathery',
+      growthPattern: 'Short-creeping clump — erect fronds from thick rhizome',
+      soriType: 'Round with peltate indusium — large round sori on pinna undersides',
+      uniqueCharacters: [
+        'Thick, glossy, holly-like pinnae with spiny margins; evergreen',
+        'Distinctive once-pinnate blade unlike typical lacy woodland ferns'
+      ],
+      features: 'Common on wooded slopes and rocky banks in Japan; also widely naturalized in mild coastal regions elsewhere.'
+    },
+    {
+      name: "Fortune's Holly Fern",
+      scientific: 'Cyrtomium fortunei',
+      regions: ['japan'],
+      habitat: ['forest', 'rock'],
+      frondType: 'once',
+      size: 'medium',
+      texture: 'leathery',
+      growthPattern: 'Clump-forming — erect crown from ascending rhizome',
+      soriType: 'Round with peltate indusium — on pinnae like C. falcatum',
+      features: 'Similar holly-fern habit to C. falcatum but often taller and with narrower pinnae. Japan, China, and Korea; common in cultivation.'
+    },
+    {
+      name: 'Japanese Chain Fern',
+      scientific: 'Woodwardia japonica',
+      regions: ['japan'],
+      habitat: ['stream', 'wetland', 'forest'],
+      frondType: 'once',
+      size: 'large',
+      texture: 'leathery',
+      growthPattern: 'Short-creeping clump — vase-like crown in wet soil',
+      soriType: 'Chain-like (catenulate) — elongated sori joined in rows between veins',
+      uniqueCharacters: [
+        'Long once-pinnate fronds; sori form conspicuous chain-like lines on pinnae',
+        'Moist valleys and stream banks; one of Japan’s largest native ferns'
+      ],
+      features: 'Distinct from North American netted chain fern (W. areolata). Thrives in humid lowland and montane woods with constant moisture.'
+    },
+    {
+      name: 'Autumn Fern',
+      scientific: 'Dryopteris erythrosora',
+      regions: ['japan'],
+      habitat: ['forest', 'rock'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'leathery',
+      growthPattern: 'Clump-forming crown — short rhizome, evergreen in mild climates',
+      soriType: 'Round with kidney-shaped indusium — on pinnule undersides',
+      uniqueCharacters: [
+        'New fronds emerge coppery pink to bronze before maturing green',
+        'Evergreen shield-fern habit; very common in Japanese woodland and gardens'
+      ],
+      features: 'Also native to China and Taiwan. The seasonal bronze fiddleheads are a reliable field clue in spring and after rain.'
+    },
+    {
+      name: 'Japanese Wood Fern',
+      scientific: 'Dryopteris crassirhizoma',
+      regions: ['japan'],
+      habitat: ['forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'leathery',
+      growthPattern: 'Clump-forming crown — stout erect rhizome with thick roots',
+      soriType: 'Round with kidney-shaped indusium — large wood-fern sori on pinnules',
+      uniqueCharacters: [
+        'Very stout, densely scaly stipe base; large triangular fronds',
+        'Common understory fern in cool temperate forests of Japan and northeast Asia'
+      ],
+      features: 'Sometimes called the “thick-rooted wood fern.” A major component of Japanese forest floors, often growing with Polystichum polyblepharum.'
+    },
+    {
+      name: 'Japanese Flowering Fern',
+      scientific: 'Osmunda japonica',
+      regions: ['japan'],
+      habitat: ['forest', 'stream', 'wetland'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'delicate',
+      growthPattern: 'Clump-forming crown — erect rhizome in moist soil',
+      soriType: 'Separate fertile fronds — sporangia on dedicated fertile pinnae at frond tips (zenmai)',
+      uniqueCharacters: [
+        'Fertile pinnae at tips of some fronds bear dense sporangia (edible “zenmai” shoots in spring)',
+        'Sterile fronds broadly triangular and pinnate-pinnatifid; moist woods and stream sides'
+      ],
+      features: 'Japan’s common “flowering fern,” distinct from Osmunda regalis of Europe and Osmundastrum cinnamomeum of eastern North America.'
+    },
+    {
+      name: 'Japanese Lady Fern',
+      scientific: 'Deparia petersenii',
+      regions: ['japan'],
+      habitat: ['forest', 'stream'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — patches from slender rhizomes',
+      soriType: 'Curved linear — along vein endings, indusiate',
+      features: 'Moist woodland and roadsides; also naturalized in parts of Europe and North America. Fronds lighter green and more spreading than Athyrium filix-femina.'
+    },
+    {
+      name: 'Asian Ostrich Fern',
+      scientific: 'Matteuccia orientalis',
+      regions: ['japan'],
+      habitat: ['stream', 'forest'],
+      frondType: 'twice',
+      size: 'large',
+      texture: 'delicate',
+      growthPattern: 'Clump-forming (vase) — upright shuttlecock from stout rhizome',
+      soriType: 'Separate fertile fronds — narrow brown fertile fronds among green sterile ones',
+      features: 'Japan, Korea, and China. Similar vase-shaped habit to ostrich fern (M. struthiopteris) but fertile fronds differ in timing and shape.'
+    },
+    {
+      name: 'Japanese Climbing Fern',
+      scientific: 'Lygodium japonicum',
+      regions: ['japan'],
+      habitat: ['open', 'forest'],
+      frondType: 'twice',
+      size: 'medium',
+      texture: 'delicate',
+      growthPattern: 'Long-creeping, colonial — twining rachis climbs shrubs and low trees',
+      soriType: 'Marginal, false indusium — sori along lobed segment margins',
+      uniqueCharacters: [
+        'Climbing or twining habit — rachis extends and coils on supports unlike typical crown ferns',
+        'Delicate bipinnate lobes; can form dense mats in open woods and edges in warm parts of Japan'
+      ],
+      features: 'Invasive in parts of the southeastern US but native to Japan, Korea, and China. Recognize by the vine-like growth, not a ground-rosette habit.'
+    },
+    {
+      name: 'Japanese Plagiogyria',
+      scientific: 'Plagiogyria japonica',
+      regions: ['japan'],
+      habitat: ['forest', 'rock'],
+      frondType: 'once',
+      size: 'medium',
+      texture: 'leathery',
+      growthPattern: 'Clump-forming crown — short erect rhizome on slopes',
+      soriType: 'Round — small round sori on lower pinnae (fertile fronds may differ)',
+      features: 'Montane and lowland forest on acidic soils. Once-pinnate fronds with pinnae often angled forward; a distinctive genus common in East Asian woods.'
     }
   ];
+
+  const fernDatabase = fernDatabaseBase.map((fern) => ({
+    ...fern,
+    stipeRachisIndument: STIPE_RACHIS_BY_SCIENTIFIC[fern.scientific],
+  }));
 
   const getMatchesFor = (sel) => {
     return fernDatabase.filter(fern => {
@@ -2319,7 +2506,20 @@ const FernIdentifier = () => {
       if (sel.soriPresent === 'yes' && sel.soriBucket) {
         if (getIdentifierSoriBucket(fern) !== sel.soriBucket) return false;
       }
-      if (sel.texture && fern.texture !== sel.texture) return false;
+      if (sel.stipeSurface && fern.stipeRachisIndument?.surface !== sel.stipeSurface) return false;
+      if (sel.stipeGroovedUser && sel.stipeGroovedUser !== 'skip') {
+        const g = fern.stipeRachisIndument?.grooved;
+        if (sel.stipeGroovedUser === 'channelled') {
+          if (g !== 'yes' && g !== 'variable') return false;
+        }
+        if (sel.stipeGroovedUser === 'smooth') {
+          if (g !== 'no' && g !== 'variable') return false;
+        }
+      }
+      if (sel.stipeColorBucket != null && sel.stipeColorBucket !== 'skip' && fern.stipeRachisIndument) {
+        const b = inferStipeColorBucket(fern.stipeRachisIndument);
+        if (b !== 'other' && b !== sel.stipeColorBucket) return false;
+      }
       return true;
     });
   };
@@ -2332,6 +2532,17 @@ const FernIdentifier = () => {
   const formatGrowthPattern = (fern) => fern.growthPattern || '—';
 
   const formatSoriType = (fern) => fern.soriType || '—';
+
+  const formatStipeRachisIndument = (fern) => {
+    const s = fern.stipeRachisIndument;
+    if (!s) return '—';
+    const surfaceLabel =
+      s.surface === 'plain' ? 'Plain (glabrous)' : s.surface === 'scales' ? 'Scales' : 'Hairs';
+    const groovedLabel =
+      s.grooved === 'yes' ? 'Grooved' : s.grooved === 'no' ? 'Not grooved' : 'Grooving variable';
+    const color = (s.color || '').trim() || '—';
+    return `${surfaceLabel}; color: ${color}; ${groovedLabel}`;
+  };
 
   const getFernIdImages = (fern) => {
     const scientific = (fern.scientific || '').trim().replace(/\s+/g, ' ');
@@ -2522,17 +2733,34 @@ const FernIdentifier = () => {
 
   const handleBack = () => {
     if (step === 0) return;
-    if (step === 6 && selections.texture === null && selections.soriPresent === null) {
+    if (step === 6 && selections.stipeSurface === null && selections.soriPresent === null) {
       setStep(2);
       return;
     }
     if (step === 6) {
-      setSelections(prev => ({ ...prev, texture: null }));
+      setSelections(prev => ({ ...prev, stipeColorBucket: null }));
+      setIndumentSubStep(2);
       setStep(5);
       return;
     }
     if (step === 5) {
-      setSelections(prev => ({ ...prev, texture: null }));
+      if (indumentSubStep === 2) {
+        setSelections(prev => ({ ...prev, stipeColorBucket: null }));
+        setIndumentSubStep(1);
+        return;
+      }
+      if (indumentSubStep === 1) {
+        setSelections(prev => ({ ...prev, stipeGroovedUser: null }));
+        setIndumentSubStep(0);
+        return;
+      }
+      setSelections(prev => ({
+        ...prev,
+        stipeSurface: null,
+        stipeGroovedUser: null,
+        stipeColorBucket: null,
+      }));
+      setIndumentSubStep(0);
       if (selections.soriPresent === 'yes') {
         setSelections(prev => ({ ...prev, soriBucket: null }));
         setStep(4);
@@ -2570,8 +2798,11 @@ const FernIdentifier = () => {
       frondType: null,
       soriPresent: null,
       soriBucket: null,
-      texture: null
+      stipeSurface: null,
+      stipeGroovedUser: null,
+      stipeColorBucket: null,
     });
+    setIndumentSubStep(0);
     setStep(0);
     setShowDatabase(false);
     setIdentifierSpeciesExpandedScientific(null);
@@ -2950,7 +3181,8 @@ const FernIdentifier = () => {
             const habitatNames = formatHabitat(fern).toLowerCase();
             const growthText = (fern.growthPattern || '').toLowerCase();
             const soriText = (fern.soriType || '').toLowerCase();
-            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames} ${growthText} ${soriText}`;
+            const stipeText = formatStipeRachisIndument(fern).toLowerCase();
+            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames} ${growthText} ${soriText} ${stipeText}`;
             return searchText.includes(searchLower);
           })
         : sortedFerns;
@@ -3050,6 +3282,9 @@ const FernIdentifier = () => {
                       </div>
                       <div className="mt-1 text-xs text-gray-500">
                         Sori: {formatSoriType(fern)}
+                      </div>
+                      <div className="mt-1 text-xs text-gray-500">
+                        Stipe/rachis: {formatStipeRachisIndument(fern)}
                       </div>
                       <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
                       {isExpanded && hasPhotos && (
@@ -3163,6 +3398,7 @@ const FernIdentifier = () => {
                         <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
                         <p className="text-xs text-gray-500 mt-1">Growth: {formatGrowthPattern(fern)}</p>
                         <p className="text-xs text-gray-500 mt-1">Sori: {formatSoriType(fern)}</p>
+                        <p className="text-xs text-gray-500 mt-1">Stipe/rachis: {formatStipeRachisIndument(fern)}</p>
                         {hasPhotos && (
                           <p className="text-xs text-green-600 mt-1">Click to {isExpanded ? 'hide' : 'show'} photos</p>
                         )}
@@ -3195,7 +3431,14 @@ const FernIdentifier = () => {
     }
 
     if (step === 3) {
-      const beforeSori = getMatchesFor({ ...selections, soriPresent: null, soriBucket: null, texture: null });
+      const beforeSori = getMatchesFor({
+        ...selections,
+        soriPresent: null,
+        soriBucket: null,
+        stipeSurface: null,
+        stipeGroovedUser: null,
+        stipeColorBucket: null,
+      });
       const n = beforeSori.length;
       return (
         <div>
@@ -3221,6 +3464,7 @@ const FernIdentifier = () => {
               type="button"
               onClick={() => {
                 setSelections(s => ({ ...s, soriPresent: 'no', soriBucket: null }));
+                setIndumentSubStep(0);
                 setStep(5);
               }}
               className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
@@ -3228,7 +3472,7 @@ const FernIdentifier = () => {
               <div className="font-semibold text-gray-800">No / not on ordinary green pinnae</div>
               <div className="text-sm text-gray-500 mt-1">
                 e.g. sporangia only on fertile spikes, separate fertile fronds, or not visible yet — skip sori type
-                and go to texture.
+                and go to stipe/rachis indument.
               </div>
             </button>
           </div>
@@ -3237,7 +3481,13 @@ const FernIdentifier = () => {
     }
 
     if (step === 4) {
-      const partial = getMatchesFor({ ...selections, soriBucket: null, texture: null });
+      const partial = getMatchesFor({
+        ...selections,
+        soriBucket: null,
+        stipeSurface: null,
+        stipeGroovedUser: null,
+        stipeColorBucket: null,
+      });
       const availableBuckets = new Set(partial.map(getIdentifierSoriBucket));
       const bucketOptions = identifierSoriBuckets.filter(b => b.id === 'other' || availableBuckets.has(b.id));
       return (
@@ -3254,6 +3504,7 @@ const FernIdentifier = () => {
                 type="button"
                 onClick={() => {
                   setSelections(s => ({ ...s, soriPresent: 'yes', soriBucket: b.id }));
+                  setIndumentSubStep(0);
                   setStep(5);
                 }}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
@@ -3268,21 +3519,143 @@ const FernIdentifier = () => {
     }
 
     if (step === 5) {
+      const indumentMatchCount = getMatches().length;
+      const surfaceOptions = [
+        {
+          id: 'plain',
+          name: 'Plain (glabrous)',
+          description: 'No obvious scales or hairs on the stipe or rachis — smooth or shiny.',
+        },
+        {
+          id: 'scales',
+          name: 'Scales',
+          description: 'Flat scales (like tiny shingles) that you can see or feel along the stalk.',
+        },
+        {
+          id: 'hairs',
+          name: 'Hairs or wool',
+          description: 'Hairs, fuzz, or woolly coat on the stipe or rachis (not just on fiddleheads).',
+        },
+      ];
+      const groovedOptions = [
+        {
+          id: 'channelled',
+          name: 'Grooved or channelled',
+          description: 'The rachis (central “midrib” of the blade) has a noticeable groove or channel on the upper side.',
+        },
+        {
+          id: 'smooth',
+          name: 'Smooth or not obviously grooved',
+          description: 'No clear channel on the rachis, or hard to tell in the field.',
+        },
+        {
+          id: 'skip',
+          name: 'Not sure — skip this',
+          description: 'Do not use rachis grooving to narrow results.',
+        },
+      ];
+      const colorOptions = [
+        {
+          id: 'green-straw',
+          name: 'Mostly green or light',
+          description: 'Axes mostly green, or green with only light/straw tones — not strongly brown or black.',
+        },
+        {
+          id: 'golden-brown',
+          name: 'Straw, golden, tan, or rusty brown',
+          description: 'Clearly straw-colored, golden, tan, cinnamon, or medium brown scales or hairs.',
+        },
+        {
+          id: 'dark',
+          name: 'Dark (black, purple-black, deep brown)',
+          description: 'Dark brown to black stalks, or glossy purple-black like many maidenhair stipes.',
+        },
+        {
+          id: 'skip',
+          name: 'Not sure — skip this',
+          description: 'Do not use stalk color to narrow results.',
+        },
+      ];
+
+      if (indumentSubStep === 0) {
+        return (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Stipe and rachis — surface</h2>
+            <p className="text-gray-600 mb-2">
+              Look at the stipe (stalk below the blade) and the rachis (stalk within the blade). What best describes
+              the surface?
+            </p>
+            <p className="text-sm text-gray-500 mb-2">Step 1 of 3 — indument</p>
+            <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
+            <div className="grid gap-3">
+              {surfaceOptions.map((opt) => (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => {
+                    setSelections((s) => ({ ...s, stipeSurface: opt.id }));
+                    setIndumentSubStep(1);
+                  }}
+                  className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
+                >
+                  <div className="font-semibold text-gray-800">{opt.name}</div>
+                  <div className="text-sm text-gray-500 mt-1">{opt.description}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      if (indumentSubStep === 1) {
+        return (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Stipe and rachis — groove</h2>
+            <p className="text-gray-600 mb-2">
+              On the upper side of the rachis, is there a narrow groove running along its length (common in many
+              temperate ferns)?
+            </p>
+            <p className="text-sm text-gray-500 mb-2">Step 2 of 3 — indument</p>
+            <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
+            <div className="grid gap-3">
+              {groovedOptions.map((opt) => (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => {
+                    setSelections((s) => ({ ...s, stipeGroovedUser: opt.id }));
+                    setIndumentSubStep(2);
+                  }}
+                  className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
+                >
+                  <div className="font-semibold text-gray-800">{opt.name}</div>
+                  <div className="text-sm text-gray-500 mt-1">{opt.description}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
       return (
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Texture</h2>
-          <p className="text-gray-600 mb-2">What's the texture of the fronds?</p>
-          <p className="text-sm text-green-600 mb-6">{matchCount} possible matches</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Stipe and rachis — color</h2>
+          <p className="text-gray-600 mb-2">Overall color of the stipe and rachis (ignore the green blade).</p>
+          <p className="text-sm text-gray-500 mb-2">Step 3 of 3 — indument</p>
+          <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
           <div className="grid gap-3">
-            {textures.map(texture => (
+            {colorOptions.map((opt) => (
               <button
-                key={texture.id}
+                key={opt.id}
                 type="button"
-                onClick={() => handleSelect('texture', texture.id)}
+                onClick={() => {
+                  setSelections((s) => ({ ...s, stipeColorBucket: opt.id }));
+                  setStep(6);
+                }}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
               >
-                <div className="font-semibold text-gray-800">{texture.name}</div>
-                <div className="text-sm text-gray-500 mt-1">{texture.description}</div>
+                <div className="font-semibold text-gray-800">{opt.name}</div>
+                <div className="text-sm text-gray-500 mt-1">{opt.description}</div>
               </button>
             ))}
           </div>
@@ -3319,6 +3692,7 @@ const FernIdentifier = () => {
                   <p className="text-sm text-gray-600 mt-1">Habitat: {formatHabitat(matches[0])}</p>
                   <p className="text-sm text-gray-600 mt-1">Growth: {formatGrowthPattern(matches[0])}</p>
                   <p className="text-sm text-gray-600 mt-1">Sori: {formatSoriType(matches[0])}</p>
+                  <p className="text-sm text-gray-600 mt-1">Stipe/rachis: {formatStipeRachisIndument(matches[0])}</p>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
@@ -3345,6 +3719,7 @@ const FernIdentifier = () => {
                         <p className="text-xs text-gray-500 mb-2">Habitat: {formatHabitat(fern)}</p>
                         <p className="text-xs text-gray-500 mb-2">Growth: {formatGrowthPattern(fern)}</p>
                         <p className="text-xs text-gray-500 mb-2">Sori: {formatSoriType(fern)}</p>
+                        <p className="text-xs text-gray-500 mb-2">Stipe/rachis: {formatStipeRachisIndument(fern)}</p>
                         <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
                         {getFernIdImages(fern).length > 0 && (
                           <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -4371,9 +4746,30 @@ const FernIdentifier = () => {
                     {identifierSoriBuckets.find(sb => sb.id === selections.soriBucket)?.name ?? selections.soriBucket}
                   </span>
                 )}
-                {selections.texture && (
+                {selections.stipeSurface && (
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
-                    {textures.find(t => t.id === selections.texture)?.name}
+                    Stipe/rachis:{' '}
+                    {selections.stipeSurface === 'plain'
+                      ? 'Plain'
+                      : selections.stipeSurface === 'scales'
+                        ? 'Scales'
+                        : 'Hairs'}
+                  </span>
+                )}
+                {selections.stipeGroovedUser && selections.stipeGroovedUser !== 'skip' && (
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+                    Rachis:{' '}
+                    {selections.stipeGroovedUser === 'channelled' ? 'Grooved' : 'Smooth / not obvious'}
+                  </span>
+                )}
+                {selections.stipeColorBucket && selections.stipeColorBucket !== 'skip' && (
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+                    Stalk color:{' '}
+                    {selections.stipeColorBucket === 'green-straw'
+                      ? 'Green / light'
+                      : selections.stipeColorBucket === 'golden-brown'
+                        ? 'Straw / golden / brown'
+                        : 'Dark'}
                   </span>
                 )}
               </div>
@@ -4399,7 +4795,7 @@ const FernIdentifier = () => {
 
         {!showLesson && (
           <p className="text-center text-sm text-gray-600 mt-4">
-            Database includes 90 fern species across North America (including Canada), UK, Europe, Australia, Tasmania, and New Zealand
+            Database includes 103 fern species across North America (including Canada), UK, Europe, Japan, Australia, Tasmania, and New Zealand
           </p>
         )}
 
