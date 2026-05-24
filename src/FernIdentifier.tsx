@@ -1233,7 +1233,8 @@ const FernIdentifier = () => {
       scientific: 'Dennstaedtia punctilobula',
       regions: ['northeast', 'atlantic', 'canada'],
       habitat: ['forest', 'open'],
-      frondType: 'twice',
+      frondType: 'bipinnatePinnatifid',
+      frondTypeAlternates: ['thrice'],
       size: 'medium',
       texture: 'hairy',
       growthPattern: 'Long-creeping, colonial — aggressive mats from slender rhizomes',
@@ -2502,10 +2503,16 @@ const FernIdentifier = () => {
     frondOutline: FROND_OUTLINE_BY_SCIENTIFIC[fern.scientific],
   }));
 
+  const fernMatchesFrondType = (fern, typeId) => {
+    if (!typeId) return true;
+    if (fern.frondType === typeId) return true;
+    return (fern.frondTypeAlternates || []).includes(typeId);
+  };
+
   const getMatchesFor = (sel) => {
     return fernDatabase.filter(fern => {
       if (sel.region && !fern.regions.includes(sel.region)) return false;
-      if (sel.frondType && fern.frondType !== sel.frondType) return false;
+      if (sel.frondType && !fernMatchesFrondType(fern, sel.frondType)) return false;
       if (sel.soriPresent === 'yes' && sel.soriBucket) {
         if (getIdentifierSoriBucket(fern) !== sel.soriBucket) return false;
       }
@@ -3329,13 +3336,22 @@ const FernIdentifier = () => {
                       <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
                       <div className="flex flex-wrap gap-1 mt-2">
                         <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
-                          {fern.frondType === 'once' ? 'Once divided' : 
-                           fern.frondType === 'pinnatifid' ? 'Pinnatifid' :
-                           fern.frondType === 'twice' ? 'Twice divided' :
-                           fern.frondType === 'bipinnatePinnatifid' ? 'Bipinnate pinnatifid' :
-                           fern.frondType === 'thrice' ? 'Thrice+ divided' :
-                           fern.frondType === 'pedate' ? 'Pedate' :
-                           fern.frondType === 'simple' ? 'Undivided' : 'Other'}
+                          {(() => {
+                            const labels = {
+                              once: 'Once divided',
+                              pinnatifid: 'Pinnatifid',
+                              twice: 'Twice divided',
+                              bipinnatePinnatifid: 'Bipinnate pinnatifid',
+                              thrice: 'Thrice+ divided',
+                              pedate: 'Pedate',
+                              simple: 'Undivided',
+                            };
+                            const primary = labels[fern.frondType] || 'Other';
+                            const altLabels = (fern.frondTypeAlternates || [])
+                              .map((id) => labels[id])
+                              .filter(Boolean);
+                            return altLabels.length ? `${primary} or ${altLabels.join(' or ')}` : primary;
+                          })()}
                         </span>
                         <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">
                           {fern.size === 'small' ? 'Small' : fern.size === 'medium' ? 'Medium' : 'Large'}

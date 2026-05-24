@@ -73,7 +73,7 @@ const fernDatabase = [
   { name: 'Cinnamon Fern', scientific: 'Osmundastrum cinnamomeum', regions: ['northeast', 'atlantic'], habitat: ['wetland', 'stream'], frondType: 'twice', size: 'large', texture: 'delicate' },
   { name: 'Maidenhair Fern', scientific: 'Adiantum pedatum', regions: ['northeast', 'atlantic', 'pacific-northwest'], habitat: ['forest'], frondType: 'pedate', size: 'small', texture: 'delicate' },
   { name: 'Bracken Fern', scientific: 'Pteridium aquilinum', regions: ['northeast', 'atlantic', 'pacific-northwest', 'uk', 'europe'], habitat: ['open', 'forest'], frondType: 'thrice', size: 'large', texture: 'leathery' },
-  { name: 'Hay-scented Fern', scientific: 'Dennstaedtia punctilobula', regions: ['northeast', 'atlantic'], habitat: ['forest', 'open'], frondType: 'twice', size: 'medium', texture: 'hairy' },
+  { name: 'Hay-scented Fern', scientific: 'Dennstaedtia punctilobula', regions: ['northeast', 'atlantic'], habitat: ['forest', 'open'], frondType: 'bipinnatePinnatifid', frondTypeAlternates: ['thrice'], size: 'medium', texture: 'hairy' },
   { name: 'Ostrich Fern', scientific: 'Matteuccia struthiopteris', regions: ['northeast', 'atlantic', 'pacific-northwest'], habitat: ['stream', 'wetland'], frondType: 'twice', size: 'large', texture: 'delicate' },
   { name: 'Walking Fern', scientific: 'Asplenium rhizophyllum', regions: ['northeast', 'atlantic'], habitat: ['rock'], frondType: 'simple', size: 'small', texture: 'leathery' },
   { name: 'Sword Fern', scientific: 'Polystichum munitum', regions: ['pacific-northwest'], habitat: ['forest'], frondType: 'once', size: 'large', texture: 'leathery' },
