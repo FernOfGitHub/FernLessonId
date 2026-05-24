@@ -59,6 +59,7 @@ function ClickableImg({ src, alt, className, fullSizeSrc }) {
 
 // Picture to latin name mapping (file: relative path, latin name)
 import { STIPE_RACHIS_BY_SCIENTIFIC, inferStipeColorBucket } from './fernStipeRachisIndument';
+import { FROND_OUTLINE_BY_SCIENTIFIC, FROND_OUTLINE_DEFINITIONS, FROND_OUTLINE_ORDER } from './fernFrondOutline';
 import mapRaw from '../pictures/picture-latin-name-map.txt?raw';
 const latinNameMap = Object.fromEntries(
   mapRaw
@@ -774,7 +775,7 @@ const INTRO_LINES = [
   'Enjoy.',
   '',
   '[This is an early, early development version]',
-  'Version 0.3  23May26',
+  'Version 0.4  23May26',
   '@fernleaf07.bsky.social',
 ];
 
@@ -875,6 +876,7 @@ const FernIdentifier = () => {
     frondType: null,
     soriPresent: null,
     soriBucket: null,
+    frondOutline: null,
     stipeSurface: null,
     stipeGroovedUser: null,
     stipeColorBucket: null,
@@ -2497,6 +2499,7 @@ const FernIdentifier = () => {
   const fernDatabase = fernDatabaseBase.map((fern) => ({
     ...fern,
     stipeRachisIndument: STIPE_RACHIS_BY_SCIENTIFIC[fern.scientific],
+    frondOutline: FROND_OUTLINE_BY_SCIENTIFIC[fern.scientific],
   }));
 
   const getMatchesFor = (sel) => {
@@ -2506,6 +2509,7 @@ const FernIdentifier = () => {
       if (sel.soriPresent === 'yes' && sel.soriBucket) {
         if (getIdentifierSoriBucket(fern) !== sel.soriBucket) return false;
       }
+      if (sel.frondOutline && fern.frondOutline !== sel.frondOutline) return false;
       if (sel.stipeSurface && fern.stipeRachisIndument?.surface !== sel.stipeSurface) return false;
       if (sel.stipeGroovedUser && sel.stipeGroovedUser !== 'skip') {
         const g = fern.stipeRachisIndument?.grooved;
@@ -2526,6 +2530,30 @@ const FernIdentifier = () => {
 
   const getMatches = () => getMatchesFor(selections);
 
+  const RESULTS_STEP = 7;
+
+  const advanceOrResults = (nextSelections, defaultNextStep) => {
+    if (getMatchesFor(nextSelections).length === 1) {
+      setStep(RESULTS_STEP);
+    } else {
+      setStep(defaultNextStep);
+    }
+  };
+
+  const applySelectionAndAdvance = (nextSelections, defaultNextStep) => {
+    setSelections(nextSelections);
+    advanceOrResults(nextSelections, defaultNextStep);
+  };
+
+  const applySelectionAndAdvanceIndument = (nextSelections, nextSubStep) => {
+    setSelections(nextSelections);
+    if (getMatchesFor(nextSelections).length === 1) {
+      setStep(RESULTS_STEP);
+    } else {
+      setIndumentSubStep(nextSubStep);
+    }
+  };
+
   const formatHabitat = (fern) =>
     fern.habitat?.map(id => habitats.find(h => h.id === id)?.name).filter(Boolean).join(', ') || '—';
 
@@ -2542,6 +2570,13 @@ const FernIdentifier = () => {
       s.grooved === 'yes' ? 'Grooved' : s.grooved === 'no' ? 'Not grooved' : 'Grooving variable';
     const color = (s.color || '').trim() || '—';
     return `${surfaceLabel}; color: ${color}; ${groovedLabel}`;
+  };
+
+  const formatFrondOutline = (fern) => {
+    const id = fern.frondOutline;
+    if (!id) return '—';
+    const def = FROND_OUTLINE_DEFINITIONS[id];
+    return def ? def.name : id;
   };
 
   const getFernIdImages = (fern) => {
@@ -2722,28 +2757,63 @@ const FernIdentifier = () => {
   };
 
   const handleSelect = (category, value) => {
-    const nextSelections = { ...selections, [category]: value };
-    setSelections(nextSelections);
-    if (category === 'frondType' && getMatchesFor(nextSelections).length === 1) {
-      setStep(6);
-    } else {
-      setStep(step + 1);
-    }
+    applySelectionAndAdvance({ ...selections, [category]: value }, step + 1);
   };
 
   const handleBack = () => {
     if (step === 0) return;
-    if (step === 6 && selections.stipeSurface === null && selections.soriPresent === null) {
-      setStep(2);
+    if (step === 7) {
+      if (selections.stipeColorBucket != null) {
+        setSelections(prev => ({ ...prev, stipeColorBucket: null }));
+        setIndumentSubStep(2);
+        setStep(6);
+        return;
+      }
+      if (selections.stipeGroovedUser != null) {
+        setSelections(prev => ({ ...prev, stipeGroovedUser: null }));
+        setIndumentSubStep(1);
+        setStep(6);
+        return;
+      }
+      if (selections.stipeSurface != null) {
+        setSelections(prev => ({
+          ...prev,
+          stipeSurface: null,
+          stipeGroovedUser: null,
+          stipeColorBucket: null,
+        }));
+        setIndumentSubStep(0);
+        setStep(6);
+        return;
+      }
+      if (selections.frondOutline != null) {
+        setSelections(prev => ({ ...prev, frondOutline: null }));
+        setIndumentSubStep(0);
+        setStep(5);
+        return;
+      }
+      if (selections.soriPresent === 'yes' && selections.soriBucket != null) {
+        setSelections(prev => ({ ...prev, soriBucket: null }));
+        setStep(4);
+        return;
+      }
+      if (selections.soriPresent != null) {
+        setSelections(prev => ({ ...prev, soriPresent: null, soriBucket: null }));
+        setStep(3);
+        return;
+      }
+      if (selections.frondType != null) {
+        setStep(2);
+        return;
+      }
+      if (selections.region != null) {
+        setSelections(prev => ({ ...prev, region: null }));
+        setStep(0);
+        return;
+      }
       return;
     }
     if (step === 6) {
-      setSelections(prev => ({ ...prev, stipeColorBucket: null }));
-      setIndumentSubStep(2);
-      setStep(5);
-      return;
-    }
-    if (step === 5) {
       if (indumentSubStep === 2) {
         setSelections(prev => ({ ...prev, stipeColorBucket: null }));
         setIndumentSubStep(1);
@@ -2761,8 +2831,12 @@ const FernIdentifier = () => {
         stipeColorBucket: null,
       }));
       setIndumentSubStep(0);
+      setStep(5);
+      return;
+    }
+    if (step === 5) {
+      setSelections(prev => ({ ...prev, frondOutline: null }));
       if (selections.soriPresent === 'yes') {
-        setSelections(prev => ({ ...prev, soriBucket: null }));
         setStep(4);
       } else {
         setSelections(prev => ({ ...prev, soriPresent: null, soriBucket: null }));
@@ -2798,6 +2872,7 @@ const FernIdentifier = () => {
       frondType: null,
       soriPresent: null,
       soriBucket: null,
+      frondOutline: null,
       stipeSurface: null,
       stipeGroovedUser: null,
       stipeColorBucket: null,
@@ -3182,7 +3257,8 @@ const FernIdentifier = () => {
             const growthText = (fern.growthPattern || '').toLowerCase();
             const soriText = (fern.soriType || '').toLowerCase();
             const stipeText = formatStipeRachisIndument(fern).toLowerCase();
-            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames} ${growthText} ${soriText} ${stipeText}`;
+            const outlineText = formatFrondOutline(fern).toLowerCase();
+            const searchText = `${name} ${scientific} ${features} ${regionNames} ${habitatNames} ${growthText} ${soriText} ${stipeText} ${outlineText}`;
             return searchText.includes(searchLower);
           })
         : sortedFerns;
@@ -3218,7 +3294,7 @@ const FernIdentifier = () => {
               type="text"
               value={databaseSearchQuery}
               onChange={e => setDatabaseSearchQuery(e.target.value)}
-              placeholder="Search by name, Latin name, features, growth, sori type, region, or habitat..."
+              placeholder="Search by name, Latin name, features, growth, sori, stipe/rachis, frond outline, region, or habitat..."
               className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:outline-none text-gray-800 placeholder-gray-400"
               aria-label="Search database"
             />
@@ -3286,6 +3362,9 @@ const FernIdentifier = () => {
                       <div className="mt-1 text-xs text-gray-500">
                         Stipe/rachis: {formatStipeRachisIndument(fern)}
                       </div>
+                      <div className="mt-1 text-xs text-gray-500">
+                        Frond outline: {formatFrondOutline(fern)}
+                      </div>
                       <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
                       {isExpanded && hasPhotos && (
                         <div className="mt-4 pt-4 border-t border-green-200">
@@ -3336,6 +3415,33 @@ const FernIdentifier = () => {
     }
 
     if (step === 1) {
+      const regionalMatches = getMatches();
+      return (
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Species in your region</h2>
+          <p className="text-gray-600 mb-4">
+            {regionalMatches.length} species occur in this region. Continue to narrow by frond division.
+          </p>
+          <ul className="space-y-0 max-h-[28rem] overflow-y-auto pr-2 mb-6 border border-gray-200 rounded-lg divide-y divide-gray-200">
+            {regionalMatches.map((fern, idx) => (
+              <li key={idx} className="px-4 py-3">
+                <span className="font-semibold text-gray-800">{fern.name}</span>
+                <span className="text-gray-600 italic"> — {fern.scientific}</span>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={() => advanceOrResults(selections, 2)}
+            className="w-full sm:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+          >
+            Continue to frond division
+          </button>
+        </div>
+      );
+    }
+
+    if (step === 2) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frond Division</h2>
@@ -3366,75 +3472,12 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 2) {
-      const speciesListMatches = getMatches();
-      return (
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Species Matching Your Choices</h2>
-          <p className="text-gray-600 mb-4">
-            {speciesListMatches.length} species match region and frond division. Click a species to see its photos, or continue to narrow by sori.
-          </p>
-          <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-2 mb-6">
-            {speciesListMatches.length === 0 ? (
-              <p className="text-gray-500 py-4">No species match. Use Back to change region or frond division.</p>
-            ) : (
-              speciesListMatches.map((fern, idx) => {
-                const isExpanded = identifierSpeciesExpandedScientific === fern.scientific;
-                const idImages = getFernIdImages(fern);
-                const hasPhotos = idImages.length > 0;
-                return (
-                  <div
-                    key={idx}
-                    className={`border-2 rounded-lg p-4 transition ${hasPhotos ? 'cursor-pointer hover:border-green-400 hover:bg-green-50/50' : ''} ${isExpanded ? 'border-green-500 bg-green-50/70' : 'border-gray-200'}`}
-                    onClick={() => hasPhotos && setIdentifierSpeciesExpandedScientific(isExpanded ? null : fern.scientific)}
-                    role={hasPhotos ? 'button' : undefined}
-                    tabIndex={hasPhotos ? 0 : undefined}
-                    onKeyDown={e => hasPhotos && (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setIdentifierSpeciesExpandedScientific(isExpanded ? null : fern.scientific))}
-                  >
-                    <div className="flex items-start gap-3">
-                      <Leaf className="text-green-600 mt-1 flex-shrink-0" size={20} />
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-gray-800">{fern.name}</h3>
-                        <p className="text-sm text-gray-600 italic mb-1">{fern.scientific}</p>
-                        <p className="text-xs text-gray-500 mt-1">Growth: {formatGrowthPattern(fern)}</p>
-                        <p className="text-xs text-gray-500 mt-1">Sori: {formatSoriType(fern)}</p>
-                        <p className="text-xs text-gray-500 mt-1">Stipe/rachis: {formatStipeRachisIndument(fern)}</p>
-                        {hasPhotos && (
-                          <p className="text-xs text-green-600 mt-1">Click to {isExpanded ? 'hide' : 'show'} photos</p>
-                        )}
-                        <InaturalistSpeciesLink scientificName={fern.scientific} className="mt-2 text-sm" />
-                        {isExpanded && hasPhotos && (
-                          <div className="mt-4 pt-4 border-t border-green-200">
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                              {idImages.map((img, i) => (
-                                <ClickableImg key={i} src={img.src} alt={img.alt} className="rounded-lg w-full object-cover max-h-40 shadow-sm" />
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })
-            )}
-          </div>
-          <button
-            type="button"
-            onClick={() => setStep(3)}
-            className="w-full sm:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
-          >
-            Continue to sori
-          </button>
-        </div>
-      );
-    }
-
     if (step === 3) {
       const beforeSori = getMatchesFor({
         ...selections,
         soriPresent: null,
         soriBucket: null,
+        frondOutline: null,
         stipeSurface: null,
         stipeGroovedUser: null,
         stipeColorBucket: null,
@@ -3447,13 +3490,22 @@ const FernIdentifier = () => {
             On the fronds you are keying (often the underside of pinnae or pinnules), do you see sori—clusters of
             sporangia?
           </p>
-          <p className="text-sm text-green-600 mb-6">{n} possible matches at this point</p>
+          <p className="text-gray-600 mb-4">
+            {n} species match region and frond division:
+          </p>
+          <ul className="space-y-0 max-h-[28rem] overflow-y-auto pr-2 mb-6 border border-gray-200 rounded-lg divide-y divide-gray-200">
+            {beforeSori.map((fern, idx) => (
+              <li key={idx} className="px-4 py-3">
+                <span className="font-semibold text-gray-800">{fern.name}</span>
+                <span className="text-gray-600 italic"> — {fern.scientific}</span>
+              </li>
+            ))}
+          </ul>
           <div className="grid gap-3">
             <button
               type="button"
               onClick={() => {
-                setSelections(s => ({ ...s, soriPresent: 'yes', soriBucket: null }));
-                setStep(4);
+                applySelectionAndAdvance({ ...selections, soriPresent: 'yes', soriBucket: null }, 4);
               }}
               className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
             >
@@ -3463,16 +3515,17 @@ const FernIdentifier = () => {
             <button
               type="button"
               onClick={() => {
-                setSelections(s => ({ ...s, soriPresent: 'no', soriBucket: null }));
+                const next = { ...selections, soriPresent: 'no', soriBucket: null };
+                setSelections(next);
                 setIndumentSubStep(0);
-                setStep(5);
+                advanceOrResults(next, 5);
               }}
               className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
             >
               <div className="font-semibold text-gray-800">No / not on ordinary green pinnae</div>
               <div className="text-sm text-gray-500 mt-1">
                 e.g. sporangia only on fertile spikes, separate fertile fronds, or not visible yet — skip sori type
-                and go to stipe/rachis indument.
+                and go to frond outline.
               </div>
             </button>
           </div>
@@ -3484,6 +3537,7 @@ const FernIdentifier = () => {
       const partial = getMatchesFor({
         ...selections,
         soriBucket: null,
+        frondOutline: null,
         stipeSurface: null,
         stipeGroovedUser: null,
         stipeColorBucket: null,
@@ -3503,9 +3557,7 @@ const FernIdentifier = () => {
                 key={b.id}
                 type="button"
                 onClick={() => {
-                  setSelections(s => ({ ...s, soriPresent: 'yes', soriBucket: b.id }));
-                  setIndumentSubStep(0);
-                  setStep(5);
+                  applySelectionAndAdvance({ ...selections, soriPresent: 'yes', soriBucket: b.id }, 5);
                 }}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
               >
@@ -3519,7 +3571,77 @@ const FernIdentifier = () => {
     }
 
     if (step === 5) {
-      const indumentMatchCount = getMatches().length;
+      const partial = getMatchesFor({
+        ...selections,
+        frondOutline: null,
+        stipeSurface: null,
+        stipeGroovedUser: null,
+        stipeColorBucket: null,
+      });
+      const availableOutlines = new Set(
+        partial.map((fern) => fern.frondOutline).filter(Boolean)
+      );
+      const outlineOptions = FROND_OUTLINE_ORDER.filter((id) => availableOutlines.has(id));
+      return (
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Frond outline</h2>
+          <p className="text-gray-600 mb-2">
+            Looking at the whole frond silhouette, how do the pinnae change in size along the rachis?
+          </p>
+          <p className="text-gray-600 mb-4">
+            {partial.length} species match at this point:
+          </p>
+          <ul className="space-y-0 max-h-[28rem] overflow-y-auto pr-2 mb-6 border border-gray-200 rounded-lg divide-y divide-gray-200">
+            {partial.map((fern, idx) => (
+              <li key={idx} className="px-4 py-3">
+                <span className="font-semibold text-gray-800">{fern.name}</span>
+                <span className="text-gray-600 italic"> — {fern.scientific}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="grid gap-3">
+            {outlineOptions.map((id) => {
+              const def = FROND_OUTLINE_DEFINITIONS[id];
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => {
+                    const next = { ...selections, frondOutline: id };
+                    setSelections(next);
+                    setIndumentSubStep(0);
+                    advanceOrResults(next, 6);
+                  }}
+                  className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
+                >
+                  <div className="font-semibold text-gray-800">{def.name}</div>
+                  <div className="text-sm text-gray-500 mt-1">{def.description}</div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+
+    if (step === 6) {
+      const indumentMatches = getMatches();
+      const indumentMatchCount = indumentMatches.length;
+      const indumentSpeciesList = (
+        <>
+          <p className="text-gray-600 mb-4">
+            {indumentMatchCount} species match at this point:
+          </p>
+          <ul className="space-y-0 max-h-[28rem] overflow-y-auto pr-2 mb-6 border border-gray-200 rounded-lg divide-y divide-gray-200">
+            {indumentMatches.map((fern, idx) => (
+              <li key={idx} className="px-4 py-3">
+                <span className="font-semibold text-gray-800">{fern.name}</span>
+                <span className="text-gray-600 italic"> — {fern.scientific}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      );
       const surfaceOptions = [
         {
           id: 'plain',
@@ -3586,15 +3708,14 @@ const FernIdentifier = () => {
               the surface?
             </p>
             <p className="text-sm text-gray-500 mb-2">Step 1 of 3 — indument</p>
-            <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
+            {indumentSpeciesList}
             <div className="grid gap-3">
               {surfaceOptions.map((opt) => (
                 <button
                   key={opt.id}
                   type="button"
                   onClick={() => {
-                    setSelections((s) => ({ ...s, stipeSurface: opt.id }));
-                    setIndumentSubStep(1);
+                    applySelectionAndAdvanceIndument({ ...selections, stipeSurface: opt.id }, 1);
                   }}
                   className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
                 >
@@ -3616,15 +3737,14 @@ const FernIdentifier = () => {
               temperate ferns)?
             </p>
             <p className="text-sm text-gray-500 mb-2">Step 2 of 3 — indument</p>
-            <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
+            {indumentSpeciesList}
             <div className="grid gap-3">
               {groovedOptions.map((opt) => (
                 <button
                   key={opt.id}
                   type="button"
                   onClick={() => {
-                    setSelections((s) => ({ ...s, stipeGroovedUser: opt.id }));
-                    setIndumentSubStep(2);
+                    applySelectionAndAdvanceIndument({ ...selections, stipeGroovedUser: opt.id }, 2);
                   }}
                   className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
                 >
@@ -3642,15 +3762,14 @@ const FernIdentifier = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Stipe and rachis — color</h2>
           <p className="text-gray-600 mb-2">Overall color of the stipe and rachis (ignore the green blade).</p>
           <p className="text-sm text-gray-500 mb-2">Step 3 of 3 — indument</p>
-          <p className="text-sm text-green-600 mb-6">{indumentMatchCount} possible matches</p>
+          {indumentSpeciesList}
           <div className="grid gap-3">
             {colorOptions.map((opt) => (
               <button
                 key={opt.id}
                 type="button"
                 onClick={() => {
-                  setSelections((s) => ({ ...s, stipeColorBucket: opt.id }));
-                  setStep(6);
+                  applySelectionAndAdvance({ ...selections, stipeColorBucket: opt.id }, RESULTS_STEP);
                 }}
                 className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-left"
               >
@@ -3663,7 +3782,7 @@ const FernIdentifier = () => {
       );
     }
 
-    if (step === 6) {
+    if (step === 7) {
       return (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Identification Results</h2>
@@ -3693,6 +3812,7 @@ const FernIdentifier = () => {
                   <p className="text-sm text-gray-600 mt-1">Growth: {formatGrowthPattern(matches[0])}</p>
                   <p className="text-sm text-gray-600 mt-1">Sori: {formatSoriType(matches[0])}</p>
                   <p className="text-sm text-gray-600 mt-1">Stipe/rachis: {formatStipeRachisIndument(matches[0])}</p>
+                  <p className="text-sm text-gray-600 mt-1">Frond outline: {formatFrondOutline(matches[0])}</p>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">{matches[0].features}</p>
@@ -3720,6 +3840,7 @@ const FernIdentifier = () => {
                         <p className="text-xs text-gray-500 mb-2">Growth: {formatGrowthPattern(fern)}</p>
                         <p className="text-xs text-gray-500 mb-2">Sori: {formatSoriType(fern)}</p>
                         <p className="text-xs text-gray-500 mb-2">Stipe/rachis: {formatStipeRachisIndument(fern)}</p>
+                        <p className="text-xs text-gray-500 mb-2">Frond outline: {formatFrondOutline(fern)}</p>
                         <p className="text-sm text-gray-700 mb-2">{fern.features}</p>
                         {getFernIdImages(fern).length > 0 && (
                           <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -4711,12 +4832,12 @@ const FernIdentifier = () => {
             <div className="mb-8">
               <div className="flex justify-between text-xs text-gray-500 mb-2">
                 <span>Progress</span>
-                <span>Step {step} of 6</span>
+                <span>Step {step} of 7</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-green-500 transition-all duration-300"
-                  style={{ width: `${(step / 6) * 100}%` }}
+                  style={{ width: `${(step / 7) * 100}%` }}
                 />
               </div>
             </div>
@@ -4744,6 +4865,11 @@ const FernIdentifier = () => {
                 {selections.soriPresent === 'yes' && selections.soriBucket && (
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
                     {identifierSoriBuckets.find(sb => sb.id === selections.soriBucket)?.name ?? selections.soriBucket}
+                  </span>
+                )}
+                {selections.frondOutline && (
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+                    Outline: {FROND_OUTLINE_DEFINITIONS[selections.frondOutline]?.name ?? selections.frondOutline}
                   </span>
                 )}
                 {selections.stipeSurface && (
